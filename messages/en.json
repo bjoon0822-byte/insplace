@@ -1,0 +1,156 @@
+{
+  "brand": {
+    "name": "InsPlace",
+    "tagline": "Every moment that makes your favorite shine, all in one place",
+    "description": "Outdoor ads · Venue rental · Goods · Pop-up stores — everything for fan events"
+  },
+  "nav": {
+    "home": "Home",
+    "ad": "Ad Products",
+    "venue": "Venue Rental",
+    "goods": "Goods",
+    "popup": "Pop-up Store",
+    "trend": "Trends",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Everything to Make Your Bias Shine",
+    "subtitle": "From subway ads and billboards to cafe rentals and custom merchandise, prepare everything at once with InsPlace.",
+    "cta": "View Ad Products",
+    "ctaSecondary": "Get Free Consultation"
+  },
+  "quickNav": {
+    "ad": "Ad Products",
+    "adDesc": "Subway · Billboard · Shelter",
+    "venue": "Venue Rental",
+    "venueDesc": "Birthday Cafe · Event Hall",
+    "goods": "Custom Goods",
+    "goodsDesc": "Photocards · Slogans · Cakes",
+    "popup": "Pop-up Store",
+    "popupDesc": "Reservations & Schedules"
+  },
+  "sections": {
+    "popularAds": "Popular Ad Spots",
+    "popularAdsDesc": "The hottest advertising locations right now",
+    "recommendedVenues": "Recommended Venues",
+    "recommendedVenuesDesc": "Top picks for fan events and birthday cafes",
+    "trendTitle": "Trending Now",
+    "trendDesc": "The hottest celebs right now",
+    "viewAll": "View All",
+    "viewMore": "See More"
+  },
+  "ad": {
+    "title": "Ad Products",
+    "subtitle": "The best way to celebrate your bias's special day",
+    "filterAll": "All",
+    "filterSubway": "Subway",
+    "filterBillboard": "Billboard",
+    "filterShelter": "Shelter",
+    "filterBus": "Bus",
+    "filterDigital": "Digital",
+    "filterLightbox": "Lightbox",
+    "sortPopular": "Popular",
+    "sortPrice": "Price",
+    "sortNew": "Newest",
+    "regionAll": "All Regions",
+    "perDay": "/ day",
+    "perWeek": "/ 7 days",
+    "perMonth": "/ 30 days",
+    "dailyViews": "Daily foot traffic",
+    "size": "Size",
+    "inquire": "Inquire Now",
+    "available": "Available",
+    "busy": "Almost Full",
+    "soldout": "Sold Out"
+  },
+  "venue": {
+    "title": "Venue Rental",
+    "subtitle": "The perfect space for your idol's special day",
+    "capacity": "Capacity",
+    "people": "people",
+    "pricePerDay": "Daily rate",
+    "amenities": "Amenities"
+  },
+  "goods": {
+    "title": "Custom Goods",
+    "subtitle": "One-of-a-kind goods for your favorite idol",
+    "photocard": "Photocards",
+    "slogan": "Slogans",
+    "cake": "Cakes",
+    "bouquet": "Bouquets",
+    "cupholder": "Cupholders",
+    "minOrder": "Min. order",
+    "unit": "pcs"
+  },
+  "popup": {
+    "title": "Pop-up Stores",
+    "subtitle": "Don't miss these fan events",
+    "ongoing": "Ongoing",
+    "upcoming": "Upcoming",
+    "ended": "Ended",
+    "period": "Period"
+  },
+  "trend": {
+    "title": "Trends",
+    "subtitle": "The hottest idols and events right now",
+    "celebRank": "Top 5 Trending Celebs",
+    "adRank": "Top 5 Popular Ad Spots",
+    "eventRank": "Top 5 Most Events"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions? Feel free to reach out",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "subjectAd": "Ad product inquiry",
+    "subjectVenue": "Venue rental inquiry",
+    "subjectGoods": "Custom goods inquiry",
+    "subjectPopup": "Pop-up event inquiry",
+    "subjectOther": "Other",
+    "message": "Message",
+    "submit": "Send Inquiry",
+    "success": "Your inquiry has been submitted. We'll get back to you soon."
+  },
+  "cta": {
+    "title": "Get Started Today",
+    "subtitle": "10% off your first inquiry",
+    "button": "Free Consultation"
+  },
+  "footer": {
+    "company": "InsPlace",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "support": "Customer Support",
+    "copyright": "© 2026 InsPlace. All rights reserved.",
+    "columns": {
+      "service": "Services",
+      "company": "Company",
+      "support": "Support"
+    }
+  },
+  "adData": {
+    "ad-001": { "name": "Hongdae Digital Signage", "location": "Hongik Univ. Station Gate Area" },
+    "ad-002": { "name": "Hongdae Station Lightbox", "location": "Hongik Univ. Station Line 2 Platform" },
+    "ad-003": { "name": "Hongdae Art Canvas", "location": "Hongik Univ. Station Line 2 Gate Area" },
+    "ad-004": { "name": "Gangnam Media Garden", "location": "Gangnam Station Line 2↔Sinbundang Transfer" },
+    "ad-005": { "name": "Gangnam MaxVision", "location": "Gangnam Station Gate Area" },
+    "ad-006": { "name": "Hapjeong Digital CM Board", "location": "Hapjeong Station Gate/Escalator Area" },
+    "ad-007": { "name": "Hapjeong Lightbox CM Board", "location": "Hapjeong Station Line 6 Platform" },
+    "ad-008": { "name": "Seongsu Digital Billboard", "location": "Seongsu Station Exit 2·3·4" },
+    "ad-009": { "name": "Seongsu 15 LED Screens", "location": "Seongsu Station Zone A·B" },
+    "ad-010": { "name": "Hyehwa Station Lightbox", "location": "Hyehwa Station Line 4 Platform" },
+    "ad-011": { "name": "Hongdae Art Wrapping", "location": "Hongik Univ. Station 7 Locations" },
+    "ad-012": { "name": "Gangnam Media Wall", "location": "Gangnam Station Line 2↔Sinbundang Transfer" }
+  },
+  "venueData": {
+    "venue-001": { "name": "Cafe Flat", "location": "24, Seogang-ro 9-gil, Mapo-gu, Seoul" },
+    "venue-002": { "name": "Dear My Dear", "location": "136-24, Eoulmadam-ro, Mapo-gu, Seoul" },
+    "venue-003": { "name": "Cafe Lale", "location": "7, Wausan-ro 29ma-gil, Mapo-gu, Seoul" },
+    "venue-004": { "name": "B'DAY Hongdae", "location": "22, Wausan-ro 29ra-gil, Mapo-gu, Seoul" },
+    "venue-005": { "name": "Ordinary Archive", "location": "248, Donggyo-ro, Mapo-gu, Seoul" },
+    "venue-006": { "name": "Cafe Jigeum", "location": "186, Yanghwa-ro, Mapo-gu, Seoul" },
+    "venue-007": { "name": "Stay Coffee", "location": "72, Dongseong-ro, Jung-gu, Daegu" }
+  }
+}

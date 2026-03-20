@@ -1,0 +1,156 @@
+{
+  "brand": {
+    "name": "InsPlace",
+    "tagline": "推しを輝かせるすべての瞬間を、ひとつの場所で",
+    "description": "屋外広告 · 会場レンタル · グッズ · ポップアップストアまで、ファンイベントのすべて"
+  },
+  "nav": {
+    "home": "ホーム",
+    "ad": "広告商品",
+    "venue": "会場レンタル",
+    "goods": "グッズ",
+    "popup": "ポップアップ",
+    "trend": "トレンド",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "title": "推しの誕生日を\n輝かせるすべて",
+    "subtitle": "地下鉄広告からLEDビジョン、カフェレンタル、グッズ制作まで\nInsPlaceでまとめて準備",
+    "cta": "広告商品を見る",
+    "ctaSecondary": "無料相談を受ける"
+  },
+  "quickNav": {
+    "ad": "広告商品",
+    "adDesc": "地下鉄 · ビジョン · シェルター",
+    "venue": "会場レンタル",
+    "venueDesc": "誕生日カフェ · イベントホール",
+    "goods": "グッズ制作",
+    "goodsDesc": "トレカ · スローガン · ケーキ",
+    "popup": "ポップアップ",
+    "popupDesc": "予約 · スケジュール確認"
+  },
+  "sections": {
+    "popularAds": "人気の広告スポット",
+    "popularAdsDesc": "今最もアツい広告ロケーション",
+    "recommendedVenues": "おすすめの会場",
+    "recommendedVenuesDesc": "ファンに人気のカフェ・スペース",
+    "trendTitle": "リアルタイムトレンド",
+    "trendDesc": "今最もアツいセレブ",
+    "viewAll": "すべて見る",
+    "viewMore": "もっと見る"
+  },
+  "ad": {
+    "title": "広告商品",
+    "subtitle": "推しの特別な日を届ける最も確実な方法",
+    "filterAll": "すべて",
+    "filterSubway": "地下鉄",
+    "filterBillboard": "ビジョン",
+    "filterShelter": "シェルター",
+    "filterBus": "バス",
+    "filterDigital": "デジタル",
+    "filterLightbox": "照明",
+    "sortPopular": "人気順",
+    "sortPrice": "価格順",
+    "sortNew": "新着順",
+    "regionAll": "全地域",
+    "perDay": "/ 日",
+    "perWeek": "/ 7日",
+    "perMonth": "/ 30日",
+    "dailyViews": "1日平均通行量",
+    "size": "サイズ",
+    "inquire": "お問い合わせ",
+    "available": "予約可能",
+    "busy": "残りわずか",
+    "soldout": "受付終了"
+  },
+  "venue": {
+    "title": "会場レンタル",
+    "subtitle": "推しの特別な日のための空間",
+    "capacity": "収容人数",
+    "people": "名",
+    "pricePerDay": "1日レンタル料",
+    "amenities": "設備"
+  },
+  "goods": {
+    "title": "グッズ制作",
+    "subtitle": "世界にひとつだけの推しグッズ",
+    "photocard": "トレカ",
+    "slogan": "スローガン",
+    "cake": "ケーキ",
+    "bouquet": "花束",
+    "cupholder": "カップホルダー",
+    "minOrder": "最小注文数",
+    "unit": "個"
+  },
+  "popup": {
+    "title": "ポップアップストア",
+    "subtitle": "見逃せないファンイベント",
+    "ongoing": "開催中",
+    "upcoming": "開催予定",
+    "ended": "終了",
+    "period": "期間"
+  },
+  "trend": {
+    "title": "トレンド",
+    "subtitle": "今最もアツいアイドルとイベント",
+    "celebRank": "セレブ人気TOP 5",
+    "adRank": "人気広告スポットTOP 5",
+    "eventRank": "イベント数TOP 5"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "ご不明な点はお気軽にご連絡ください",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "phone": "電話番号",
+    "subject": "お問い合わせ種類",
+    "subjectAd": "広告商品のお問い合わせ",
+    "subjectVenue": "会場レンタルのお問い合わせ",
+    "subjectGoods": "グッズ制作のお問い合わせ",
+    "subjectPopup": "ポップアップのお問い合わせ",
+    "subjectOther": "その他",
+    "message": "お問い合わせ内容",
+    "submit": "送信する",
+    "success": "お問い合わせを受け付けました。できるだけ早くご返信いたします。"
+  },
+  "cta": {
+    "title": "今すぐ始めましょう",
+    "subtitle": "初回お問い合わせで10%割引",
+    "button": "無料相談を申し込む"
+  },
+  "footer": {
+    "company": "InsPlace",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "support": "カスタマーサポート",
+    "copyright": "© 2026 InsPlace. All rights reserved.",
+    "columns": {
+      "service": "サービス",
+      "company": "会社情報",
+      "support": "サポート"
+    }
+  },
+  "adData": {
+    "ad-001": { "name": "弘大デジタルサイネージ", "location": "弘大入口駅 改札前" },
+    "ad-002": { "name": "弘大入口駅 照明広告", "location": "弘大入口駅 2号線ホーム" },
+    "ad-003": { "name": "弘大アートキャンバス", "location": "弘大入口駅 2号線改札前" },
+    "ad-004": { "name": "江南駅メディアガーデン", "location": "江南駅 2号線↔新盆唐線乗換通路" },
+    "ad-005": { "name": "江南駅マックスビジョン", "location": "江南駅 改札付近" },
+    "ad-006": { "name": "合井駅デジタルCMボード", "location": "合井駅 改札/エスカレーター付近" },
+    "ad-007": { "name": "合井駅照明CMボード", "location": "合井駅 6号線ホーム" },
+    "ad-008": { "name": "聖水駅デジタルビルボード", "location": "聖水駅 2·3·4番出口" },
+    "ad-009": { "name": "聖水15 LEDスクリーン", "location": "聖水駅 A·Bゾーン全体" },
+    "ad-010": { "name": "恵化駅 照明広告", "location": "恵化駅 4号線ホーム" },
+    "ad-011": { "name": "弘大アートラッピング", "location": "弘大入口駅内 7箇所同時放映" },
+    "ad-012": { "name": "江南駅メディアウォール", "location": "江南駅 2号線↔新盆唐線乗換通路" }
+  },
+  "venueData": {
+    "venue-001": { "name": "カフェ フラット (Flat)", "location": "ソウル 麻浦区 西江路9ギル 24" },
+    "venue-002": { "name": "ディア マイ ディア", "location": "ソウル 麻浦区 オウルマダン路 136-24" },
+    "venue-003": { "name": "カフェ ラレ", "location": "ソウル 麻浦区 ワウサン路29マギル 7" },
+    "venue-004": { "name": "B'DAY 弘大店", "location": "ソウル 麻浦区 ワウサン路29ラギル 22" },
+    "venue-005": { "name": "オーディナリー アーカイブ", "location": "ソウル 麻浦区 東橋路 248" },
+    "venue-006": { "name": "カフェ ジグム", "location": "ソウル 麻浦区 楊花路 186" },
+    "venue-007": { "name": "ステイ コーヒー", "location": "大邱 中区 東城路 72" }
+  }
+}

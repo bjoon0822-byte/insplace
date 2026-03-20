@@ -1,0 +1,643 @@
+/* =========================================
+   인스플레이스 — 서브페이지 Supanova Design
+   Premium K-POP Fandom Platform
+   ========================================= */
+
+/* ── Page Hero Header ── */
+.pageHero {
+  position: relative;
+  padding: 160px 0 100px;
+  text-align: center;
+  background: var(--gray-900);
+  overflow: hidden;
+}
+
+.pageHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 30% 60%, rgba(217, 119, 6, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 80% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pageHeroInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.pageEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-lg);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.pageSubtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.pageWatermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 15vw, 14rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Section Container ── */
+.sectionContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
+}
+
+/* ── Filter Bar ── */
+.filtersContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+/* ── Card Grid — Double-Bezel ── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.cardGrid2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── Double-Bezel Card Architecture ── */
+.card {
+  background: var(--gray-50);
+  border-radius: 28px;
+  padding: 6px;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card:hover a {
+  color: inherit;
+}
+
+.cardInner {
+  background: var(--bg-main);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+/* Card Image */
+.cardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.cardImage img {
+  object-fit: cover;
+}
+
+.cardImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+.cardTypeFloat {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Card Body */
+.cardBody {
+  padding: 20px 24px 24px;
+}
+
+.cardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.cardMeta {
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+  margin-bottom: 16px;
+}
+
+.cardDesc {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Amenity Tags */
+.amenityList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.amenityTag {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  color: var(--gray-500);
+}
+
+/* Price Row */
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 16px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.price span {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.metaSmall {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Category Badge */
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+/* Date Range */
+.dateRange {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.dateIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--gray-300);
+  flex-shrink: 0;
+}
+
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ── Inquire Button (Small) ── */
+.inquireBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.inquireBtn:hover {
+  background: var(--gray-900);
+  color: #FFFFFF;
+  border-color: var(--gray-900);
+}
+
+/* ── Trend Section (Standalone Dark) ── */
+.trendContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
+}
+
+.trendGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.trendCard {
+  background: var(--bg-main);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.trendCardTitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.trendItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background var(--transition-fast);
+}
+
+.trendItem:last-child {
+  border-bottom: none;
+}
+
+.trendRank {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  background: var(--gray-50);
+  border-radius: 8px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.trendRank.top {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+.trendName {
+  flex: 1;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.trendCount {
+  font-size: 0.8125rem;
+  color: var(--gray-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.trendChange {
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 42px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--gray-300);
+}
+
+.trendChange.up {
+  color: #EF4444;
+}
+
+.trendChange.down {
+  color: #3B82F6;
+}
+
+/* ── Detail Page Styles ── */
+.detailContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg) var(--space-4xl);
+}
+
+.detailGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  max-width: 800px;
+}
+
+.detailImageWrap {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+}
+
+.detailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.detailTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.detailMeta {
+  font-size: 0.9375rem;
+  color: var(--gray-500);
+}
+
+.detailPrice {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gray-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.detailPrice span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.detailDesc {
+  font-size: 0.9375rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+.detailCta {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.detailCta > * {
+  flex: 1;
+}
+
+.backLink {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  margin-bottom: var(--space-lg);
+  display: inline-block;
+}
+
+/* Spec Table */
+.specTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specTable tr {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.specTable td {
+  padding: var(--space-md) 0;
+  font-size: 0.9375rem;
+}
+
+.specTable td:first-child {
+  color: var(--gray-500);
+  width: 40%;
+}
+
+.specTable td:last-child {
+  color: var(--gray-900);
+  font-weight: 500;
+}
+
+/* ── Contact Form ── */
+.formContainer {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg) var(--space-4xl);
+}
+
+.formGroup {
+  margin-bottom: var(--space-lg);
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: var(--space-sm);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--bg-main);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  color: var(--gray-900);
+  font-size: 0.9375rem;
+  transition: border-color var(--transition-fast);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.formGroup textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.formGroup select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper::after {
+  content: '▾';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  pointer-events: none;
+}
+
+.successIcon {
+  font-size: 4rem;
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ── Legacy compat: pageHeader redirect ── */
+.pageHeader {
+  padding: var(--space-4xl) 0 var(--space-2xl);
+  text-align: center;
+  background: var(--bg-sub);
+  position: relative;
+  overflow: hidden;
+}
+
+.pageHeader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 400px 300px at 30% 60%, rgba(217, 119, 6, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 70% 40%, rgba(178, 139, 186, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trendGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHero {
+    padding: 140px 0 80px;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .trendGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardGrid,
+  .cardGrid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .pageHero {
+    padding: 120px 0 60px;
+  }
+}

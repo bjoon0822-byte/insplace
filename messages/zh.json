@@ -1,0 +1,156 @@
+{
+  "brand": {
+    "name": "InsPlace",
+    "tagline": "让本命闪耀的每一刻，尽在一处",
+    "description": "户外广告 · 场地租赁 · 周边 · 快闪店——粉丝应援一站式服务"
+  },
+  "nav": {
+    "home": "首页",
+    "ad": "广告产品",
+    "venue": "场地租赁",
+    "goods": "周边定制",
+    "popup": "快闪店",
+    "trend": "热门趋势",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "title": "让您的偶像闪耀的一切",
+    "subtitle": "从地铁广告、LED广告牌到咖啡馆租赁和定制周边，在 InsPlace 一次性准备好所有内容。",
+    "cta": "查看广告产品",
+    "ctaSecondary": "获取免费咨询"
+  },
+  "quickNav": {
+    "ad": "广告产品",
+    "adDesc": "地铁 · 大屏 · 灯箱",
+    "venue": "场地租赁",
+    "venueDesc": "生日咖啡厅 · 活动大厅",
+    "goods": "周边定制",
+    "goodsDesc": "小卡 · 手幅 · 蛋糕",
+    "popup": "快闪店",
+    "popupDesc": "预约 · 日程查看"
+  },
+  "sections": {
+    "popularAds": "热门广告位",
+    "popularAdsDesc": "当下最火的广告位置",
+    "recommendedVenues": "推荐场地",
+    "recommendedVenuesDesc": "粉丝最常选择的咖啡厅",
+    "trendTitle": "实时热搜",
+    "trendDesc": "当下最火的爱豆",
+    "viewAll": "查看全部",
+    "viewMore": "查看更多"
+  },
+  "ad": {
+    "title": "广告产品",
+    "subtitle": "为本命庆生最有效的方式",
+    "filterAll": "全部",
+    "filterSubway": "地铁",
+    "filterBillboard": "大屏",
+    "filterShelter": "灯箱",
+    "filterBus": "公交",
+    "filterDigital": "数字屏",
+    "filterLightbox": "灯箱",
+    "sortPopular": "按人气",
+    "sortPrice": "按价格",
+    "sortNew": "最新",
+    "regionAll": "全部地区",
+    "perDay": "/ 天",
+    "perWeek": "/ 7天",
+    "perMonth": "/ 30天",
+    "dailyViews": "日均客流量",
+    "size": "尺寸",
+    "inquire": "立即咨询",
+    "available": "可预约",
+    "busy": "即将满额",
+    "soldout": "已满"
+  },
+  "venue": {
+    "title": "场地租赁",
+    "subtitle": "为本命的特别日子准备的专属空间",
+    "capacity": "容纳人数",
+    "people": "人",
+    "pricePerDay": "日租金",
+    "amenities": "配套设施"
+  },
+  "goods": {
+    "title": "周边定制",
+    "subtitle": "独一无二的本命周边",
+    "photocard": "小卡",
+    "slogan": "手幅",
+    "cake": "蛋糕",
+    "bouquet": "花束",
+    "cupholder": "杯套",
+    "minOrder": "最低起订",
+    "unit": "个"
+  },
+  "popup": {
+    "title": "快闪店",
+    "subtitle": "不容错过的粉丝活动",
+    "ongoing": "进行中",
+    "upcoming": "即将开始",
+    "ended": "已结束",
+    "period": "活动时间"
+  },
+  "trend": {
+    "title": "热门趋势",
+    "subtitle": "当下最火的爱豆和活动",
+    "celebRank": "爱豆人气TOP 5",
+    "adRank": "热门广告位TOP 5",
+    "eventRank": "活动数量TOP 5"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "有任何疑问？请随时联系",
+    "name": "姓名",
+    "email": "邮箱",
+    "phone": "联系电话",
+    "subject": "咨询类型",
+    "subjectAd": "广告产品咨询",
+    "subjectVenue": "场地租赁咨询",
+    "subjectGoods": "周边定制咨询",
+    "subjectPopup": "快闪店咨询",
+    "subjectOther": "其他",
+    "message": "咨询内容",
+    "submit": "提交咨询",
+    "success": "您的咨询已提交，我们会尽快回复。"
+  },
+  "cta": {
+    "title": "立即开始",
+    "subtitle": "首次咨询享9折优惠",
+    "button": "免费咨询"
+  },
+  "footer": {
+    "company": "InsPlace",
+    "terms": "使用条款",
+    "privacy": "隐私政策",
+    "support": "客服中心",
+    "copyright": "© 2026 InsPlace. All rights reserved.",
+    "columns": {
+      "service": "服务",
+      "company": "公司",
+      "support": "支持"
+    }
+  },
+  "adData": {
+    "ad-001": { "name": "弘大数字标牌", "location": "弘大入口站闸机前" },
+    "ad-002": { "name": "弘大入口站灯箱广告", "location": "弘大入口站2号线站台" },
+    "ad-003": { "name": "弘大艺术画布", "location": "弘大入口站2号线闸机前" },
+    "ad-004": { "name": "江南站媒体花园", "location": "江南站2号线↔新盆唐线换乘通道" },
+    "ad-005": { "name": "江南站MaxVision", "location": "江南站闸机附近" },
+    "ad-006": { "name": "合井站数字CM板", "location": "合井站闸机/电扶梯附近" },
+    "ad-007": { "name": "合井站灯箱CM板", "location": "合井站6号线站台" },
+    "ad-008": { "name": "圣水站数字广告牌", "location": "圣水站2·3·4号出口" },
+    "ad-009": { "name": "圣水15块LED屏", "location": "圣水站A·B区全域" },
+    "ad-010": { "name": "惠化站灯箱广告", "location": "惠化站4号线站台" },
+    "ad-011": { "name": "弘大艺术包装", "location": "弘大入口站内7处同步播放" },
+    "ad-012": { "name": "江南站媒体墙", "location": "江南站2号线↔新盆唐线换乘通道" }
+  },
+  "venueData": {
+    "venue-001": { "name": "Cafe Flat", "location": "首尔 麻浦区 西江路9街 24号" },
+    "venue-002": { "name": "Dear My Dear", "location": "首尔 麻浦区 偶来马堂路 136-24" },
+    "venue-003": { "name": "Cafe Lale", "location": "首尔 麻浦区 卧牛山路29马街 7号" },
+    "venue-004": { "name": "B'DAY 弘大店", "location": "首尔 麻浦区 卧牛山路29罗街 22号" },
+    "venue-005": { "name": "Ordinary Archive", "location": "首尔 麻浦区 东桥路 248号" },
+    "venue-006": { "name": "Cafe Jigeum", "location": "首尔 麻浦区 杨花路 186号" },
+    "venue-007": { "name": "Stay Coffee", "location": "大邱 中区 东城路 72号" }
+  }
+}

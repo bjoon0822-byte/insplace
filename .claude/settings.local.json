@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/캐칭/.claude/**)",
+      "Read(//c/Users/캐칭/.gemini/**)",
+      "Bash(npx tsc --noEmit)"
+    ]
+  }
+}

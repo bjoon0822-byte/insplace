@@ -1,0 +1,156 @@
+{
+  "brand": {
+    "name": "인스플레이스",
+    "tagline": "최애를 빛내는 모든 순간, 한 곳에서",
+    "description": "옥외광고 · 장소대관 · 굿즈 · 팝업스토어까지, 팬 이벤트의 모든 것"
+  },
+  "nav": {
+    "home": "홈",
+    "ad": "광고상품",
+    "venue": "장소대관",
+    "goods": "굿즈",
+    "popup": "팝업스토어",
+    "trend": "트렌드",
+    "contact": "문의하기"
+  },
+  "hero": {
+    "title": "최애의 생일을 빛내줄 모든 것",
+    "subtitle": "지하철 광고부터 전광판, 카페 대관, 굿즈 제작까지 인스플레이스에서 한 번에 준비하세요",
+    "cta": "광고 상품 보기",
+    "ctaSecondary": "무료 상담 받기"
+  },
+  "quickNav": {
+    "ad": "광고 상품",
+    "adDesc": "지하철 · 전광판 · 쉘터",
+    "venue": "장소 대관",
+    "venueDesc": "생일카페 · 이벤트홀",
+    "goods": "굿즈 제작",
+    "goodsDesc": "포토카드 · 슬로건 · 케이크",
+    "popup": "팝업스토어",
+    "popupDesc": "팝업 예약 · 일정 확인"
+  },
+  "sections": {
+    "popularAds": "인기 광고 상품",
+    "popularAdsDesc": "지금 가장 HOT한 광고 위치",
+    "recommendedVenues": "추천 대관 장소",
+    "recommendedVenuesDesc": "팬들이 가장 많이 찾는 카페",
+    "trendTitle": "실시간 트렌드",
+    "trendDesc": "지금 가장 핫한 셀럽",
+    "viewAll": "전체보기",
+    "viewMore": "더보기"
+  },
+  "ad": {
+    "title": "광고 상품",
+    "subtitle": "최애의 생일을 전하는 가장 확실한 방법",
+    "filterAll": "전체",
+    "filterSubway": "지하철",
+    "filterBillboard": "전광판",
+    "filterShelter": "쉘터",
+    "filterBus": "버스",
+    "filterDigital": "디지털",
+    "filterLightbox": "조명",
+    "sortPopular": "인기순",
+    "sortPrice": "가격순",
+    "sortNew": "최신순",
+    "regionAll": "전체 지역",
+    "perDay": "/ 일",
+    "perWeek": "/ 7일",
+    "perMonth": "/ 30일",
+    "dailyViews": "일 평균 유동인구",
+    "size": "사이즈",
+    "inquire": "문의하기",
+    "available": "예약 가능",
+    "busy": "마감 임박",
+    "soldout": "마감"
+  },
+  "venue": {
+    "title": "장소 대관",
+    "subtitle": "최애의 특별한 날을 위한 공간",
+    "capacity": "수용인원",
+    "people": "명",
+    "pricePerDay": "일 대관료",
+    "amenities": "제공 시설"
+  },
+  "goods": {
+    "title": "굿즈 제작",
+    "subtitle": "세상에 하나뿐인 최애 굿즈",
+    "photocard": "포토카드",
+    "slogan": "슬로건",
+    "cake": "케이크",
+    "bouquet": "꽃다발",
+    "cupholder": "컵홀더",
+    "minOrder": "최소 주문",
+    "unit": "개"
+  },
+  "popup": {
+    "title": "팝업스토어",
+    "subtitle": "놓치면 안 될 팬 이벤트",
+    "ongoing": "진행 중",
+    "upcoming": "예정",
+    "ended": "종료",
+    "period": "기간"
+  },
+  "trend": {
+    "title": "트렌드",
+    "subtitle": "지금 가장 핫한 셀럽과 이벤트",
+    "celebRank": "셀럽 인기 TOP 5",
+    "adRank": "인기 광고 위치 TOP 5",
+    "eventRank": "이벤트 수 TOP 5"
+  },
+  "contact": {
+    "title": "문의하기",
+    "subtitle": "궁금한 점이 있으신가요? 편하게 연락주세요",
+    "name": "이름",
+    "email": "이메일",
+    "phone": "연락처",
+    "subject": "문의 유형",
+    "subjectAd": "광고 상품 문의",
+    "subjectVenue": "대관 문의",
+    "subjectGoods": "굿즈 제작 문의",
+    "subjectPopup": "팝업 문의",
+    "subjectOther": "기타 문의",
+    "message": "문의 내용",
+    "submit": "문의 보내기",
+    "success": "문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다."
+  },
+  "cta": {
+    "title": "지금 시작하세요",
+    "subtitle": "첫 문의 시 10% 할인 혜택을 드립니다",
+    "button": "무료 상담 신청"
+  },
+  "footer": {
+    "company": "인스플레이스",
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "support": "고객센터",
+    "copyright": "© 2026 InsPlace. All rights reserved.",
+    "columns": {
+      "service": "서비스",
+      "company": "회사",
+      "support": "지원"
+    }
+  },
+  "adData": {
+    "ad-001": { "name": "홍대 디지털 사이니지", "location": "홍대입구역 개찰구 앞" },
+    "ad-002": { "name": "홍대입구역 조명광고", "location": "홍대입구역 2호선 승강장" },
+    "ad-003": { "name": "홍대 아트 캔버스", "location": "홍대입구역 2호선 개찰구 앞" },
+    "ad-004": { "name": "강남역 미디어 가든", "location": "강남역 2호선↔신분당선 환승통로" },
+    "ad-005": { "name": "강남역 맥스비전", "location": "강남역 개찰구 부근" },
+    "ad-006": { "name": "합정역 디지털 CM보드", "location": "합정역 개찰구/에스컬레이터 부근" },
+    "ad-007": { "name": "합정역 조명 CM보드", "location": "합정역 6호선 승강장" },
+    "ad-008": { "name": "성수역 디지털 빌보드", "location": "성수역 2·3·4번 출구" },
+    "ad-009": { "name": "성수 15 LED 스크린", "location": "성수역 A·B존 전체" },
+    "ad-010": { "name": "혜화역 조명 광고", "location": "혜화역 4호선 승강장" },
+    "ad-011": { "name": "홍대 아트 래핑", "location": "홍대입구역 내 7개소 동시 송출" },
+    "ad-012": { "name": "강남역 미디어월", "location": "강남역 2호선↔신분당선 환승통로" }
+  },
+  "venueData": {
+    "venue-001": { "name": "카페 플랫 (Flat)", "location": "서울 마포구 서강로9길 24" },
+    "venue-002": { "name": "디어 마이 디어", "location": "서울 마포구 어울마당로 136-24" },
+    "venue-003": { "name": "카페 랄레", "location": "서울 마포구 와우산로29마길 7" },
+    "venue-004": { "name": "B'DAY 홍대점", "location": "서울 마포구 와우산로29라길 22" },
+    "venue-005": { "name": "오디너리 아카이브", "location": "서울 마포구 동교로 248" },
+    "venue-006": { "name": "카페 지금", "location": "서울 마포구 양화로 186" },
+    "venue-007": { "name": "스테이 커피", "location": "대구 중구 동성로 72" }
+  }
+}
