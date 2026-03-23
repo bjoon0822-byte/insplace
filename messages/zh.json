@@ -11,7 +11,8 @@
     "goods": "周边定制",
     "popup": "快闪店",
     "trend": "热门趋势",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "community": "社区"
   },
   "hero": {
     "title": "让您的偶像闪耀的一切",
@@ -130,6 +131,59 @@
       "support": "支持"
     }
   },
+  "community": {
+    "title": "社区",
+    "subtitle": "与粉丝们一起分享故事",
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出登录",
+    "authSubtitle": "加入InsPlace社区",
+    "email": "邮箱",
+    "password": "密码",
+    "passwordPlaceholder": "至少6位",
+    "nickname": "昵称",
+    "nicknamePlaceholder": "社区中显示的名称",
+    "nicknameRequired": "请输入昵称",
+    "myPage": "我的",
+    "writePost": "发帖",
+    "postTitle": "标题",
+    "postTitlePlaceholder": "请输入标题",
+    "postContent": "内容",
+    "postContentPlaceholder": "请输入内容",
+    "postCategory": "分类",
+    "categoryFree": "自由",
+    "categoryReview": "后记",
+    "categoryInfo": "资讯",
+    "categoryQuestion": "提问",
+    "submit": "发布",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "commentPlaceholder": "写下评论",
+    "commentSubmit": "发表",
+    "loginRequired": "请先登录",
+    "noPostsYet": "还没有帖子",
+    "writeFirst": "来写第一篇帖子吧！",
+    "likes": "点赞",
+    "comments": "评论",
+    "views": "浏览",
+    "back": "返回列表",
+    "level": "等级",
+    "points": "积分",
+    "levelNewbie": "新人",
+    "levelFan": "粉丝",
+    "levelSuperfan": "超级粉丝",
+    "levelMaster": "大师",
+    "levelLegend": "传说",
+    "rating": "评分",
+    "writeReview": "写评价",
+    "reviewPlaceholder": "分享您的体验",
+    "reviews": "评价",
+    "avgRating": "平均评分",
+    "postCount": "帖子",
+    "commentCount": "评论",
+    "reviewCount": "评价"
+  },
   "adData": {
     "ad-001": { "name": "弘大数字标牌", "location": "弘大入口站闸机前" },
     "ad-002": { "name": "弘大入口站灯箱广告", "location": "弘大入口站2号线站台" },
@@ -152,5 +206,22 @@
     "venue-005": { "name": "Ordinary Archive", "location": "首尔 麻浦区 东桥路 248号" },
     "venue-006": { "name": "Cafe Jigeum", "location": "首尔 麻浦区 杨花路 186号" },
     "venue-007": { "name": "Stay Coffee", "location": "大邱 中区 东城路 72号" }
+  },
+  "trendData": {
+    "celeb": {
+      "nct-wish": "NCT WISH",
+      "wonbin": "元彬 (RIIZE)",
+      "beomgyu": "范奎 (TXT)",
+      "anton": "安东 (RIIZE)",
+      "xinlong": "辛龙 (Alpha Drive One)",
+      "eunseok": "恩石 (RIIZE)"
+    },
+    "station": {
+      "hongdae": "弘大入口站",
+      "hapjeong": "合井站",
+      "gangnam": "江南站",
+      "seongsu": "圣水站",
+      "hyehwa": "惠化站"
+    }
   }
 }

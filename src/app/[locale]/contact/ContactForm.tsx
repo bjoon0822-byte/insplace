@@ -20,12 +20,20 @@ export default function ContactForm({ messages }: ContactFormProps) {
   if (submitted) {
     return (
       <>
-        <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>{t(messages, 'contact.title')}</h1>
-          <p className={styles.pageSubtitle}>{t(messages, 'contact.success')}</p>
-        </div>
-        <div className={styles.formContainer} style={{ textAlign: 'center', paddingTop: 'var(--space-2xl)' }}>
-          <div className={styles.successIcon}>✅</div>
+        <section className={styles.pageHero}>
+          <span className={styles.pageWatermark}>CONTACT.</span>
+          <div className={styles.pageHeroInner}>
+            <span className={styles.pageEyebrow}>CONTACT US</span>
+            <h1 className={styles.pageTitle}>{t(messages, 'contact.title')}</h1>
+          </div>
+        </section>
+        <div className={styles.formContainer} style={{ textAlign: 'center' }}>
+          <div className={styles.successCheck}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
           <p className={styles.detailDesc}>{t(messages, 'contact.success')}</p>
         </div>
       </>
@@ -34,10 +42,14 @@ export default function ContactForm({ messages }: ContactFormProps) {
 
   return (
     <>
-      <div className={styles.pageHeader}>
-        <h1 className={styles.pageTitle}>{t(messages, 'contact.title')}</h1>
-        <p className={styles.pageSubtitle}>{t(messages, 'contact.subtitle')}</p>
-      </div>
+      <section className={styles.pageHero}>
+        <span className={styles.pageWatermark}>CONTACT.</span>
+        <div className={styles.pageHeroInner}>
+          <span className={styles.pageEyebrow}>CONTACT US</span>
+          <h1 className={styles.pageTitle}>{t(messages, 'contact.title')}</h1>
+          <p className={styles.pageSubtitle}>{t(messages, 'contact.subtitle')}</p>
+        </div>
+      </section>
 
       <form className={styles.formContainer} onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
@@ -78,8 +90,9 @@ export default function ContactForm({ messages }: ContactFormProps) {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+        <button type="submit" className={styles.submitBtn}>
           {t(messages, 'contact.submit')}
+          <span className={styles.submitBtnArrow}>→</span>
         </button>
       </form>
     </>

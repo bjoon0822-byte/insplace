@@ -516,6 +516,7 @@ ul, ol {
   color: #FFFFFF;
   border-color: var(--gray-900);
   font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* ── 애니메이션 ── */

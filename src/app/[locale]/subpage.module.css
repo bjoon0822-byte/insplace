@@ -146,6 +146,11 @@
 
 .cardImage img {
   object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .cardImage img {
+  transform: scale(1.05);
 }
 
 .cardImageOverlay {
@@ -355,9 +360,15 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 0;
+  padding: 10px 8px;
+  margin: 0 -8px;
   border-bottom: 1px solid var(--gray-100);
+  border-radius: var(--radius-sm);
   transition: background var(--transition-fast);
+}
+
+.trendItem:hover {
+  background: var(--gray-50);
 }
 
 .trendItem:last-child {
@@ -422,10 +433,10 @@
 }
 
 .detailGrid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
   gap: var(--space-2xl);
-  max-width: 800px;
+  align-items: start;
 }
 
 .detailImageWrap {
@@ -433,6 +444,8 @@
   overflow: hidden;
   background: var(--gray-100);
   border: 1px solid var(--gray-200);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-lg));
 }
 
 .detailInfo {
@@ -443,9 +456,11 @@
 
 .detailTitle {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 800;
   color: var(--gray-900);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
 .detailMeta {
@@ -456,8 +471,11 @@
 .detailPrice {
   font-size: 2rem;
   font-weight: 900;
-  color: var(--gray-900);
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
+  padding: var(--space-lg) 0;
+  border-top: 2px solid var(--gray-100);
+  border-bottom: 2px solid var(--gray-100);
 }
 
 .detailPrice span {
@@ -483,10 +501,23 @@
 }
 
 .backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.875rem;
+  font-weight: 500;
   color: var(--gray-400);
-  margin-bottom: var(--space-lg);
-  display: inline-block;
+  margin-bottom: var(--space-xl);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--gray-900);
+  border-color: var(--gray-400);
+  background: var(--gray-50);
 }
 
 /* Spec Table */
@@ -496,11 +527,15 @@
 }
 
 .specTable tr {
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.specTable tr:nth-child(even) {
+  background: var(--gray-50);
 }
 
 .specTable td {
-  padding: var(--space-md) 0;
+  padding: var(--space-md) var(--space-md);
   font-size: 0.9375rem;
 }
 
@@ -551,6 +586,7 @@
 .formGroup textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12);
 }
 
 .formGroup textarea {
@@ -581,6 +617,66 @@
   font-size: 4rem;
   margin-bottom: var(--space-xl);
   animation: fadeInUp 0.6s ease-out;
+}
+
+/* Success check */
+.successCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  margin: 0 auto var(--space-xl);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Submit button — full-width magnetic pill */
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 18px 36px;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: #FFFFFF;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px var(--accent-glow);
+  letter-spacing: -0.01em;
+}
+
+.submitBtnArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 1rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px) scale(1.01);
+  background: var(--accent-hover);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.submitBtn:hover .submitBtnArrow {
+  transform: translateX(3px);
+}
+
+.submitBtn:active {
+  transform: scale(0.98);
 }
 
 /* ── Legacy compat: pageHeader redirect ── */
@@ -628,6 +724,10 @@
 
   .detailGrid {
     grid-template-columns: 1fr;
+  }
+
+  .detailImageWrap {
+    position: static;
   }
 }
 

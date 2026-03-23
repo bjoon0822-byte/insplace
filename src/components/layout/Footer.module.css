@@ -118,6 +118,16 @@
   color: var(--gray-500);
 }
 
+.footer-slogan {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 1024px) {
   .footer-top {
     flex-direction: column;

@@ -11,7 +11,8 @@
     "goods": "グッズ",
     "popup": "ポップアップ",
     "trend": "トレンド",
-    "contact": "お問い合わせ"
+    "contact": "お問い合わせ",
+    "community": "コミュニティ"
   },
   "hero": {
     "title": "推しの誕生日を\n輝かせるすべて",
@@ -130,6 +131,59 @@
       "support": "サポート"
     }
   },
+  "community": {
+    "title": "コミュニティ",
+    "subtitle": "ファン同士で語り合いましょう",
+    "login": "ログイン",
+    "signup": "新規登録",
+    "logout": "ログアウト",
+    "authSubtitle": "InsPlaceコミュニティに参加しよう",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "passwordPlaceholder": "6文字以上",
+    "nickname": "ニックネーム",
+    "nicknamePlaceholder": "コミュニティで使う名前",
+    "nicknameRequired": "ニックネームを入力してください",
+    "myPage": "マイページ",
+    "writePost": "投稿する",
+    "postTitle": "タイトル",
+    "postTitlePlaceholder": "タイトルを入力",
+    "postContent": "本文",
+    "postContentPlaceholder": "本文を入力",
+    "postCategory": "カテゴリー",
+    "categoryFree": "自由",
+    "categoryReview": "レビュー",
+    "categoryInfo": "情報",
+    "categoryQuestion": "質問",
+    "submit": "投稿",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "commentPlaceholder": "コメントを入力",
+    "commentSubmit": "投稿",
+    "loginRequired": "ログインが必要です",
+    "noPostsYet": "まだ投稿がありません",
+    "writeFirst": "最初の投稿をしてみましょう！",
+    "likes": "いいね",
+    "comments": "コメント",
+    "views": "閲覧",
+    "back": "一覧に戻る",
+    "level": "レベル",
+    "points": "ポイント",
+    "levelNewbie": "ニュービー",
+    "levelFan": "ファン",
+    "levelSuperfan": "スーパーファン",
+    "levelMaster": "マスター",
+    "levelLegend": "レジェンド",
+    "rating": "評価",
+    "writeReview": "レビューを書く",
+    "reviewPlaceholder": "体験を共有してください",
+    "reviews": "レビュー",
+    "avgRating": "平均評価",
+    "postCount": "投稿",
+    "commentCount": "コメント",
+    "reviewCount": "レビュー"
+  },
   "adData": {
     "ad-001": { "name": "弘大デジタルサイネージ", "location": "弘大入口駅 改札前" },
     "ad-002": { "name": "弘大入口駅 照明広告", "location": "弘大入口駅 2号線ホーム" },
@@ -152,5 +206,22 @@
     "venue-005": { "name": "オーディナリー アーカイブ", "location": "ソウル 麻浦区 東橋路 248" },
     "venue-006": { "name": "カフェ ジグム", "location": "ソウル 麻浦区 楊花路 186" },
     "venue-007": { "name": "ステイ コーヒー", "location": "大邱 中区 東城路 72" }
+  },
+  "trendData": {
+    "celeb": {
+      "nct-wish": "NCT WISH",
+      "wonbin": "ウォンビン (RIIZE)",
+      "beomgyu": "ボムギュ (TXT)",
+      "anton": "アントン (RIIZE)",
+      "xinlong": "シンロン (Alpha Drive One)",
+      "eunseok": "ウンソク (RIIZE)"
+    },
+    "station": {
+      "hongdae": "弘大入口駅",
+      "hapjeong": "合井駅",
+      "gangnam": "江南駅",
+      "seongsu": "聖水駅",
+      "hyehwa": "恵化駅"
+    }
   }
 }

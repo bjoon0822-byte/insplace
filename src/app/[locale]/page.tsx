@@ -29,6 +29,10 @@ export default async function HomePage({ params }: PageProps) {
     return t(m, 'ad.soldout');
   }
 
+  function getTrendName(id: string, type: 'celeb' | 'station', fallback: string): string {
+    return (m as any).trendData?.[type]?.[id] || fallback;
+  }
+
   return (
     <>
       {/* ━━ Hero — Left-Aligned Split (Supanova) ━━ */}
@@ -225,7 +229,7 @@ export default async function HomePage({ params }: PageProps) {
               {celebTrend.map((item) => (
                 <div key={item.rank} className={styles.trendItem}>
                   <span className={`${styles.trendRank} ${item.rank <= 3 ? styles.top : ''}`}>{item.rank}</span>
-                  <span className={styles.trendName}>{item.name}</span>
+                  <span className={styles.trendName}>{getTrendName(item.id, 'celeb', item.name)}</span>
                   <span className={styles.trendCount}>{item.count}</span>
                   <span className={`${styles.trendChange} ${item.change > 0 ? styles.up : item.change < 0 ? styles.down : ''}`}>
                     {item.change > 0 ? `▲${item.change}` : item.change < 0 ? `▼${Math.abs(item.change)}` : '—'}
@@ -238,7 +242,7 @@ export default async function HomePage({ params }: PageProps) {
               {adTrend.map((item) => (
                 <div key={item.rank} className={styles.trendItem}>
                   <span className={`${styles.trendRank} ${item.rank <= 3 ? styles.top : ''}`}>{item.rank}</span>
-                  <span className={styles.trendName}>{item.name}</span>
+                  <span className={styles.trendName}>{getTrendName(item.id, 'station', item.name)}</span>
                   <span className={styles.trendCount}>{item.count}건</span>
                   <span className={`${styles.trendChange} ${item.change > 0 ? styles.up : item.change < 0 ? styles.down : ''}`}>
                     {item.change > 0 ? `▲${item.change}` : item.change < 0 ? `▼${Math.abs(item.change)}` : '—'}
@@ -251,7 +255,7 @@ export default async function HomePage({ params }: PageProps) {
               {eventTrend.map((item) => (
                 <div key={item.rank} className={styles.trendItem}>
                   <span className={`${styles.trendRank} ${item.rank <= 3 ? styles.top : ''}`}>{item.rank}</span>
-                  <span className={styles.trendName}>{item.name}</span>
+                  <span className={styles.trendName}>{getTrendName(item.id, 'celeb', item.name)}</span>
                   <span className={styles.trendCount}>{item.count}건</span>
                   <span className={`${styles.trendChange} ${item.change > 0 ? styles.up : item.change < 0 ? styles.down : ''}`}>
                     {item.change > 0 ? `▲${item.change}` : item.change < 0 ? `▼${Math.abs(item.change)}` : '—'}

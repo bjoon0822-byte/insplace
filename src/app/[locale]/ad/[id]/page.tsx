@@ -6,6 +6,7 @@ import { getMessages, t } from '@/i18n/request';
 import { formatPrice } from '@/utils/format';
 import { adProducts } from '@/data/ads';
 import { locales } from '@/i18n/routing';
+import ReviewSection from '@/components/community/ReviewSection';
 import styles from '../../subpage.module.css';
 
 interface PageProps {
@@ -96,10 +97,9 @@ export default async function AdDetailPage({ params }: PageProps) {
             <Link href={`/${locale}/contact`} className="btn btn-primary">
               {t(m, 'ad.inquire')}
             </Link>
-            <Link href={`/${locale}/contact`} className="btn btn-secondary">
-              {t(m, 'ad.inquire')}
-            </Link>
           </div>
+
+          <ReviewSection targetType="ad" targetId={ad.id} messages={m} />
         </div>
       </div>
     </div>

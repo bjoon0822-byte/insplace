@@ -6,6 +6,7 @@ import { getMessages, t } from '@/i18n/request';
 import { formatPrice } from '@/utils/format';
 import { venues } from '@/data/venues';
 import { locales } from '@/i18n/routing';
+import ReviewSection from '@/components/community/ReviewSection';
 import styles from '../../subpage.module.css';
 
 interface PageProps {
@@ -95,6 +96,8 @@ export default async function VenueDetailPage({ params }: PageProps) {
               {t(m, 'ad.inquire')}
             </Link>
           </div>
+
+          <ReviewSection targetType="venue" targetId={venue.id} messages={m} />
         </div>
       </div>
     </div>

@@ -651,7 +651,14 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-sm) 0;
+  padding: var(--space-sm) 8px;
+  margin: 0 -8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trendItem:hover {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .trendItem + .trendItem {

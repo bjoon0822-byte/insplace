@@ -11,7 +11,8 @@
     "goods": "Goods",
     "popup": "Pop-up Store",
     "trend": "Trends",
-    "contact": "Contact"
+    "contact": "Contact",
+    "community": "Community"
   },
   "hero": {
     "title": "Everything to Make Your Bias Shine",
@@ -130,6 +131,59 @@
       "support": "Support"
     }
   },
+  "community": {
+    "title": "Community",
+    "subtitle": "Share stories with fellow fans",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "authSubtitle": "Join the InsPlace community",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "At least 6 characters",
+    "nickname": "Nickname",
+    "nicknamePlaceholder": "Your display name",
+    "nicknameRequired": "Please enter a nickname",
+    "myPage": "My Page",
+    "writePost": "Write Post",
+    "postTitle": "Title",
+    "postTitlePlaceholder": "Enter a title",
+    "postContent": "Content",
+    "postContentPlaceholder": "Write your content here",
+    "postCategory": "Category",
+    "categoryFree": "Free",
+    "categoryReview": "Review",
+    "categoryInfo": "Info",
+    "categoryQuestion": "Question",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "commentPlaceholder": "Write a comment",
+    "commentSubmit": "Post",
+    "loginRequired": "Login required",
+    "noPostsYet": "No posts yet",
+    "writeFirst": "Be the first to write!",
+    "likes": "Likes",
+    "comments": "Comments",
+    "views": "Views",
+    "back": "Back to list",
+    "level": "Level",
+    "points": "Points",
+    "levelNewbie": "Newbie",
+    "levelFan": "Fan",
+    "levelSuperfan": "Superfan",
+    "levelMaster": "Master",
+    "levelLegend": "Legend",
+    "rating": "Rating",
+    "writeReview": "Write Review",
+    "reviewPlaceholder": "Share your experience",
+    "reviews": "Reviews",
+    "avgRating": "Average rating",
+    "postCount": "Posts",
+    "commentCount": "Comments",
+    "reviewCount": "Reviews"
+  },
   "adData": {
     "ad-001": { "name": "Hongdae Digital Signage", "location": "Hongik Univ. Station Gate Area" },
     "ad-002": { "name": "Hongdae Station Lightbox", "location": "Hongik Univ. Station Line 2 Platform" },
@@ -152,5 +206,22 @@
     "venue-005": { "name": "Ordinary Archive", "location": "248, Donggyo-ro, Mapo-gu, Seoul" },
     "venue-006": { "name": "Cafe Jigeum", "location": "186, Yanghwa-ro, Mapo-gu, Seoul" },
     "venue-007": { "name": "Stay Coffee", "location": "72, Dongseong-ro, Jung-gu, Daegu" }
+  },
+  "trendData": {
+    "celeb": {
+      "nct-wish": "NCT WISH",
+      "wonbin": "Wonbin (RIIZE)",
+      "beomgyu": "Beomgyu (TXT)",
+      "anton": "Anton (RIIZE)",
+      "xinlong": "Xinlong (Alpha Drive One)",
+      "eunseok": "Eunseok (RIIZE)"
+    },
+    "station": {
+      "hongdae": "Hongdae Station",
+      "hapjeong": "Hapjeong Station",
+      "gangnam": "Gangnam Station",
+      "seongsu": "Seongsu Station",
+      "hyehwa": "Hyehwa Station"
+    }
   }
 }

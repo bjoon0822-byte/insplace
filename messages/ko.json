@@ -11,7 +11,8 @@
     "goods": "굿즈",
     "popup": "팝업스토어",
     "trend": "트렌드",
-    "contact": "문의하기"
+    "contact": "문의하기",
+    "community": "커뮤니티"
   },
   "hero": {
     "title": "최애의 생일을 빛내줄 모든 것",
@@ -130,6 +131,59 @@
       "support": "지원"
     }
   },
+  "community": {
+    "title": "커뮤니티",
+    "subtitle": "팬들과 함께 이야기를 나눠보세요",
+    "login": "로그인",
+    "signup": "회원가입",
+    "logout": "로그아웃",
+    "authSubtitle": "인스플레이스 커뮤니티에 참여하세요",
+    "email": "이메일",
+    "password": "비밀번호",
+    "passwordPlaceholder": "6자 이상",
+    "nickname": "닉네임",
+    "nicknamePlaceholder": "커뮤니티에서 사용할 이름",
+    "nicknameRequired": "닉네임을 입력해주세요",
+    "myPage": "마이페이지",
+    "writePost": "글쓰기",
+    "postTitle": "제목",
+    "postTitlePlaceholder": "제목을 입력해주세요",
+    "postContent": "내용",
+    "postContentPlaceholder": "내용을 입력해주세요",
+    "postCategory": "카테고리",
+    "categoryFree": "자유",
+    "categoryReview": "후기",
+    "categoryInfo": "정보",
+    "categoryQuestion": "질문",
+    "submit": "등록",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "수정",
+    "commentPlaceholder": "댓글을 입력해주세요",
+    "commentSubmit": "등록",
+    "loginRequired": "로그인이 필요합니다",
+    "noPostsYet": "아직 게시글이 없습니다",
+    "writeFirst": "첫 번째 글을 작성해보세요!",
+    "likes": "좋아요",
+    "comments": "댓글",
+    "views": "조회",
+    "back": "목록으로",
+    "level": "레벨",
+    "points": "포인트",
+    "levelNewbie": "뉴비",
+    "levelFan": "팬",
+    "levelSuperfan": "슈퍼팬",
+    "levelMaster": "마스터",
+    "levelLegend": "레전드",
+    "rating": "별점",
+    "writeReview": "리뷰 쓰기",
+    "reviewPlaceholder": "이용 후기를 남겨주세요",
+    "reviews": "리뷰",
+    "avgRating": "평균 별점",
+    "postCount": "게시글",
+    "commentCount": "댓글",
+    "reviewCount": "리뷰"
+  },
   "adData": {
     "ad-001": { "name": "홍대 디지털 사이니지", "location": "홍대입구역 개찰구 앞" },
     "ad-002": { "name": "홍대입구역 조명광고", "location": "홍대입구역 2호선 승강장" },
@@ -152,5 +206,22 @@
     "venue-005": { "name": "오디너리 아카이브", "location": "서울 마포구 동교로 248" },
     "venue-006": { "name": "카페 지금", "location": "서울 마포구 양화로 186" },
     "venue-007": { "name": "스테이 커피", "location": "대구 중구 동성로 72" }
+  },
+  "trendData": {
+    "celeb": {
+      "nct-wish": "NCT WISH",
+      "wonbin": "원빈 (RIIZE)",
+      "beomgyu": "범규 (TXT)",
+      "anton": "앤톤 (RIIZE)",
+      "xinlong": "신룡 (Alpha Drive One)",
+      "eunseok": "은석 (RIIZE)"
+    },
+    "station": {
+      "hongdae": "홍대입구역",
+      "hapjeong": "합정역",
+      "gangnam": "강남역",
+      "seongsu": "성수역",
+      "hyehwa": "혜화역"
+    }
   }
 }

@@ -39,21 +39,21 @@ export default function Footer({ locale, messages }: FooterProps) {
               <h4>{t(messages, 'footer.columns.company')}</h4>
               <ul>
                 <li><Link href={`/${locale}/trend`}>{t(messages, 'nav.trend')}</Link></li>
-                <li><a href="#">{t(messages, 'footer.terms')}</a></li>
-                <li><a href="#">{t(messages, 'footer.privacy')}</a></li>
+                <li><span style={{ color: 'var(--gray-500)', cursor: 'default' }}>{t(messages, 'footer.terms')}</span></li>
+                <li><span style={{ color: 'var(--gray-500)', cursor: 'default' }}>{t(messages, 'footer.privacy')}</span></li>
               </ul>
             </div>
             
             <div className={styles['footer-social']}>
-              <a href="#" className={styles['social-link']} aria-label="Instagram">Instagram</a>
-              <a href="#" className={styles['social-link']} aria-label="Twitter">Twitter</a>
-              <a href="#" className={styles['social-link']} aria-label="YouTube">YouTube</a>
+              <span className={styles['social-link']} style={{ cursor: 'default' }}>Instagram</span>
+              <span className={styles['social-link']} style={{ cursor: 'default' }}>Twitter</span>
+              <span className={styles['social-link']} style={{ cursor: 'default' }}>YouTube</span>
             </div>
           </div>
         </div>
 
         {/* BigC 스타일 슬로건 */}
-        <p style={{ textAlign: 'center', fontSize: '0.875rem', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '1rem' }}>
+        <p className={styles['footer-slogan']}>
           DIVE INTO YOUR FANDOM
         </p>
 

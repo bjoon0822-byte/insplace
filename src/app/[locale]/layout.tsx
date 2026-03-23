@@ -5,6 +5,7 @@ import { locales } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { CursorGlow } from '@/components/ui/CursorGlow';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -46,13 +47,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   }
 
   return (
-    <div lang={locale}>
-      <CursorGlow />
-      <Header locale={locale as Locale} messages={messages} />
-      <main style={{ paddingTop: 'var(--header-height)' }}>
-        {children}
-      </main>
-      <Footer locale={locale as Locale} messages={messages} />
-    </div>
+    <AuthProvider>
+      <div lang={locale}>
+        <CursorGlow />
+        <Header locale={locale as Locale} messages={messages} />
+        <main style={{ paddingTop: 'var(--header-height)' }}>
+          {children}
+        </main>
+        <Footer locale={locale as Locale} messages={messages} />
+      </div>
+    </AuthProvider>
   );
 }
