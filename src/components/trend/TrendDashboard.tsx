@@ -31,6 +31,7 @@ interface TrendDashboardProps {
 export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats, labels }: TrendDashboardProps) {
   return (
     <div className={styles.dashboard}>
+      <div className={styles.dashboardInner}>
       {/* 실시간 인디케이터 */}
       <div className={styles.liveBar}>
         <div className={styles.liveIndicator}>
@@ -163,6 +164,7 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
           })}
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

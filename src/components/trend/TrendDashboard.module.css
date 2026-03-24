@@ -3,9 +3,15 @@
    ========================================= */
 
 .dashboard {
+  background: #0a0a0a;
+  max-width: 100%;
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+.dashboardInner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--space-xl) var(--space-lg) var(--space-3xl);
+  padding: 0 var(--space-lg);
 }
 
 /* ── 실시간 인디케이터 ── */
