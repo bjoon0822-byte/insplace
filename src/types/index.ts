@@ -104,6 +104,8 @@ export interface TrendItem {
   name: string;           // 기본 한국어 이름 (폴백용)
   count: number;
   change: number;         // 순위 변동 (+, -, 0)
+  history?: number[];     // 최근 7일 추이 (스파크라인용)
+  percentage?: number;    // 전체 대비 비율 (프로그레스 바용)
 }
 
 /** 견적 장바구니 아이템 */
