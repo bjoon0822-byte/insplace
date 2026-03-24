@@ -157,3 +157,19 @@ $$ language plpgsql security definer;
 create or replace trigger on_review_created
   after insert on reviews
   for each row execute procedure update_points_on_review();
+
+-- 7. 문의 메시지 테이블
+create table if not exists contact_messages (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  email text not null,
+  phone text,
+  subject text not null,
+  message text not null,
+  product_ref text,
+  created_at timestamptz not null default now()
+);
+
+alter table contact_messages enable row level security;
+create policy "누구나 문의 작성" on contact_messages for insert with check (true);
+create policy "문의 읽기 제한" on contact_messages for select using (false);

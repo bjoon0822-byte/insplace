@@ -1,5 +1,5 @@
 // 메인 홈페이지 — 인스플레이스 (Supanova Redesign)
-// Hero(좌측정렬) + 서비스벤토 + 인기상품 + 추천대관 + 트렌드(다크) + CTA(드라마틱)
+// AI프롬프트Hero + 서비스벤토 + 인기상품 + 추천대관 + 트렌드(다크) + CTA(드라마틱)
 import Link from 'next/link';
 import Image from 'next/image';
 import { Locale, AdProduct, Venue } from '@/types';
@@ -10,6 +10,7 @@ import { venues } from '@/data/venues';
 import { celebTrend, adTrend, eventTrend } from '@/data/trends';
 import { FadeIn } from '@/components/ui/FadeIn';
 import HeroScrollAnimation from '@/components/ui/HeroScrollAnimation';
+import ChatHero from '@/components/chat/ChatHero';
 import styles from './page.module.css';
 
 interface PageProps {
@@ -35,8 +36,8 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <>
-      {/* ━━ Hero — Left-Aligned Split (Supanova) ━━ */}
-      <section className={styles.hero}>
+      {/* ━━ Hero — AI Prompt + Scroll Animation Background ━━ */}
+      <section id="hero" className={styles.hero}>
         <HeroScrollAnimation />
         <div className={styles.heroBgOverlay} />
         {/* Mesh gradient orbs */}
@@ -45,14 +46,11 @@ export default async function HomePage({ params }: PageProps) {
         <span className={styles.heroWatermark}>INSPLACE.</span>
 
         <div className={styles.heroLayout}>
+          {/* Left — Brand Copy */}
           <FadeIn direction="up" className={styles.heroContent}>
             <span className={styles.heroEyebrow}>K-POP FANDOM PLATFORM</span>
-            <h1 className={styles.heroTitle}>
-              {t(m, 'hero.title')}
-            </h1>
-            <p className={styles.heroSubtitle}>
-              {t(m, 'hero.subtitle')}
-            </p>
+            <h1 className={styles.heroTitle}>{t(m, 'hero.title')}</h1>
+            <p className={styles.heroSubtitle}>{t(m, 'hero.subtitle')}</p>
             <div className={styles.heroActions}>
               <Link href={`/${locale}/ad`} className={styles.heroCta}>
                 {t(m, 'hero.cta')}
@@ -62,6 +60,11 @@ export default async function HomePage({ params }: PageProps) {
                 {t(m, 'hero.ctaSecondary')}
               </Link>
             </div>
+          </FadeIn>
+
+          {/* Right — AI Chat */}
+          <FadeIn direction="up" delay={0.15} className={styles.heroChat}>
+            <ChatHero locale={locale as Locale} messages={m as Record<string, unknown>} />
           </FadeIn>
         </div>
 

@@ -63,8 +63,8 @@ export default async function GoodsPage({ params }: PageProps) {
                         {t(m, 'goods.minOrder')}: {item.minOrder}{t(m, 'goods.unit')}
                       </span>
                     </div>
-                    <Link href={`/${locale}/contact`} className={styles.inquireBtn}>
-                      {t(m, 'ad.inquire')}
+                    <Link href={`/${locale}/goods/${item.id}`} className={styles.inquireBtn}>
+                      {t(m, 'sections.viewMore')}
                     </Link>
                   </div>
                 </div>

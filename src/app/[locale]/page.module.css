@@ -74,18 +74,44 @@
   margin: 0 auto;
   padding: 0 var(--space-lg);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* LEFT-ALIGNED — Supanova DESIGN_VARIANCE > 4 */
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
   text-align: left;
   position: relative;
   z-index: 2;
 }
 
 .heroContent {
-  max-width: 680px;
+  flex: 1;
+  min-width: 0;
+  max-width: 560px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.heroChat {
+  flex: 1;
+  min-width: 0;
+  max-width: 520px;
+}
+
+@media (max-width: 960px) {
+  .heroLayout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .heroChat {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 /* Eyebrow pill badge */

@@ -12,7 +12,12 @@
     "popup": "Pop-up Store",
     "trend": "Trends",
     "contact": "Contact",
-    "community": "Community"
+    "community": "Community",
+    "artists": "Artists",
+    "calendar": "Calendar",
+    "campaigns": "Campaigns",
+    "gallery": "Gallery",
+    "explore": "Smart Explorer"
   },
   "hero": {
     "title": "Everything to Make Your Bias Shine",
@@ -112,7 +117,8 @@
     "subjectOther": "Other",
     "message": "Message",
     "submit": "Send Inquiry",
-    "success": "Your inquiry has been submitted. We'll get back to you soon."
+    "success": "Your inquiry has been submitted. We'll get back to you soon.",
+    "error": "Failed to send inquiry. Please try again later."
   },
   "cta": {
     "title": "Get Started Today",
@@ -131,12 +137,55 @@
       "support": "Support"
     }
   },
+  "search": {
+    "placeholder": "Search ads, venues, goods, popups...",
+    "shortcut": "⌘K",
+    "noResults": "No results found",
+    "tryAnother": "Try a different keyword",
+    "ads": "Ad Products",
+    "venues": "Venues",
+    "goods": "Goods",
+    "popups": "Pop-up Stores"
+  },
+  "quote": {
+    "title": "Quote Cart",
+    "empty": "No items added yet",
+    "add": "Add to Quote",
+    "added": "Added",
+    "remove": "Remove",
+    "total": "Estimated Total",
+    "sendInquiry": "Send Quote Inquiry",
+    "items": "items"
+  },
+  "mypage": {
+    "title": "My Page",
+    "joinDate": "Joined",
+    "nextLevel": "Until next level",
+    "tabPosts": "My Posts",
+    "tabReviews": "My Reviews",
+    "tabQuotes": "Quote History",
+    "noPosts": "No posts yet",
+    "noReviews": "No reviews yet",
+    "noQuotes": "No quote history"
+  },
+  "artists": {
+    "title": "Artists",
+    "subtitle": "Fan support for K-POP idols and celebrities",
+    "nextBirthday": "Next Birthday",
+    "recommendedAds": "Recommended Ad Products",
+    "startCampaign": "'s fan ad — get started!",
+    "inquire": "Inquire Now",
+    "campaigns": "Active Campaigns",
+    "noCampaigns": "No active campaigns yet"
+  },
   "community": {
     "title": "Community",
     "subtitle": "Share stories with fellow fans",
     "login": "Log In",
     "signup": "Sign Up",
     "logout": "Log Out",
+    "kakaoLogin": "Continue with Kakao",
+    "signupSuccess": "Sign up complete! We sent a verification email. Please check your inbox and verify to log in.",
     "authSubtitle": "Join the InsPlace community",
     "email": "Email",
     "password": "Password",
@@ -157,6 +206,7 @@
     "categoryQuestion": "Question",
     "submit": "Submit",
     "cancel": "Cancel",
+    "writeError": "Failed to create post. Please try again later.",
     "delete": "Delete",
     "edit": "Edit",
     "commentPlaceholder": "Write a comment",
@@ -223,5 +273,117 @@
       "seongsu": "Seongsu Station",
       "hyehwa": "Hyehwa Station"
     }
+  },
+  "campaigns": {
+    "title": "Campaigns",
+    "subtitle": "Fan-powered idol advertising",
+    "activeCampaigns": "Active Campaigns",
+    "pastCampaigns": "Past Campaigns",
+    "noCampaigns": "No active campaigns yet",
+    "target": "Target",
+    "period": "Period",
+    "daysLeft": "Days Left",
+    "organizer": "Organizer",
+    "participate": "Participate",
+    "proofPhotos": "Proof Photos",
+    "startOwn": "Start your own campaign",
+    "startOwnDesc": "Create birthday ads, debut celebrations, and more for your favorite idols",
+    "inquire": "Inquire About Campaign"
+  },
+  "calendar": {
+    "title": "Birthday Calendar",
+    "subtitle": "Check idol birthdays and prepare ads",
+    "thisMonth": "This Month",
+    "noEvents": "No birthdays registered",
+    "cta": "Planning a birthday ad?",
+    "inquire": "Inquire About Ads"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Fan ad portfolio powered by InsPlace",
+    "all": "All",
+    "digital": "Digital",
+    "lightbox": "Lightbox",
+    "cafe": "Cafe",
+    "popup": "Popup",
+    "noItems": "No photos yet",
+    "viewProduct": "View similar products"
+  },
+  "recommend": {
+    "title": "What ad are you looking for?",
+    "subtitle": "Describe the ad you want in your own words",
+    "placeholder": "e.g. Birthday ad near Hongdae for 3 days...",
+    "submit": "Get Recommendations",
+    "loading": "Finding the best products for you...",
+    "noResults": "No products match your criteria",
+    "tryDifferent": "Try different search terms",
+    "resultCount": " recommended products",
+    "matchScore": "Match",
+    "viewMore": "View More",
+    "intentSummary": "Search criteria"
+  },
+  "explore": {
+    "title": "Smart Explorer",
+    "subtitle": "Find the perfect product step by step",
+    "step1": "Select Region",
+    "step1Desc": "Where do you want to advertise?",
+    "step2": "Set Budget",
+    "step2Desc": "Select your budget range",
+    "step3": "Select Scale",
+    "step3Desc": "Choose your ad scale",
+    "step4": "Select Purpose",
+    "step4Desc": "What is the purpose of the ad?",
+    "next": "Next",
+    "prev": "Previous",
+    "skip": "Skip",
+    "showResults": "Show Results",
+    "resultTitle": "Recommended Products",
+    "regionAll": "All Regions",
+    "budgetBudget": "Under ₩500K",
+    "budgetStandard": "₩500K~₩5M",
+    "budgetPremium": "₩5M~₩15M",
+    "budgetLuxury": "Over ₩15M",
+    "scaleSmall": "Small",
+    "scaleMedium": "Medium",
+    "scaleLarge": "Large",
+    "scaleMega": "Extra Large",
+    "purposeBirthday": "Birthday",
+    "purposeDebut": "Debut",
+    "purposeComeback": "Comeback",
+    "purposeConcert": "Concert",
+    "purposeAnniversary": "Anniversary",
+    "purposeDrama": "Drama",
+    "purposeGeneral": "General",
+    "noResults": "No products match your filters",
+    "changeFilters": "Try changing filters",
+    "ads": "Ad Products",
+    "venues": "Venues",
+    "goods": "Goods"
+  },
+  "chat": {
+    "title": "AI AD CONSULTATION",
+    "subtitle": "What ad are you looking for?",
+    "welcome": "Hi! I'm the InsPlace ad consultation assistant. Feel free to tell me about the ad you're looking for — region, budget, purpose, anything helps.",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "typing": "Generating response...",
+    "maxTurns": "For more detailed consultation, please contact us.",
+    "contactCta": "Contact Us",
+    "clearChat": "Clear Chat",
+    "error": "An error occurred while generating a response. Please try again.",
+    "example1": "Birthday ad near Hongdae for 3 days",
+    "example2": "Concert promo ad within 500K KRW budget",
+    "example3": "Seongsu cafe rental + photocard production",
+    "example4": "Debut anniversary lightbox ad at Hapjeong"
+  },
+  "caseStudy": {
+    "title": "Past Work Examples",
+    "noData": "No case studies yet",
+    "viewAll": "View all cases"
+  },
+  "designRef": {
+    "title": "Design References",
+    "noData": "No design references yet",
+    "viewAll": "View all designs"
   }
 }

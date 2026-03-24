@@ -12,7 +12,12 @@
     "popup": "ポップアップ",
     "trend": "トレンド",
     "contact": "お問い合わせ",
-    "community": "コミュニティ"
+    "community": "コミュニティ",
+    "artists": "アーティスト",
+    "calendar": "カレンダー",
+    "campaigns": "キャンペーン",
+    "gallery": "ギャラリー",
+    "explore": "おすすめ検索"
   },
   "hero": {
     "title": "推しの誕生日を\n輝かせるすべて",
@@ -112,7 +117,8 @@
     "subjectOther": "その他",
     "message": "お問い合わせ内容",
     "submit": "送信する",
-    "success": "お問い合わせを受け付けました。できるだけ早くご返信いたします。"
+    "success": "お問い合わせを受け付けました。できるだけ早くご返信いたします。",
+    "error": "送信に失敗しました。しばらくしてからもう一度お試しください。"
   },
   "cta": {
     "title": "今すぐ始めましょう",
@@ -131,12 +137,55 @@
       "support": "サポート"
     }
   },
+  "search": {
+    "placeholder": "広告・会場・グッズ・ポップアップを検索...",
+    "shortcut": "⌘K",
+    "noResults": "検索結果がありません",
+    "tryAnother": "別のキーワードで検索してください",
+    "ads": "広告商品",
+    "venues": "会場",
+    "goods": "グッズ",
+    "popups": "ポップアップ"
+  },
+  "quote": {
+    "title": "見積りカート",
+    "empty": "まだ商品が追加されていません",
+    "add": "見積りに追加",
+    "added": "追加済み",
+    "remove": "削除",
+    "total": "見積り合計",
+    "sendInquiry": "見積り問い合わせを送信",
+    "items": "件"
+  },
+  "mypage": {
+    "title": "マイページ",
+    "joinDate": "登録日",
+    "nextLevel": "次のレベルまで",
+    "tabPosts": "投稿",
+    "tabReviews": "レビュー",
+    "tabQuotes": "見積り履歴",
+    "noPosts": "投稿がありません",
+    "noReviews": "レビューがありません",
+    "noQuotes": "見積り履歴がありません"
+  },
+  "artists": {
+    "title": "アーティスト",
+    "subtitle": "K-POPアイドル・セレブへのファンサポート",
+    "nextBirthday": "次の誕生日",
+    "recommendedAds": "おすすめ広告商品",
+    "startCampaign": "のファン広告を始めましょう！",
+    "inquire": "お問い合わせ",
+    "campaigns": "進行中のキャンペーン",
+    "noCampaigns": "進行中のキャンペーンはまだありません"
+  },
   "community": {
     "title": "コミュニティ",
     "subtitle": "ファン同士で語り合いましょう",
     "login": "ログイン",
     "signup": "新規登録",
     "logout": "ログアウト",
+    "kakaoLogin": "カカオでログイン",
+    "signupSuccess": "登録完了！確認メールを送信しました。メールを確認してからログインしてください。",
     "authSubtitle": "InsPlaceコミュニティに参加しよう",
     "email": "メールアドレス",
     "password": "パスワード",
@@ -157,6 +206,7 @@
     "categoryQuestion": "質問",
     "submit": "投稿",
     "cancel": "キャンセル",
+    "writeError": "投稿の作成に失敗しました。しばらくしてからもう一度お試しください。",
     "delete": "削除",
     "edit": "編集",
     "commentPlaceholder": "コメントを入力",
@@ -223,5 +273,117 @@
       "seongsu": "聖水駅",
       "hyehwa": "恵化駅"
     }
+  },
+  "campaigns": {
+    "title": "キャンペーン",
+    "subtitle": "ファンが一緒に作るアイドル広告",
+    "activeCampaigns": "進行中のキャンペーン",
+    "pastCampaigns": "終了したキャンペーン",
+    "noCampaigns": "進行中のキャンペーンはまだありません",
+    "target": "目標金額",
+    "period": "期間",
+    "daysLeft": "残り日数",
+    "organizer": "主催者",
+    "participate": "参加する",
+    "proofPhotos": "証拠写真",
+    "startOwn": "オリジナルキャンペーンを始めましょう",
+    "startOwnDesc": "好きなアイドルのための誕生日広告やデビューお祝いなど、様々なキャンペーンを作れます",
+    "inquire": "キャンペーンお問い合わせ"
+  },
+  "calendar": {
+    "title": "誕生日カレンダー",
+    "subtitle": "アイドルの誕生日を確認して広告を準備しましょう",
+    "thisMonth": "今月",
+    "noEvents": "登録された誕生日はありません",
+    "cta": "誕生日広告を準備していますか？",
+    "inquire": "広告のお問い合わせ"
+  },
+  "gallery": {
+    "title": "ギャラリー",
+    "subtitle": "InsPlaceで実施されたファン広告ポートフォリオ",
+    "all": "全て",
+    "digital": "電光掲示板",
+    "lightbox": "ライトボックス",
+    "cafe": "カフェ",
+    "popup": "ポップアップ",
+    "noItems": "まだ写真がありません",
+    "viewProduct": "同じ商品を見る"
+  },
+  "recommend": {
+    "title": "どんな広告をお探しですか？",
+    "subtitle": "希望する広告を自由に説明してください",
+    "placeholder": "例）渋谷の誕生日広告、3日間...",
+    "submit": "おすすめを表示",
+    "loading": "最適な商品を探しています...",
+    "noResults": "条件に合う商品がありません",
+    "tryDifferent": "別の検索条件をお試しください",
+    "resultCount": "件のおすすめ商品",
+    "matchScore": "マッチ率",
+    "viewMore": "もっと見る",
+    "intentSummary": "検索条件"
+  },
+  "explore": {
+    "title": "おすすめ検索",
+    "subtitle": "ステップバイステップで最適な商品を見つける",
+    "step1": "地域を選択",
+    "step1Desc": "どこで広告を出したいですか？",
+    "step2": "予算を設定",
+    "step2Desc": "予算の範囲を選択",
+    "step3": "スケールを選択",
+    "step3Desc": "広告規模を選択",
+    "step4": "目的を選択",
+    "step4Desc": "広告の目的は何ですか？",
+    "next": "次へ",
+    "prev": "前へ",
+    "skip": "スキップ",
+    "showResults": "結果を表示",
+    "resultTitle": "おすすめ商品",
+    "regionAll": "全地域",
+    "budgetBudget": "50万円以下",
+    "budgetStandard": "50万円～500万円",
+    "budgetPremium": "500万円～1500万円",
+    "budgetLuxury": "1500万円以上",
+    "scaleSmall": "小規模",
+    "scaleMedium": "中規模",
+    "scaleLarge": "大規模",
+    "scaleMega": "特大規模",
+    "purposeBirthday": "誕生日",
+    "purposeDebut": "デビュー",
+    "purposeComeback": "カムバック",
+    "purposeConcert": "コンサート",
+    "purposeAnniversary": "アニバーサリー",
+    "purposeDrama": "ドラマ",
+    "purposeGeneral": "一般",
+    "noResults": "条件に合う商品がありません",
+    "changeFilters": "フィルターを変更してください",
+    "ads": "広告商品",
+    "venues": "会場",
+    "goods": "グッズ"
+  },
+  "chat": {
+    "title": "AI広告相談",
+    "subtitle": "どんな広告をお探しですか？",
+    "welcome": "こんにちは！InsPlaceの広告相談アシスタントです。ご希望の広告について、地域・予算・目的など、お気軽にお話しください。",
+    "placeholder": "メッセージを入力...",
+    "send": "送信",
+    "typing": "回答を作成中...",
+    "maxTurns": "より詳しい相談が必要な場合はお問い合わせください。",
+    "contactCta": "お問い合わせ",
+    "clearChat": "チャットをクリア",
+    "error": "回答の生成中にエラーが発生しました。もう一度お試しください。",
+    "example1": "弘大で誕生日広告3日間",
+    "example2": "50万ウォン予算でコンサート宣伝広告",
+    "example3": "聖水カフェレンタル＋トレカ制作",
+    "example4": "デビュー記念日 合井駅照明広告"
+  },
+  "caseStudy": {
+    "title": "過去の事例",
+    "noData": "まだ事例がありません",
+    "viewAll": "すべての事例を見る"
+  },
+  "designRef": {
+    "title": "デザイン参考",
+    "noData": "まだ参考例がありません",
+    "viewAll": "すべての参考例を見る"
   }
 }

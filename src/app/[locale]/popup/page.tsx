@@ -69,11 +69,9 @@ export default async function PopupPage({ params }: PageProps) {
                         </svg>
                         {popup.startDate} ~ {popup.endDate}
                       </span>
-                      {popup.status !== 'ended' && (
-                        <Link href={`/${locale}/contact`} className="btn btn-primary btn-small">
-                          {t(m, 'ad.inquire')}
-                        </Link>
-                      )}
+                      <Link href={`/${locale}/popup/${popup.id}`} className="btn btn-primary btn-small">
+                        {t(m, 'sections.viewMore')}
+                      </Link>
                     </div>
                   </div>
                 </div>

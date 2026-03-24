@@ -88,6 +88,43 @@
   gap: var(--space-md);
 }
 
+/* 검색 버튼 */
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  background: var(--bg-main);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+}
+
+.search-shortcut {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--gray-400);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .search-shortcut {
+    display: none;
+  }
+
+  .search-btn {
+    padding: 6px 8px;
+  }
+}
+
 /* 언어 선택 */
 .lang-switcher {
   position: relative;

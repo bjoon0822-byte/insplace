@@ -12,7 +12,12 @@
     "popup": "快闪店",
     "trend": "热门趋势",
     "contact": "联系我们",
-    "community": "社区"
+    "community": "社区",
+    "artists": "艺人",
+    "calendar": "日历",
+    "campaigns": "活动",
+    "gallery": "画廊",
+    "explore": "智能搜索"
   },
   "hero": {
     "title": "让您的偶像闪耀的一切",
@@ -112,7 +117,8 @@
     "subjectOther": "其他",
     "message": "咨询内容",
     "submit": "提交咨询",
-    "success": "您的咨询已提交，我们会尽快回复。"
+    "success": "您的咨询已提交，我们会尽快回复。",
+    "error": "发送失败，请稍后再试。"
   },
   "cta": {
     "title": "立即开始",
@@ -131,12 +137,55 @@
       "support": "支持"
     }
   },
+  "search": {
+    "placeholder": "搜索广告、场地、周边、快闪店...",
+    "shortcut": "⌘K",
+    "noResults": "未找到结果",
+    "tryAnother": "请尝试其他关键词",
+    "ads": "广告产品",
+    "venues": "场地",
+    "goods": "周边",
+    "popups": "快闪店"
+  },
+  "quote": {
+    "title": "报价篮",
+    "empty": "还没有添加商品",
+    "add": "加入报价",
+    "added": "已添加",
+    "remove": "移除",
+    "total": "预估总额",
+    "sendInquiry": "发送报价咨询",
+    "items": "件商品"
+  },
+  "mypage": {
+    "title": "我的",
+    "joinDate": "注册日期",
+    "nextLevel": "距下一等级",
+    "tabPosts": "我的帖子",
+    "tabReviews": "我的评价",
+    "tabQuotes": "报价记录",
+    "noPosts": "暂无帖子",
+    "noReviews": "暂无评价",
+    "noQuotes": "暂无报价记录"
+  },
+  "artists": {
+    "title": "艺人",
+    "subtitle": "为K-POP偶像和明星提供粉丝应援",
+    "nextBirthday": "下次生日",
+    "recommendedAds": "推荐广告产品",
+    "startCampaign": "的粉丝广告，现在就开始吧！",
+    "inquire": "立即咨询",
+    "campaigns": "进行中的活动",
+    "noCampaigns": "还没有进行中的活动"
+  },
   "community": {
     "title": "社区",
     "subtitle": "与粉丝们一起分享故事",
     "login": "登录",
     "signup": "注册",
     "logout": "退出登录",
+    "kakaoLogin": "用Kakao登录",
+    "signupSuccess": "注册成功！我们已发送验证邮件，请查看邮箱并完成验证后登录。",
     "authSubtitle": "加入InsPlace社区",
     "email": "邮箱",
     "password": "密码",
@@ -157,6 +206,7 @@
     "categoryQuestion": "提问",
     "submit": "发布",
     "cancel": "取消",
+    "writeError": "发帖失败，请稍后再试。",
     "delete": "删除",
     "edit": "编辑",
     "commentPlaceholder": "写下评论",
@@ -223,5 +273,117 @@
       "seongsu": "圣水站",
       "hyehwa": "惠化站"
     }
+  },
+  "campaigns": {
+    "title": "活动",
+    "subtitle": "粉丝共同打造的偶像广告",
+    "activeCampaigns": "进行中的活动",
+    "pastCampaigns": "已结束的活动",
+    "noCampaigns": "还没有进行中的活动",
+    "target": "目标金额",
+    "period": "期间",
+    "daysLeft": "剩余天数",
+    "organizer": "发起人",
+    "participate": "参与",
+    "proofPhotos": "认证照",
+    "startOwn": "发起您自己的活动",
+    "startOwnDesc": "为喜爱的偶像创建生日广告、出道庆祝等各种活动",
+    "inquire": "活动咨询"
+  },
+  "calendar": {
+    "title": "生日日历",
+    "subtitle": "查看偶像生日，准备广告",
+    "thisMonth": "本月",
+    "noEvents": "暂无注册的生日",
+    "cta": "正在准备生日广告吗？",
+    "inquire": "广告咨询"
+  },
+  "gallery": {
+    "title": "画廊",
+    "subtitle": "InsPlace执行的粉丝广告作品集",
+    "all": "全部",
+    "digital": "电子屏",
+    "lightbox": "灯箱",
+    "cafe": "咖啡厅",
+    "popup": "快闪",
+    "noItems": "暂无照片",
+    "viewProduct": "查看同类产品"
+  },
+  "recommend": {
+    "title": "您在找什么样的广告？",
+    "subtitle": "用自己的话描述您想要的广告",
+    "placeholder": "例如：东大门附近的生日广告，3天...",
+    "submit": "获得推荐",
+    "loading": "正在为您查找最适合的产品...",
+    "noResults": "没有产品符合您的条件",
+    "tryDifferent": "请尝试不同的搜索条件",
+    "resultCount": "个推荐产品",
+    "matchScore": "匹配度",
+    "viewMore": "查看更多",
+    "intentSummary": "搜索条件"
+  },
+  "explore": {
+    "title": "智能搜索",
+    "subtitle": "分步查找完美的产品",
+    "step1": "选择地区",
+    "step1Desc": "您想在哪里投放广告？",
+    "step2": "设置预算",
+    "step2Desc": "选择您的预算范围",
+    "step3": "选择规模",
+    "step3Desc": "选择广告规模",
+    "step4": "选择目的",
+    "step4Desc": "广告的目的是什么？",
+    "next": "下一步",
+    "prev": "上一步",
+    "skip": "跳过",
+    "showResults": "显示结果",
+    "resultTitle": "推荐产品",
+    "regionAll": "全部地区",
+    "budgetBudget": "50万元以下",
+    "budgetStandard": "50万元~500万元",
+    "budgetPremium": "500万元~1500万元",
+    "budgetLuxury": "1500万元以上",
+    "scaleSmall": "小规模",
+    "scaleMedium": "中规模",
+    "scaleLarge": "大规模",
+    "scaleMega": "超大规模",
+    "purposeBirthday": "生日",
+    "purposeDebut": "出道",
+    "purposeComeback": "回归",
+    "purposeConcert": "演唱会",
+    "purposeAnniversary": "周年纪念",
+    "purposeDrama": "电视剧",
+    "purposeGeneral": "一般",
+    "noResults": "没有产品符合您的筛选条件",
+    "changeFilters": "请尝试改变筛选条件",
+    "ads": "广告产品",
+    "venues": "场地",
+    "goods": "周边"
+  },
+  "chat": {
+    "title": "AI广告咨询",
+    "subtitle": "您在找什么样的广告？",
+    "welcome": "您好！我是InsPlace广告咨询助手。请随时告诉我您想要的广告需求——地区、预算、目的，任何信息都可以。",
+    "placeholder": "请输入消息...",
+    "send": "发送",
+    "typing": "正在生成回复...",
+    "maxTurns": "需要更详细的咨询，请联系我们。",
+    "contactCta": "联系我们",
+    "clearChat": "清除对话",
+    "error": "生成回复时出错，请重试。",
+    "example1": "弘大附近3天生日广告",
+    "example2": "50万韩元预算的演唱会宣传广告",
+    "example3": "圣水咖啡厅租赁+小卡制作",
+    "example4": "出道纪念日合井站灯箱广告"
+  },
+  "caseStudy": {
+    "title": "过往案例",
+    "noData": "暂无案例",
+    "viewAll": "查看全部案例"
+  },
+  "designRef": {
+    "title": "设计参考",
+    "noData": "暂无设计参考",
+    "viewAll": "查看全部设计"
   }
 }

@@ -191,7 +191,13 @@
   white-space: nowrap;
 }
 
-/* ── Google Button ── */
+/* ── Social Buttons ── */
+.socialBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .googleBtn {
   display: flex;
   align-items: center;
@@ -218,6 +224,31 @@
   height: 18px;
 }
 
+.kakaoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3C1E1E;
+  background: #FEE500;
+  border: none;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.kakaoBtn:hover {
+  background: #F5DC00;
+}
+
+.kakaoIcon {
+  width: 18px;
+  height: 18px;
+}
+
 /* ── Error Message ── */
 .error {
   font-size: 0.8125rem;
@@ -226,6 +257,17 @@
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+/* ── Success Message ── */
+.success {
+  font-size: 0.8125rem;
+  color: #059669;
+  background: rgba(5, 150, 105, 0.06);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(5, 150, 105, 0.15);
+  line-height: 1.5;
 }
 
 /* ── Mobile ── */

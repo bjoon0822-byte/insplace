@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Locale } from '@/types';
 import { t } from '@/i18n/request';
 import { useAuth } from '@/contexts/AuthContext';
 import LoginModal from '@/components/auth/LoginModal';
+import SearchModal from '@/components/ui/SearchModal';
 import styles from './Header.module.css';
 
 /** 언어 레이블 매핑 */
@@ -42,7 +44,18 @@ export default function Header({ locale, messages }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const { profile, loading, signOut } = useAuth();
+  const pathname = usePathname();
+
+  const handleLogoClick = useCallback((e: React.MouseEvent) => {
+    // 홈페이지에서 스크롤된 상태면 히어로로 스크롤
+    const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [pathname, locale]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -50,12 +63,27 @@ export default function Header({ locale, messages }: HeaderProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Cmd+K / Ctrl+K shortcut
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setShowSearch((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   const navLinks = [
+    { key: 'nav.explore', href: `/${locale}/explore` },
     { key: 'nav.ad', href: `/${locale}/ad` },
     { key: 'nav.venue', href: `/${locale}/venue` },
     { key: 'nav.goods', href: `/${locale}/goods` },
     { key: 'nav.popup', href: `/${locale}/popup` },
-    { key: 'nav.trend', href: `/${locale}/trend` },
+    { key: 'nav.artists', href: `/${locale}/artists` },
+    { key: 'nav.campaigns', href: `/${locale}/campaigns` },
+    { key: 'nav.gallery', href: `/${locale}/gallery` },
     { key: 'nav.community', href: `/${locale}/community` },
   ];
 
@@ -64,7 +92,7 @@ export default function Header({ locale, messages }: HeaderProps) {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles['header-inner']}>
           {/* 로고 */}
-          <Link href={`/${locale}`} className={styles['header-logo']}>
+          <Link href={`/${locale}`} className={styles['header-logo']} onClick={handleLogoClick}>
             <span className={styles['logo-accent']}>INS</span>PLACE
           </Link>
 
@@ -79,6 +107,19 @@ export default function Header({ locale, messages }: HeaderProps) {
 
           {/* 액션 영역 */}
           <div className={styles['header-actions']}>
+            {/* 검색 버튼 */}
+            <button
+              className={styles['search-btn']}
+              onClick={() => setShowSearch(true)}
+              aria-label="Search"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <span className={styles['search-shortcut']}>⌘K</span>
+            </button>
+
             {/* 언어 선택 */}
             <div className={styles['lang-switcher']}>
               <button className={styles['lang-btn']}>
@@ -124,6 +165,9 @@ export default function Header({ locale, messages }: HeaderProps) {
                       <span>{t(messages, 'community.points')}: {profile.points}</span>
                     </div>
                     <div className={styles['user-dropdown-divider']} />
+                    <Link href={`/${locale}/mypage`} className={styles['user-dropdown-item']}>
+                      {t(messages, 'community.myPage')}
+                    </Link>
                     <Link href={`/${locale}/community`} className={styles['user-dropdown-item']}>
                       {t(messages, 'nav.community')}
                     </Link>
@@ -161,6 +205,10 @@ export default function Header({ locale, messages }: HeaderProps) {
 
       {showLogin && (
         <LoginModal onClose={() => setShowLogin(false)} messages={messages} />
+      )}
+
+      {showSearch && (
+        <SearchModal locale={locale} messages={messages} onClose={() => setShowSearch(false)} />
       )}
     </>
   );

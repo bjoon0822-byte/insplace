@@ -39,15 +39,15 @@ export default function Footer({ locale, messages }: FooterProps) {
               <h4>{t(messages, 'footer.columns.company')}</h4>
               <ul>
                 <li><Link href={`/${locale}/trend`}>{t(messages, 'nav.trend')}</Link></li>
-                <li><span style={{ color: 'var(--gray-500)', cursor: 'default' }}>{t(messages, 'footer.terms')}</span></li>
-                <li><span style={{ color: 'var(--gray-500)', cursor: 'default' }}>{t(messages, 'footer.privacy')}</span></li>
+                <li><Link href={`/${locale}/community`}>{t(messages, 'nav.community')}</Link></li>
+                <li><Link href={`/${locale}/contact`}>{t(messages, 'nav.contact')}</Link></li>
               </ul>
             </div>
-            
+
             <div className={styles['footer-social']}>
-              <span className={styles['social-link']} style={{ cursor: 'default' }}>Instagram</span>
-              <span className={styles['social-link']} style={{ cursor: 'default' }}>Twitter</span>
-              <span className={styles['social-link']} style={{ cursor: 'default' }}>YouTube</span>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>Instagram</a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>X (Twitter)</a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>YouTube</a>
             </div>
           </div>
         </div>
@@ -62,13 +62,22 @@ export default function Footer({ locale, messages }: FooterProps) {
           INSPLACE
         </div>
 
+        {/* 사업자 정보 */}
+        <div className={styles['footer-business']}>
+          <p>인스플레이스 | 대표: 김인스 | 사업자등록번호: 000-00-00000</p>
+          <p>통신판매업신고: 제2025-서울강남-00000호 | 서울특별시 강남구</p>
+          <p>고객센터: hello@insplace.com</p>
+        </div>
+
         {/* 하단 카피라이트 */}
         <div className={styles['footer-bottom']}>
           <p className={styles['footer-copyright']}>
             {t(messages, 'footer.copyright')}
           </p>
           <div className={styles['footer-legal']}>
-            <span>Seoul, Korea</span>
+            <Link href={`/${locale}/terms`}>{t(messages, 'footer.terms')}</Link>
+            <span>·</span>
+            <Link href={`/${locale}/privacy`}>{t(messages, 'footer.privacy')}</Link>
           </div>
         </div>
       </div>

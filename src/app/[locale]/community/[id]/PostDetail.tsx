@@ -8,20 +8,8 @@ import { supabase } from '@/lib/supabase';
 import LoginModal from '@/components/auth/LoginModal';
 import type { Locale } from '@/types';
 import styles from '../community.module.css';
+import { t } from '@/i18n/request';
 import subStyles from '../../subpage.module.css';
-
-function t(messages: Record<string, unknown>, key: string): string {
-  const keys = key.split('.');
-  let current: unknown = messages;
-  for (const k of keys) {
-    if (current && typeof current === 'object' && k in current) {
-      current = (current as Record<string, unknown>)[k];
-    } else {
-      return key;
-    }
-  }
-  return typeof current === 'string' ? current : key;
-}
 
 interface PostData {
   id: string;

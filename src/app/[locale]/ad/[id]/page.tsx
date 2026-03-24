@@ -7,6 +7,9 @@ import { formatPrice } from '@/utils/format';
 import { adProducts } from '@/data/ads';
 import { locales } from '@/i18n/routing';
 import ReviewSection from '@/components/community/ReviewSection';
+import CaseStudySection from '@/components/product/CaseStudySection';
+import DesignReferenceGallery from '@/components/product/DesignReferenceGallery';
+import AddToQuoteButton from '@/components/ui/AddToQuoteButton';
 import styles from '../../subpage.module.css';
 
 interface PageProps {
@@ -17,6 +20,26 @@ export function generateStaticParams() {
   return locales.flatMap((locale) =>
     adProducts.map((ad) => ({ locale, id: ad.id }))
   );
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { locale, id } = await params;
+  const m = await getMessages(locale as Locale);
+  const ad = adProducts.find((a) => a.id === id);
+  if (!ad) return { title: 'Not Found' };
+
+  const name = (m as Record<string, Record<string, Record<string, string>>>).adData?.[ad.id]?.name || ad.nameKey;
+  const loc = (m as Record<string, Record<string, Record<string, string>>>).adData?.[ad.id]?.location || ad.location;
+
+  return {
+    title: `${name} — ${loc}`,
+    description: `₩${formatPrice(ad.price)} / ${ad.pricePeriod} · ${loc}`,
+    openGraph: {
+      title: name,
+      description: `₩${formatPrice(ad.price)} / ${ad.pricePeriod} · ${loc}`,
+      images: ad.imageUrl ? [{ url: ad.imageUrl, width: 800, height: 500 }] : [],
+    },
+  };
 }
 
 export default async function AdDetailPage({ params }: PageProps) {
@@ -94,11 +117,27 @@ export default async function AdDetailPage({ params }: PageProps) {
           </table>
 
           <div className={styles.detailCta}>
-            <Link href={`/${locale}/contact`} className="btn btn-primary">
+            <Link
+              href={`/${locale}/contact?subject=ad&product=${encodeURIComponent((m as any).adData?.[ad.id]?.name || ad.nameKey)}`}
+              className="btn btn-primary"
+            >
               {t(m, 'ad.inquire')}
             </Link>
+            <AddToQuoteButton
+              item={{
+                id: ad.id,
+                type: 'ad',
+                name: (m as any).adData?.[ad.id]?.name || ad.nameKey,
+                price: ad.price,
+                pricePeriod: ad.pricePeriod,
+                imageUrl: ad.imageUrl,
+              }}
+              messages={m}
+            />
           </div>
 
+          <CaseStudySection productId={ad.id} productType="ad" messages={m} />
+          <DesignReferenceGallery productId={ad.id} messages={m} />
           <ReviewSection targetType="ad" targetId={ad.id} messages={m} />
         </div>
       </div>

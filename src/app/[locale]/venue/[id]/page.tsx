@@ -7,6 +7,9 @@ import { formatPrice } from '@/utils/format';
 import { venues } from '@/data/venues';
 import { locales } from '@/i18n/routing';
 import ReviewSection from '@/components/community/ReviewSection';
+import CaseStudySection from '@/components/product/CaseStudySection';
+import DesignReferenceGallery from '@/components/product/DesignReferenceGallery';
+import AddToQuoteButton from '@/components/ui/AddToQuoteButton';
 import styles from '../../subpage.module.css';
 
 interface PageProps {
@@ -17,6 +20,26 @@ export function generateStaticParams() {
   return locales.flatMap((locale) =>
     venues.map((venue) => ({ locale, id: venue.id }))
   );
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { locale, id } = await params;
+  const m = await getMessages(locale as Locale);
+  const venue = venues.find((v) => v.id === id);
+  if (!venue) return { title: 'Not Found' };
+
+  const name = (m as Record<string, Record<string, Record<string, string>>>).venueData?.[venue.id]?.name || venue.nameKey;
+  const loc = (m as Record<string, Record<string, Record<string, string>>>).venueData?.[venue.id]?.location || venue.location;
+
+  return {
+    title: `${name} — ${loc}`,
+    description: `₩${formatPrice(venue.pricePerDay)} / ${t(m, 'venue.pricePerDay')} · ${venue.capacity}${t(m, 'venue.people')}`,
+    openGraph: {
+      title: name,
+      description: `${loc} · ${venue.capacity}${t(m, 'venue.people')}`,
+      images: venue.imageUrl ? [{ url: venue.imageUrl, width: 800, height: 500 }] : [],
+    },
+  };
 }
 
 export default async function VenueDetailPage({ params }: PageProps) {
@@ -92,11 +115,27 @@ export default async function VenueDetailPage({ params }: PageProps) {
           </table>
 
           <div className={styles.detailCta}>
-            <Link href={`/${locale}/contact`} className="btn btn-primary">
+            <Link
+              href={`/${locale}/contact?subject=venue&product=${encodeURIComponent((m as any).venueData?.[venue.id]?.name || venue.nameKey)}`}
+              className="btn btn-primary"
+            >
               {t(m, 'ad.inquire')}
             </Link>
+            <AddToQuoteButton
+              item={{
+                id: venue.id,
+                type: 'venue',
+                name: (m as any).venueData?.[venue.id]?.name || venue.nameKey,
+                price: venue.pricePerDay,
+                pricePeriod: t(m, 'venue.pricePerDay'),
+                imageUrl: venue.imageUrl,
+              }}
+              messages={m}
+            />
           </div>
 
+          <CaseStudySection productId={venue.id} productType="venue" messages={m} />
+          <DesignReferenceGallery productId={venue.id} messages={m} />
           <ReviewSection targetType="venue" targetId={venue.id} messages={m} />
         </div>
       </div>

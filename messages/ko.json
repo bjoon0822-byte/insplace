@@ -12,7 +12,12 @@
     "popup": "팝업스토어",
     "trend": "트렌드",
     "contact": "문의하기",
-    "community": "커뮤니티"
+    "community": "커뮤니티",
+    "artists": "아티스트",
+    "calendar": "캘린더",
+    "campaigns": "캠페인",
+    "gallery": "갤러리",
+    "explore": "맞춤 탐색"
   },
   "hero": {
     "title": "최애의 생일을 빛내줄 모든 것",
@@ -112,7 +117,8 @@
     "subjectOther": "기타 문의",
     "message": "문의 내용",
     "submit": "문의 보내기",
-    "success": "문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다."
+    "success": "문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.",
+    "error": "문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요."
   },
   "cta": {
     "title": "지금 시작하세요",
@@ -131,12 +137,55 @@
       "support": "지원"
     }
   },
+  "search": {
+    "placeholder": "광고, 장소, 굿즈, 팝업 검색...",
+    "shortcut": "⌘K",
+    "noResults": "검색 결과가 없습니다",
+    "tryAnother": "다른 키워드로 검색해보세요",
+    "ads": "광고 상품",
+    "venues": "장소 대관",
+    "goods": "굿즈",
+    "popups": "팝업스토어"
+  },
+  "quote": {
+    "title": "견적 바구니",
+    "empty": "아직 추가된 상품이 없습니다",
+    "add": "견적에 추가",
+    "added": "추가됨",
+    "remove": "삭제",
+    "total": "예상 총액",
+    "sendInquiry": "견적 문의 보내기",
+    "items": "개 상품"
+  },
+  "mypage": {
+    "title": "마이페이지",
+    "joinDate": "가입일",
+    "nextLevel": "다음 레벨까지",
+    "tabPosts": "내 게시글",
+    "tabReviews": "내 리뷰",
+    "tabQuotes": "견적 내역",
+    "noPosts": "작성한 게시글이 없습니다",
+    "noReviews": "작성한 리뷰가 없습니다",
+    "noQuotes": "견적 내역이 없습니다"
+  },
+  "artists": {
+    "title": "아티스트",
+    "subtitle": "K-POP 아이돌과 셀럽을 위한 팬 서포트",
+    "nextBirthday": "다음 생일",
+    "recommendedAds": "추천 광고 상품",
+    "startCampaign": "의 팬 광고를 시작해보세요!",
+    "inquire": "문의하기",
+    "campaigns": "진행중인 캠페인",
+    "noCampaigns": "아직 진행중인 캠페인이 없습니다"
+  },
   "community": {
     "title": "커뮤니티",
     "subtitle": "팬들과 함께 이야기를 나눠보세요",
     "login": "로그인",
     "signup": "회원가입",
     "logout": "로그아웃",
+    "kakaoLogin": "카카오로 시작하기",
+    "signupSuccess": "가입이 완료되었습니다! 이메일 인증 메일을 보냈으니 메일함을 확인해주세요. 인증 후 로그인할 수 있습니다.",
     "authSubtitle": "인스플레이스 커뮤니티에 참여하세요",
     "email": "이메일",
     "password": "비밀번호",
@@ -157,6 +206,7 @@
     "categoryQuestion": "질문",
     "submit": "등록",
     "cancel": "취소",
+    "writeError": "게시글 작성에 실패했습니다. 잠시 후 다시 시도해 주세요.",
     "delete": "삭제",
     "edit": "수정",
     "commentPlaceholder": "댓글을 입력해주세요",
@@ -223,5 +273,117 @@
       "seongsu": "성수역",
       "hyehwa": "혜화역"
     }
+  },
+  "campaigns": {
+    "title": "캠페인",
+    "subtitle": "팬들이 함께 만드는 아이돌 광고",
+    "activeCampaigns": "진행중인 캠페인",
+    "pastCampaigns": "종료된 캠페인",
+    "noCampaigns": "아직 진행중인 캠페인이 없습니다",
+    "target": "목표 금액",
+    "period": "기간",
+    "daysLeft": "남은 기간",
+    "organizer": "주최자",
+    "participate": "참여하기",
+    "proofPhotos": "인증샷",
+    "startOwn": "나만의 캠페인을 시작하세요",
+    "startOwnDesc": "좋아하는 아이돌을 위한 생일 광고, 데뷔 축하 등 다양한 캠페인을 만들 수 있습니다",
+    "inquire": "캠페인 문의"
+  },
+  "calendar": {
+    "title": "생일 캘린더",
+    "subtitle": "아이돌 생일을 확인하고 광고를 준비하세요",
+    "thisMonth": "이번 달",
+    "noEvents": "등록된 생일이 없습니다",
+    "cta": "생일 광고를 준비하시나요?",
+    "inquire": "광고 문의하기"
+  },
+  "gallery": {
+    "title": "갤러리",
+    "subtitle": "InsPlace에서 집행된 팬 광고 포트폴리오",
+    "all": "전체",
+    "digital": "전광판",
+    "lightbox": "라이트박스",
+    "cafe": "카페",
+    "popup": "팝업",
+    "noItems": "아직 등록된 사진이 없습니다",
+    "viewProduct": "이 광고와 같은 상품 보기"
+  },
+  "recommend": {
+    "title": "어떤 광고를 찾고 계세요?",
+    "subtitle": "원하는 광고를 자연스럽게 설명해주세요",
+    "placeholder": "예: 홍대에서 생일 광고 3일간...",
+    "submit": "추천받기",
+    "loading": "맞춤 상품을 찾고 있어요...",
+    "noResults": "조건에 맞는 상품을 찾지 못했어요",
+    "tryDifferent": "다른 조건으로 검색해보세요",
+    "resultCount": "개의 추천 상품",
+    "matchScore": "일치도",
+    "viewMore": "더 보러가기",
+    "intentSummary": "검색 조건"
+  },
+  "explore": {
+    "title": "맞춤 탐색",
+    "subtitle": "단계별로 딱 맞는 상품을 찾아보세요",
+    "step1": "지역 선택",
+    "step1Desc": "어디에서 광고하고 싶으세요?",
+    "step2": "예산 설정",
+    "step2Desc": "예산 범위를 선택해주세요",
+    "step3": "규모 선택",
+    "step3Desc": "원하는 광고 규모를 선택해주세요",
+    "step4": "목적 선택",
+    "step4Desc": "어떤 목적의 광고인가요?",
+    "next": "다음",
+    "prev": "이전",
+    "skip": "건너뛰기",
+    "showResults": "결과 보기",
+    "resultTitle": "맞춤 추천 상품",
+    "regionAll": "전체 지역",
+    "budgetBudget": "50만원 이하",
+    "budgetStandard": "50만~500만원",
+    "budgetPremium": "500만~1500만원",
+    "budgetLuxury": "1500만원 이상",
+    "scaleSmall": "소규모",
+    "scaleMedium": "중규모",
+    "scaleLarge": "대규모",
+    "scaleMega": "대규모+",
+    "purposeBirthday": "생일",
+    "purposeDebut": "데뷔",
+    "purposeComeback": "컴백",
+    "purposeConcert": "콘서트",
+    "purposeAnniversary": "기념일",
+    "purposeDrama": "드라마",
+    "purposeGeneral": "일반",
+    "noResults": "조건에 맞는 상품이 없습니다",
+    "changeFilters": "필터를 변경해보세요",
+    "ads": "광고 상품",
+    "venues": "대관 장소",
+    "goods": "굿즈"
+  },
+  "chat": {
+    "title": "AI 광고 상담",
+    "subtitle": "어떤 광고를 찾고 계세요?",
+    "welcome": "안녕하세요! InsPlace 광고 상담 도우미예요. 원하시는 광고에 대해 편하게 말씀해주세요 — 지역, 예산, 목적 등 무엇이든 좋습니다.",
+    "placeholder": "메시지를 입력하세요...",
+    "send": "전송",
+    "typing": "답변 작성 중...",
+    "maxTurns": "더 자세한 상담이 필요하시면 문의해주세요.",
+    "contactCta": "상담 문의하기",
+    "clearChat": "대화 초기화",
+    "error": "응답 생성 중 오류가 발생했습니다. 다시 시도해주세요.",
+    "example1": "홍대에서 생일 광고 3일간 하고 싶어요",
+    "example2": "50만원 예산으로 콘서트 홍보 광고",
+    "example3": "성수동 카페 대관 + 포토카드 제작",
+    "example4": "데뷔 기념일 합정역 조명 광고"
+  },
+  "caseStudy": {
+    "title": "이전 집행 사례",
+    "noData": "아직 등록된 사례가 없습니다",
+    "viewAll": "사례 더보기"
+  },
+  "designRef": {
+    "title": "디자인 시안 참고",
+    "noData": "아직 등록된 시안이 없습니다",
+    "viewAll": "시안 더보기"
   }
 }

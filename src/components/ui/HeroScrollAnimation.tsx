@@ -19,6 +19,8 @@ export default function HeroScrollAnimation() {
   const lastTimeRef = useRef(0);
   const rafRef = useRef<number>(0);
   const scrollYRef = useRef(0);
+  const isVisibleRef = useRef(true);
+  const canvasSizeRef = useRef({ w: 0, h: 0 });
   const [loaded, setLoaded] = useState(false);
 
   // Preload all frames
@@ -54,6 +56,40 @@ export default function HeroScrollAnimation() {
     };
   }, []);
 
+  // Visibility observer — pause animation when off-screen
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0 },
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  // Cache canvas size on resize instead of per-frame getBoundingClientRect
+  useEffect(() => {
+    const updateSize = () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvasSizeRef.current = {
+        w: rect.width * dpr,
+        h: rect.height * dpr,
+      };
+    };
+
+    updateSize();
+    window.addEventListener('resize', updateSize, { passive: true });
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   // Draw a frame on the canvas (cover-fit)
   const drawFrame = useCallback((index: number) => {
     const canvas = canvasRef.current;
@@ -61,10 +97,8 @@ export default function HeroScrollAnimation() {
     const img = imagesRef.current[index];
     if (!canvas || !ctx || !img || !img.complete) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const w = rect.width * dpr;
-    const h = rect.height * dpr;
+    const { w, h } = canvasSizeRef.current;
+    if (w === 0 || h === 0) return;
 
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
@@ -87,7 +121,7 @@ export default function HeroScrollAnimation() {
     ctx.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
   }, []);
 
-  // Track scroll for parallax offset
+  // Track scroll
   useEffect(() => {
     const onScroll = () => {
       scrollYRef.current = window.scrollY;
@@ -96,7 +130,7 @@ export default function HeroScrollAnimation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Animation loop — auto-plays frames, slows as user scrolls down
+  // Animation loop — pauses when off-screen
   useEffect(() => {
     if (!loaded) return;
 
@@ -104,12 +138,18 @@ export default function HeroScrollAnimation() {
     lastTimeRef.current = performance.now();
 
     const animate = (now: number) => {
+      // Skip rendering when not visible
+      if (!isVisibleRef.current) {
+        lastTimeRef.current = now;
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
       const delta = now - lastTimeRef.current;
 
-      // Slow animation when scrolled past hero (cinematic slowdown)
-      const heroHeight = containerRef.current?.getBoundingClientRect().height || window.innerHeight;
+      const heroHeight = containerRef.current?.offsetHeight || window.innerHeight;
       const scrollProgress = Math.min(1, scrollYRef.current / heroHeight);
-      const speedMultiplier = 1 - scrollProgress * 0.6; // slows to 40% speed
+      const speedMultiplier = 1 - scrollProgress * 0.6;
 
       const interval = 1000 / (BASE_FPS * Math.max(0.2, speedMultiplier));
 

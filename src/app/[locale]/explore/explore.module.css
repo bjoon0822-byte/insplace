@@ -1,0 +1,353 @@
+/* ── Explorer Wizard ── */
+.wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Progress Bar ── */
+.progressBar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+}
+
+.progressBar::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: var(--gray-200, #e5e7eb);
+  z-index: 0;
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 120px;
+}
+
+.progressDot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.813rem;
+  font-weight: 600;
+  background: var(--gray-100, #f3f4f6);
+  color: var(--gray-400, #9ca3af);
+  transition: all 0.3s ease;
+}
+
+.progressActive .progressDot {
+  background: var(--accent, #D97706);
+  color: #fff;
+}
+
+.progressCurrent .progressDot {
+  box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.2);
+}
+
+.progressLabel {
+  font-size: 0.75rem;
+  color: var(--gray-400, #9ca3af);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.progressActive .progressLabel {
+  color: var(--gray-700, #374151);
+}
+
+/* ── Step Content ── */
+.stepContent {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.stepTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  word-break: keep-all;
+  color: var(--gray-900, #111827);
+}
+
+/* ── Option Grid ── */
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.optionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  border: 2px solid var(--gray-200, #e5e7eb);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+}
+
+.optionCard:hover {
+  border-color: var(--accent, #D97706);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.1);
+}
+
+.optionSelected {
+  border-color: var(--accent, #D97706);
+  background: rgba(217, 119, 6, 0.05);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+}
+
+.optionIcon {
+  font-size: 1.75rem;
+}
+
+.optionLabel {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--gray-900, #111827);
+}
+
+.optionDesc {
+  font-size: 0.75rem;
+  color: var(--gray-500, #6b7280);
+  line-height: 1.4;
+}
+
+.optionCount {
+  font-size: 0.688rem;
+  color: var(--gray-400, #9ca3af);
+}
+
+/* ── Nav Buttons ── */
+.navButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.navBtn {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 1px solid var(--gray-200, #e5e7eb);
+  background: #fff;
+  color: var(--gray-700, #374151);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navBtn:hover {
+  background: var(--gray-50, #f9fafb);
+  border-color: var(--gray-300, #d1d5db);
+}
+
+.navBtnSkip {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: var(--gray-400, #9ca3af);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navBtnSkip:hover {
+  color: var(--accent, #D97706);
+}
+
+/* ── Filter Badges ── */
+.filterBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.filterBadge {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--accent, #D97706);
+  font-size: 0.813rem;
+  font-weight: 500;
+}
+
+/* ── Results ── */
+.resultSection {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.resultSectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--gray-800, #1f2937);
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.resultCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200, #e5e7eb);
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.resultCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.resultImageWrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.resultImage {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.resultCard:hover .resultImage {
+  transform: scale(1.05);
+}
+
+.availBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.688rem;
+  font-weight: 600;
+}
+
+.avail_available {
+  background: rgba(16, 185, 129, 0.9);
+  color: #fff;
+}
+
+.avail_busy {
+  background: rgba(245, 158, 11, 0.9);
+  color: #fff;
+}
+
+.avail_soldout {
+  background: rgba(107, 114, 128, 0.8);
+  color: #fff;
+}
+
+.resultBody {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resultType {
+  font-size: 0.688rem;
+  font-weight: 600;
+  color: var(--accent, #D97706);
+  letter-spacing: 0.05em;
+}
+
+.resultName {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--gray-900, #111827);
+  word-break: keep-all;
+  line-height: 1.3;
+}
+
+.resultMeta {
+  font-size: 0.813rem;
+  color: var(--gray-500, #6b7280);
+}
+
+.resultPrice {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent, #D97706);
+  font-variant-numeric: tabular-nums;
+  margin-top: 4px;
+}
+
+/* ── Empty State ── */
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray-500, #6b7280);
+}
+
+.emptyState p:first-child {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.emptyHint {
+  font-size: 0.875rem;
+  margin-top: 8px;
+  color: var(--gray-400, #9ca3af);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .optionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resultGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .progressLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .resultGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+}

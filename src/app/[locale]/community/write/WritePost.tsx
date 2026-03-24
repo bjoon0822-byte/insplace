@@ -6,20 +6,8 @@ import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase';
 import type { Locale } from '@/types';
+import { t } from '@/i18n/request';
 import styles from '../community.module.css';
-
-function t(messages: Record<string, unknown>, key: string): string {
-  const keys = key.split('.');
-  let current: unknown = messages;
-  for (const k of keys) {
-    if (current && typeof current === 'object' && k in current) {
-      current = (current as Record<string, unknown>)[k];
-    } else {
-      return key;
-    }
-  }
-  return typeof current === 'string' ? current : key;
-}
 
 interface WritePostProps {
   locale: Locale;
@@ -33,6 +21,7 @@ export default function WritePost({ locale, messages }: WritePostProps) {
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('free');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -40,8 +29,9 @@ export default function WritePost({ locale, messages }: WritePostProps) {
     if (!title.trim() || !content.trim()) return;
 
     setLoading(true);
+    setError('');
 
-    const { data, error } = await supabase
+    const { data, error: insertError } = await supabase
       .from('posts')
       .insert({
         author_id: user.id,
@@ -52,9 +42,10 @@ export default function WritePost({ locale, messages }: WritePostProps) {
       .select('id')
       .single();
 
-    if (!error && data) {
+    if (!insertError && data) {
       router.push(`/${locale}/community/${data.id}`);
     } else {
+      setError(t(messages, 'community.writeError') || '게시글 작성에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       setLoading(false);
     }
   }
@@ -111,6 +102,12 @@ export default function WritePost({ locale, messages }: WritePostProps) {
           required
         />
       </div>
+
+      {error && (
+        <p role="alert" style={{ color: 'var(--danger)', fontSize: '0.875rem', fontWeight: 600 }}>
+          {error}
+        </p>
+      )}
 
       <div className={styles.writeActions}>
         <Link href={`/${locale}/community`} className={styles.cancelBtn}>

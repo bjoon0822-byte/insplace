@@ -4,20 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase';
 import LoginModal from '@/components/auth/LoginModal';
+import { t } from '@/i18n/request';
 import styles from '@/app/[locale]/community/community.module.css';
-
-function t(messages: Record<string, unknown>, key: string): string {
-  const keys = key.split('.');
-  let current: unknown = messages;
-  for (const k of keys) {
-    if (current && typeof current === 'object' && k in current) {
-      current = (current as Record<string, unknown>)[k];
-    } else {
-      return key;
-    }
-  }
-  return typeof current === 'string' ? current : key;
-}
 
 interface ReviewData {
   id: string;
@@ -29,7 +17,7 @@ interface ReviewData {
 }
 
 interface ReviewSectionProps {
-  targetType: 'ad' | 'venue';
+  targetType: 'ad' | 'venue' | 'goods' | 'popup';
   targetId: string;
   messages: Record<string, unknown>;
 }

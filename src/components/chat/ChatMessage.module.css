@@ -1,0 +1,128 @@
+/* ══════════════════════════════════════
+   Chat Message — Premium Bubble Style
+   ══════════════════════════════════════ */
+
+.row {
+  display: flex;
+  gap: 8px;
+  max-width: 92%;
+}
+
+.userRow {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.assistantRow {
+  align-self: flex-start;
+}
+
+/* ── Avatar ── */
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.15);
+  color: var(--accent, #D97706);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Bubble ── */
+.bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  min-width: 0;
+}
+
+.userBubble {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.22) 0%, rgba(217, 119, 6, 0.14) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-bottom-right-radius: 4px;
+}
+
+.assistantBubble {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom-left-radius: 4px;
+}
+
+/* ── Text ── */
+.text {
+  margin: 0;
+  font-size: 0.813rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.90);
+  word-break: keep-all;
+  white-space: pre-wrap;
+}
+
+.userBubble .text {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ── Products Grid ── */
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+/* ── Typing Indicator ── */
+.typing {
+  display: flex;
+  gap: 5px;
+  padding: 2px 0;
+}
+
+.typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent, #D97706);
+  opacity: 0.4;
+  animation: typingPulse 1.4s ease-in-out infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingPulse {
+  0%, 70%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  35% {
+    transform: scale(1.3);
+    opacity: 0.9;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .row {
+    max-width: 96%;
+  }
+
+  .bubble {
+    padding: 8px 12px;
+    border-radius: 12px;
+  }
+
+  .text {
+    font-size: 0.75rem;
+  }
+}

@@ -9,6 +9,15 @@ export const goodsItems: GoodsItem[] = [
     descriptionKey: '빛에 따라 변하는 고급스러운 홀로그램 코팅 포토카드. 최소 100장 단위 제작 가능.',
     minOrder: 100,
     imageUrl: '/images/nanobanana/goods.webp',
+    specs: {
+      '크기': '88 × 56mm (표준 트레카 사이즈)',
+      '재질': '스노우지 350g + 홀로그램 코팅',
+      '인쇄': '양면 풀컬러 UV 오프셋',
+      '제작기간': '영업일 기준 5~7일',
+    },
+    tags: ['포토카드', '트레카', '홀로그램', '굿즈', '인쇄'],
+    purposes: ['birthday', 'debut', 'comeback', 'concert', 'anniversary', 'general'],
+    bundlesWith: ['goods-004', 'venue-001', 'venue-002'],
   },
   {
     id: 'goods-002',
@@ -18,6 +27,15 @@ export const goodsItems: GoodsItem[] = [
     descriptionKey: '콘서트장 필수템! 플래시를 터뜨리면 환하게 빛나는 고품질 스웨이드 반사 슬로건.',
     minOrder: 10,
     imageUrl: '/images/nanobanana/goods.webp',
+    specs: {
+      '크기': '600 × 200mm',
+      '재질': '프리미엄 스웨이드 + 반사 인쇄',
+      '인쇄': '단면 풀컬러 실사 출력',
+      '제작기간': '영업일 기준 7~10일',
+    },
+    tags: ['슬로건', '반사', '콘서트', '응원', '굿즈'],
+    purposes: ['concert', 'birthday', 'debut', 'general'],
+    bundlesWith: ['goods-001'],
   },
   {
     id: 'goods-003',
@@ -27,6 +45,15 @@ export const goodsItems: GoodsItem[] = [
     descriptionKey: '원하는 디자인과 문구를 넣을 수 있는 프리미엄 생일 케이크 (1호 기준).',
     minOrder: 1,
     imageUrl: '/images/nanobanana/venue.webp',
+    specs: {
+      '사이즈': '1호 (약 15cm) 기준',
+      '맛': '바닐라 / 초코 / 딸기 선택',
+      '토퍼': '맞춤 레터링 토퍼 포함',
+      '수령': '주문 후 3일 전 예약 필수',
+    },
+    tags: ['케이크', '레터링', '생일', '커스텀', '디저트'],
+    purposes: ['birthday', 'anniversary', 'graduation'],
+    bundlesWith: ['goods-005', 'venue-001', 'venue-004'],
   },
   {
     id: 'goods-004',
@@ -36,6 +63,15 @@ export const goodsItems: GoodsItem[] = [
     descriptionKey: '생일 이벤트 카페 필수품. 고해상도 인쇄가 적용된 프리미엄 종이 컵홀더.',
     minOrder: 500,
     imageUrl: '/images/nanobanana/goods.webp',
+    specs: {
+      '크기': '230 × 85mm (전개 기준)',
+      '재질': '아이보리 300g + 무광 코팅',
+      '인쇄': '단면 풀컬러 오프셋',
+      '제작기간': '영업일 기준 5~7일',
+    },
+    tags: ['컵홀더', '카페', '이벤트', '인쇄', '굿즈'],
+    purposes: ['birthday', 'debut', 'general'],
+    bundlesWith: ['goods-001', 'venue-001', 'venue-002', 'venue-006'],
   },
   {
     id: 'goods-005',
@@ -45,5 +81,14 @@ export const goodsItems: GoodsItem[] = [
     descriptionKey: '최애의 탄생화나 시그니처 컬러에 맞춰 전문 플로리스트가 제작하는 커스텀 꽃다발.',
     minOrder: 1,
     imageUrl: '/images/nanobanana/venue.webp',
-  }
+    specs: {
+      '구성': '생화 10~15송이 + 리본 래핑',
+      '사이즈': 'M 사이즈 (높이 약 35cm)',
+      '커스텀': '컬러/꽃 종류 지정 가능',
+      '배송': '서울 당일 배송 (오전 주문 시)',
+    },
+    tags: ['꽃다발', '플라워', '커스텀', '탄생화', '선물'],
+    purposes: ['birthday', 'debut', 'anniversary', 'graduation', 'general'],
+    bundlesWith: ['goods-003', 'venue-001'],
+  },
 ];

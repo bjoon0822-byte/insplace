@@ -9,6 +9,26 @@ export type AdType = 'digital' | 'lightbox';
 /** 예약 가용 상태 */
 export type AvailabilityStatus = 'available' | 'busy' | 'soldout';
 
+/** 광고 목적 태그 */
+export type AdPurpose =
+  | 'birthday'       // 생일
+  | 'debut'          // 데뷔 기념일
+  | 'comeback'       // 컴백
+  | 'drama'          // 드라마/영화 응원
+  | 'concert'        // 콘서트/투어
+  | 'anniversary'    // 활동 기념일
+  | 'graduation'     // 졸업/입학
+  | 'general';       // 일반 홍보
+
+/** 예산 등급 */
+export type BudgetTier = 'budget' | 'standard' | 'premium' | 'luxury';
+
+/** 규모 등급 */
+export type ScaleTier = 'small' | 'medium' | 'large' | 'mega';
+
+/** 통합 상품 카테고리 */
+export type ProductCategory = 'ad' | 'venue' | 'goods' | 'popup';
+
 /** 광고 상품 */
 export interface AdProduct {
   id: string;
@@ -24,6 +44,11 @@ export interface AdProduct {
   descriptionKey: string; // i18n 키
   specs: Record<string, string>; // 상세 스펙
   imageUrl: string;       // 갤러리 퀄리티 고해상도 이미지
+  tags: string[];              // 검색/매칭용 태그
+  purposes: AdPurpose[];       // 적합한 광고 목적
+  budgetTier: BudgetTier;
+  scaleTier: ScaleTier;
+  regionNormalized: string;    // '서울-마포' 형식
 }
 
 /** 대관 장소 */
@@ -38,6 +63,11 @@ export interface Venue {
   descriptionKey: string;
   availability: AvailabilityStatus;
   imageUrl: string;
+  tags: string[];
+  purposes: AdPurpose[];
+  budgetTier: BudgetTier;
+  scaleTier: ScaleTier;
+  regionNormalized: string;
 }
 
 /** 굿즈 상품 */
@@ -49,6 +79,10 @@ export interface GoodsItem {
   descriptionKey: string;
   minOrder: number;       // 최소 주문 수량
   imageUrl: string;
+  specs?: Record<string, string>; // 상세 스펙 (크기, 재질 등)
+  tags: string[];
+  purposes: AdPurpose[];
+  bundlesWith: string[];       // 추천 조합 상품 ID
 }
 
 /** 팝업스토어 */
@@ -72,6 +106,16 @@ export interface TrendItem {
   change: number;         // 순위 변동 (+, -, 0)
 }
 
+/** 견적 장바구니 아이템 */
+export interface QuoteItem {
+  id: string;
+  type: 'ad' | 'venue' | 'goods';
+  name: string;
+  price: number;
+  pricePeriod?: string;
+  imageUrl?: string;
+}
+
 /** 네비게이션 메뉴 아이템 */
 export interface NavItem {
   labelKey: string;       // i18n 키
@@ -93,6 +137,9 @@ export const LEVEL_THRESHOLDS: Record<UserLevel, number> = {
   legend: 1000,
 };
 
+/** 유저 역할 */
+export type UserRole = 'user' | 'admin';
+
 /** 유저 프로필 */
 export interface UserProfile {
   id: string;
@@ -101,6 +148,7 @@ export interface UserProfile {
   avatar_url: string | null;
   points: number;
   level: UserLevel;
+  role: UserRole;
   post_count: number;
   comment_count: number;
   review_count: number;
@@ -132,14 +180,76 @@ export interface Comment {
   created_at: string;
 }
 
-/** 리뷰 (광고/대관 별점) */
+/** 리뷰 (광고/대관/굿즈/팝업 별점) */
 export interface Review {
   id: string;
   author_id: string;
   author: UserProfile;
-  target_type: 'ad' | 'venue';
+  target_type: 'ad' | 'venue' | 'goods' | 'popup';
   target_id: string;
   rating: number;          // 1~5
   content: string;
   created_at: string;
+}
+
+/* ── 추천 시스템 ── */
+
+/** 추천 결과 */
+export interface RecommendationResult {
+  id: string;
+  category: ProductCategory;
+  score: number;               // 0-100 관련도 점수
+  matchReasons: string[];      // ['지역 일치', '예산 범위 내']
+  product: AdProduct | Venue | GoodsItem | PopupEvent;
+}
+
+/** 파싱된 사용자 의도 */
+export interface ParsedIntent {
+  purposes: AdPurpose[];
+  regions: string[];
+  budgetMax: number | null;
+  duration: number | null;     // 일 단위
+  productTypes: ProductCategory[];
+  keywords: string[];
+  artistName: string | null;
+}
+
+/** 과거 집행 사례 */
+export interface CaseStudy {
+  id: string;
+  productId: string;
+  productType: ProductCategory;
+  title: string;
+  artistName: string;
+  purpose: AdPurpose;
+  date: string;
+  imageUrls: string[];
+  description: string;
+}
+
+/** 디자인 시안 참고 */
+export interface DesignReference {
+  id: string;
+  productId: string;
+  category: 'birthday' | 'debut' | 'concert' | 'general';
+  title: string;
+  imageUrl: string;
+  dimensions: string;
+}
+
+/** 챗봇 메시지 */
+export interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  products?: RecommendationResult[];
+  timestamp: number;
+}
+
+/** 탐색기 위자드 상태 */
+export interface ExplorerState {
+  step: 1 | 2 | 3 | 4;
+  region: string | null;
+  budgetRange: [number, number] | null;
+  scaleTier: ScaleTier | null;
+  purpose: AdPurpose | null;
 }
