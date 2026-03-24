@@ -105,9 +105,9 @@ async function processChat(
 
     const message = choice.message;
 
-    // 텍스트 응답 스트림
+    // 텍스트 응답 스트림 (마크다운 기호 제거)
     if (message.content) {
-      const text = message.content;
+      const text = stripMarkdown(message.content);
       const chunkSize = 20;
       for (let i = 0; i < text.length; i += chunkSize) {
         const chunk = text.slice(i, i + chunkSize);
@@ -160,6 +160,16 @@ async function processChat(
 
     toolLoops++;
   }
+}
+
+/** GPT가 무시하고 넣는 마크다운 기호를 서버에서 강제 제거 */
+function stripMarkdown(text: string): string {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '$1')   // **bold** → bold
+    .replace(/\*(.*?)\*/g, '$1')       // *italic* → italic
+    .replace(/^#{1,6}\s+/gm, '')       // ## heading → heading
+    .replace(/^[-*]\s+/gm, '')         // - list item → list item
+    .replace(/`(.*?)`/g, '$1');        // `code` → code
 }
 
 function executeTool(
