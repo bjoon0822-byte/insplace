@@ -1,0 +1,83 @@
+/* ── 스켈레톤 로딩 UI ── */
+.skeleton {
+  background: var(--gray-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── 카드 스켈레톤 ── */
+.cardSkeleton {
+  background: var(--gray-50);
+  border-radius: 28px;
+  padding: 6px;
+}
+
+.cardSkeletonInner {
+  background: var(--bg-main);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.cardSkeletonBody {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardSkeletonFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ── 그리드 스켈레톤 ── */
+.gridSkeleton {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 1024px) {
+  .gridSkeleton {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gridSkeleton {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── 통계 스켈레톤 ── */
+.statSkeleton {
+  background: var(--gray-50);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

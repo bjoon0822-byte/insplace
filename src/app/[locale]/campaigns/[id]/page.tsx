@@ -8,6 +8,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { formatPrice } from '@/utils/format';
 import ShareButton from '@/components/ui/ShareButton';
 import styles from '../../subpage.module.css';
+import cs from '../campaigns.module.css';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -64,84 +65,55 @@ export default async function CampaignDetailPage({ params }: PageProps) {
 
       <div className={styles.sectionContainer}>
         <FadeIn direction="up">
-          {/* Main info card */}
-          <div style={{
-            background: 'var(--bg-main)',
-            border: '1px solid var(--gray-200)',
-            borderRadius: '16px',
-            padding: '2rem',
-            marginBottom: '1.5rem',
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
-              <div style={{ flex: 1, minWidth: '200px' }}>
-                <p style={{ color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                  {campaign.description}
-                </p>
+          <div className={cs.detailCard}>
+            <div className={cs.detailLayout}>
+              <div className={cs.detailContent}>
+                <p className={cs.detailDesc}>{campaign.description}</p>
 
-                {/* Progress */}
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '1.5rem', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>
+                <div className={cs.detailProgress}>
+                  <div className={cs.detailProgressHeader}>
+                    <span className={cs.detailAmount}>
                       ₩{formatPrice(campaign.currentAmount)}
                     </span>
-                    <span style={{ fontSize: '1.25rem', fontWeight: 600, color: progress >= 100 ? '#16a34a' : 'var(--accent)' }}>
+                    <span className={cs.detailPercent} style={{ color: progress >= 100 ? '#16a34a' : 'var(--accent)' }}>
                       {progress}%
                     </span>
                   </div>
-                  <div style={{
-                    width: '100%',
-                    height: '8px',
-                    background: 'var(--gray-100)',
-                    borderRadius: '4px',
-                    overflow: 'hidden',
-                  }}>
-                    <div style={{
-                      width: `${progress}%`,
-                      height: '100%',
-                      background: progress >= 100 ? '#16a34a' : 'var(--accent)',
-                      borderRadius: '4px',
-                    }} />
+                  <div className={cs.detailProgressTrack}>
+                    <div
+                      className={cs.detailProgressFill}
+                      style={{
+                        width: `${progress}%`,
+                        background: progress >= 100 ? '#16a34a' : 'var(--accent)',
+                      }}
+                    />
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--gray-500)', marginTop: '8px' }}>
+                  <div className={cs.detailProgressFooter}>
                     <span>{t(m, 'campaigns.target')}: ₩{formatPrice(campaign.targetAmount)}</span>
                     <span>{campaign.contributorCount}명 참여</span>
                   </div>
                 </div>
 
-                {/* Meta info */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', fontSize: '0.85rem' }}>
-                  <div style={{ background: 'var(--gray-50)', padding: '12px', borderRadius: '10px' }}>
-                    <p style={{ color: 'var(--gray-500)', fontSize: '0.75rem' }}>{t(m, 'campaigns.period')}</p>
-                    <p style={{ fontWeight: 600 }}>{campaign.startDate} ~ {campaign.endDate}</p>
+                <div className={cs.metaGrid}>
+                  <div className={cs.metaBox}>
+                    <p className={cs.metaLabel}>{t(m, 'campaigns.period')}</p>
+                    <p className={cs.metaValue}>{campaign.startDate} ~ {campaign.endDate}</p>
                   </div>
-                  <div style={{ background: 'var(--gray-50)', padding: '12px', borderRadius: '10px' }}>
-                    <p style={{ color: 'var(--gray-500)', fontSize: '0.75rem' }}>{t(m, 'campaigns.daysLeft')}</p>
-                    <p style={{ fontWeight: 600, color: daysLeft <= 7 ? '#ef4444' : 'inherit' }}>D-{daysLeft}</p>
+                  <div className={cs.metaBox}>
+                    <p className={cs.metaLabel}>{t(m, 'campaigns.daysLeft')}</p>
+                    <p className={daysLeft <= 7 ? cs.metaValueUrgent : cs.metaValue}>D-{daysLeft}</p>
                   </div>
-                  <div style={{ background: 'var(--gray-50)', padding: '12px', borderRadius: '10px' }}>
-                    <p style={{ color: 'var(--gray-500)', fontSize: '0.75rem' }}>{t(m, 'campaigns.organizer')}</p>
-                    <p style={{ fontWeight: 600 }}>{campaign.createdBy}</p>
+                  <div className={cs.metaBox}>
+                    <p className={cs.metaLabel}>{t(m, 'campaigns.organizer')}</p>
+                    <p className={cs.metaValue}>{campaign.createdBy}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Actions */}
-            <div style={{ display: 'flex', gap: '12px', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+            <div className={cs.actionRow}>
               {isActive && (
-                <Link
-                  href={`/${locale}/contact`}
-                  style={{
-                    display: 'inline-block',
-                    padding: '14px 32px',
-                    background: 'var(--accent)',
-                    color: '#fff',
-                    borderRadius: '999px',
-                    fontWeight: 600,
-                    textDecoration: 'none',
-                    fontSize: '0.95rem',
-                  }}
-                >
+                <Link href={`/${locale}/contact`} className={cs.participateBtn}>
                   {t(m, 'campaigns.participate')}
                 </Link>
               )}
@@ -150,47 +122,24 @@ export default async function CampaignDetailPage({ params }: PageProps) {
           </div>
         </FadeIn>
 
-        {/* Artist link */}
         {artist && (
           <FadeIn direction="up" delay={0.1}>
-            <Link
-              href={`/${locale}/artists/${artist.id}`}
-              style={{
-                display: 'block',
-                background: 'var(--gray-50)',
-                border: '1px solid var(--gray-200)',
-                borderRadius: '12px',
-                padding: '1.25rem',
-                textDecoration: 'none',
-                color: 'inherit',
-                marginBottom: '1.5rem',
-              }}
-            >
-              <p style={{ fontSize: '0.75rem', color: 'var(--gray-500)', marginBottom: '4px' }}>아티스트</p>
-              <p style={{ fontWeight: 700 }}>{artist.name} <span style={{ color: 'var(--gray-400)' }}>({artist.nameEn})</span></p>
-              <p style={{ fontSize: '0.8rem', color: 'var(--gray-500)' }}>{artist.group || 'Solo'}</p>
+            <Link href={`/${locale}/artists/${artist.id}`} className={cs.artistCard}>
+              <p className={cs.artistLabel}>아티스트</p>
+              <p className={cs.artistName}>
+                {artist.name} <span className={cs.artistNameEn}>({artist.nameEn})</span>
+              </p>
+              <p className={cs.artistGroup}>{artist.group || 'Solo'}</p>
             </Link>
           </FadeIn>
         )}
 
-        {/* Proof images */}
         {campaign.proofImages.length > 0 && (
           <FadeIn direction="up" delay={0.15}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>
-              {t(m, 'campaigns.proofPhotos')}
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
+            <h3 className={cs.proofTitle}>{t(m, 'campaigns.proofPhotos')}</h3>
+            <div className={cs.proofGrid}>
               {campaign.proofImages.map((img, i) => (
-                <div key={i} style={{
-                  aspectRatio: '4/3',
-                  background: 'var(--gray-100)',
-                  borderRadius: '12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--gray-400)',
-                  fontSize: '0.85rem',
-                }}>
+                <div key={i} className={cs.proofImage}>
                   인증샷 {i + 1}
                 </div>
               ))}

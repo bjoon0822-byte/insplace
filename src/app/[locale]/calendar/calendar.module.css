@@ -1,0 +1,157 @@
+/* =========================================
+   캘린더 페이지 전용 스타일
+   ========================================= */
+
+/* ── 월별 그리드 ── */
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* ── 월 카드 ── */
+.monthCard {
+  background: var(--bg-main);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 1.25rem;
+  min-height: 120px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.monthCard:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.monthCardCurrent {
+  composes: monthCard;
+  border: 2px solid var(--accent);
+}
+
+.monthCardCurrent:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* ── 월 헤더 ── */
+.monthHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.monthName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.monthNameCurrent {
+  composes: monthName;
+  color: var(--accent);
+}
+
+.currentBadge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--accent);
+  border-radius: 999px;
+}
+
+/* ── 빈 상태 ── */
+.monthEmpty {
+  color: var(--gray-400);
+  font-size: 0.8rem;
+}
+
+/* ── 아티스트 목록 ── */
+.artistList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.artistLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--gray-50);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+  font-size: 0.85rem;
+}
+
+.artistLink:hover {
+  background: var(--gray-100);
+}
+
+.artistDay {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  min-width: 28px;
+}
+
+.artistLinkName {
+  font-weight: 600;
+}
+
+.artistLinkGroup {
+  color: var(--gray-400);
+  font-size: 0.75rem;
+}
+
+/* ── CTA ── */
+.ctaSection {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 2rem;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .calendarGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .monthCard,
+  .monthCardCurrent {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendarGrid {
+    grid-template-columns: 1fr;
+  }
+}

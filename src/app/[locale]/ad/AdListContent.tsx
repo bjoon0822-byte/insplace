@@ -59,6 +59,20 @@ export default function AdListContent({ locale, messages }: AdListContentProps) 
       </div>
 
       <div className={styles.sectionContainer}>
+        {filtered.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '4rem 1rem' }}>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gray-300)" strokeWidth="1.5" style={{ marginBottom: '1rem' }}>
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <p style={{ color: 'var(--gray-500)', fontWeight: 600, marginBottom: '0.5rem' }}>
+              {t(messages, 'ad.noResults')}
+            </p>
+            <p style={{ color: 'var(--gray-400)', fontSize: '0.875rem' }}>
+              다른 필터를 선택해 보세요
+            </p>
+          </div>
+        ) : (
         <div className={styles.cardGrid}>
           {filtered.map((ad, idx) => (
             <FadeIn key={ad.id} delay={idx * 0.06} direction="up">
@@ -105,6 +119,7 @@ export default function AdListContent({ locale, messages }: AdListContentProps) 
             </FadeIn>
           ))}
         </div>
+        )}
       </div>
     </>
   );

@@ -67,7 +67,8 @@
     "inquire": "お問い合わせ",
     "available": "予約可能",
     "busy": "残りわずか",
-    "soldout": "受付終了"
+    "soldout": "受付終了",
+    "noResults": "検索結果がありません"
   },
   "venue": {
     "title": "会場レンタル",

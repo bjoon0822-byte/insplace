@@ -67,7 +67,8 @@
     "inquire": "立即咨询",
     "available": "可预约",
     "busy": "即将满额",
-    "soldout": "已满"
+    "soldout": "已满",
+    "noResults": "没有搜索结果"
   },
   "venue": {
     "title": "场地租赁",

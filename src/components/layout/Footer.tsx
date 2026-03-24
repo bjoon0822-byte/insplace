@@ -45,9 +45,9 @@ export default function Footer({ locale, messages }: FooterProps) {
             </div>
 
             <div className={styles['footer-social']}>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>Instagram</a>
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>X (Twitter)</a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>YouTube</a>
+              <a href="https://instagram.com/insplace_official" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>Instagram</a>
+              <a href="https://x.com/insplace_kr" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>X (Twitter)</a>
+              <a href="https://youtube.com/@insplace" target="_blank" rel="noopener noreferrer" className={styles['social-link']}>YouTube</a>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { campaigns } from '@/data/campaigns';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { formatPrice } from '@/utils/format';
 import styles from '../subpage.module.css';
+import cs from './campaigns.module.css';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -56,75 +57,57 @@ export default async function CampaignsPage({ params }: PageProps) {
       </section>
 
       <div className={styles.sectionContainer}>
-        {/* Active Campaigns */}
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+        <h2 className={cs.sectionTitle}>
           {t(m, 'campaigns.activeCampaigns')}
         </h2>
 
         {activeCampaigns.length === 0 ? (
-          <p style={{ color: 'var(--gray-500)', textAlign: 'center', padding: '3rem' }}>
+          <p className={cs.emptyState}>
             {t(m, 'campaigns.noCampaigns')}
           </p>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
+          <div className={cs.campaignList}>
             {activeCampaigns.map((campaign, idx) => {
               const progress = Math.min(100, Math.round((campaign.currentAmount / campaign.targetAmount) * 100));
               const daysLeft = Math.max(0, Math.ceil((new Date(campaign.endDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24)));
 
               return (
                 <FadeIn key={campaign.id} delay={idx * 0.05} direction="up">
-                  <Link href={`/${locale}/campaigns/${campaign.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{
-                      background: 'var(--bg-main)',
-                      border: '1px solid var(--gray-200)',
-                      borderRadius: '16px',
-                      padding: '1.5rem',
-                      transition: 'all 0.3s',
-                      cursor: 'pointer',
-                    }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                  <Link href={`/${locale}/campaigns/${campaign.id}`} className={cs.campaignLink}>
+                    <div className={cs.campaignCard}>
+                      <div className={cs.campaignHeader}>
                         <div>
-                          <span style={{
-                            fontSize: '0.7rem',
-                            fontWeight: 600,
-                            color: getStatusColor(campaign.status),
-                            background: `${getStatusColor(campaign.status)}14`,
-                            padding: '3px 8px',
-                            borderRadius: '999px',
-                          }}>
+                          <span
+                            className={cs.statusBadge}
+                            style={{
+                              color: getStatusColor(campaign.status),
+                              background: `${getStatusColor(campaign.status)}14`,
+                            }}
+                          >
                             {getStatusLabel(campaign.status)}
                           </span>
-                          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginTop: '8px', letterSpacing: '-0.01em' }}>
-                            {campaign.title}
-                          </h3>
-                          <p style={{ color: 'var(--gray-500)', fontSize: '0.85rem', marginTop: '4px' }}>
+                          <h3 className={cs.campaignTitle}>{campaign.title}</h3>
+                          <p className={cs.campaignSubtext}>
                             {campaign.artistName} · D-{daysLeft}
                           </p>
                         </div>
                       </div>
 
-                      {/* Progress bar */}
-                      <div style={{ marginTop: '12px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '6px' }}>
-                          <span style={{ fontWeight: 600 }}>₩{formatPrice(campaign.currentAmount)}</span>
-                          <span style={{ color: 'var(--gray-500)' }}>{progress}%</span>
+                      <div className={cs.progressSection}>
+                        <div className={cs.progressHeader}>
+                          <span className={cs.progressAmount}>₩{formatPrice(campaign.currentAmount)}</span>
+                          <span className={cs.progressPercent}>{progress}%</span>
                         </div>
-                        <div style={{
-                          width: '100%',
-                          height: '6px',
-                          background: 'var(--gray-100)',
-                          borderRadius: '3px',
-                          overflow: 'hidden',
-                        }}>
-                          <div style={{
-                            width: `${progress}%`,
-                            height: '100%',
-                            background: progress >= 100 ? '#16a34a' : 'var(--accent)',
-                            borderRadius: '3px',
-                            transition: 'width 0.5s ease-out',
-                          }} />
+                        <div className={cs.progressTrack}>
+                          <div
+                            className={cs.progressFill}
+                            style={{
+                              width: `${progress}%`,
+                              background: progress >= 100 ? '#16a34a' : 'var(--accent)',
+                            }}
+                          />
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--gray-500)', marginTop: '6px' }}>
+                        <div className={cs.progressFooter}>
                           <span>{campaign.contributorCount}명 참여</span>
                           <span>{t(m, 'campaigns.target')}: ₩{formatPrice(campaign.targetAmount)}</span>
                         </div>
@@ -137,23 +120,18 @@ export default async function CampaignsPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Past Campaigns */}
         {pastCampaigns.length > 0 && (
           <>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', letterSpacing: '-0.02em', color: 'var(--gray-500)' }}>
+            <h2 className={cs.sectionTitleMuted}>
               {t(m, 'campaigns.pastCampaigns')}
             </h2>
             <div className={styles.cardGrid}>
               {pastCampaigns.map((campaign, idx) => (
                 <FadeIn key={campaign.id} delay={idx * 0.05} direction="up">
-                  <Link href={`/${locale}/campaigns/${campaign.id}`} className={styles.card} style={{ textDecoration: 'none', opacity: 0.7 }}>
+                  <Link href={`/${locale}/campaigns/${campaign.id}`} className={styles.card} style={{ opacity: 0.7 }}>
                     <div className={styles.cardInner}>
                       <div className={styles.cardBody}>
-                        <span style={{
-                          fontSize: '0.7rem',
-                          fontWeight: 600,
-                          color: getStatusColor(campaign.status),
-                        }}>
+                        <span className={cs.pastStatusBadge} style={{ color: getStatusColor(campaign.status) }}>
                           {getStatusLabel(campaign.status)}
                         </span>
                         <h3 className={styles.cardTitle}>{campaign.title}</h3>
@@ -167,33 +145,11 @@ export default async function CampaignsPage({ params }: PageProps) {
           </>
         )}
 
-        {/* CTA */}
         <FadeIn direction="up" delay={0.15}>
-          <div style={{
-            textAlign: 'center',
-            padding: '3rem 1rem',
-            marginTop: '2rem',
-            background: 'var(--gray-50)',
-            borderRadius: '16px',
-          }}>
-            <p style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem' }}>
-              {t(m, 'campaigns.startOwn')}
-            </p>
-            <p style={{ color: 'var(--gray-500)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-              {t(m, 'campaigns.startOwnDesc')}
-            </p>
-            <Link
-              href={`/${locale}/contact`}
-              style={{
-                display: 'inline-block',
-                padding: '14px 32px',
-                background: 'var(--accent)',
-                color: '#fff',
-                borderRadius: '999px',
-                fontWeight: 600,
-                textDecoration: 'none',
-              }}
-            >
+          <div className={cs.ctaSection}>
+            <p className={cs.ctaTitle}>{t(m, 'campaigns.startOwn')}</p>
+            <p className={cs.ctaDesc}>{t(m, 'campaigns.startOwnDesc')}</p>
+            <Link href={`/${locale}/contact`} className={cs.ctaButton}>
               {t(m, 'campaigns.inquire')}
             </Link>
           </div>

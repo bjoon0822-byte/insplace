@@ -67,7 +67,8 @@
     "inquire": "Inquire Now",
     "available": "Available",
     "busy": "Almost Full",
-    "soldout": "Sold Out"
+    "soldout": "Sold Out",
+    "noResults": "No results found"
   },
   "venue": {
     "title": "Venue Rental",

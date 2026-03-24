@@ -67,7 +67,8 @@
     "inquire": "문의하기",
     "available": "예약 가능",
     "busy": "마감 임박",
-    "soldout": "마감"
+    "soldout": "마감",
+    "noResults": "검색 결과가 없습니다"
   },
   "venue": {
     "title": "장소 대관",

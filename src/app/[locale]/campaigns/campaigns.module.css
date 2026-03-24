@@ -1,0 +1,370 @@
+/* =========================================
+   캠페인 페이지 전용 스타일
+   ========================================= */
+
+/* ── 섹션 제목 ── */
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.sectionTitleMuted {
+  composes: sectionTitle;
+  color: var(--gray-500);
+}
+
+/* ── 빈 상태 ── */
+.emptyState {
+  color: var(--gray-500);
+  text-align: center;
+  padding: 3rem;
+}
+
+/* ── 캠페인 목록 ── */
+.campaignList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* ── 캠페인 카드 ── */
+.campaignLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.campaignCard {
+  background: var(--bg-main);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.campaignCard:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.campaignHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+/* ── 상태 배지 ── */
+.statusBadge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* ── 캠페인 제목 ── */
+.campaignTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+
+.campaignSubtext {
+  color: var(--gray-500);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* ── 프로그레스 바 ── */
+.progressSection {
+  margin-top: 12px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.progressAmount {
+  font-weight: 600;
+}
+
+.progressPercent {
+  color: var(--gray-500);
+}
+
+.progressTrack {
+  width: 100%;
+  height: 6px;
+  background: var(--gray-100);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease-out;
+}
+
+.progressFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 6px;
+}
+
+/* ── 과거 캠페인 상태 배지 ── */
+.pastStatusBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ── CTA 섹션 ── */
+.ctaSection {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 2rem;
+  background: var(--gray-50);
+  border-radius: 16px;
+}
+
+.ctaTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ctaDesc {
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* ── 상세 페이지 ── */
+.detailCard {
+  background: var(--bg-main);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.detailContent {
+  flex: 1;
+  min-width: 200px;
+}
+
+.detailDesc {
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* 프로그레스 (상세) */
+.detailProgress {
+  margin-bottom: 1.5rem;
+}
+
+.detailProgressHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.detailAmount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.detailPercent {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.detailProgressTrack {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.detailProgressFill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.detailProgressFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  margin-top: 8px;
+}
+
+/* 메타 정보 그리드 */
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.metaBox {
+  background: var(--gray-50);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.metaLabel {
+  color: var(--gray-500);
+  font-size: 0.75rem;
+}
+
+.metaValue {
+  font-weight: 600;
+}
+
+.metaValueUrgent {
+  font-weight: 600;
+  color: #ef4444;
+}
+
+/* 액션 버튼 */
+.actionRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.participateBtn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.participateBtn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* 아티스트 링크 카드 */
+.artistCard {
+  display: block;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artistCard:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-300);
+}
+
+.artistLabel {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 4px;
+}
+
+.artistName {
+  font-weight: 700;
+}
+
+.artistNameEn {
+  color: var(--gray-400);
+}
+
+.artistGroup {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+/* 인증샷 */
+.proofTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.proofGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.proofImage {
+  aspect-ratio: 4/3;
+  background: var(--gray-100);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  font-size: 0.85rem;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .metaGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .detailCard {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .metaGrid {
+    grid-template-columns: 1fr;
+  }
+}

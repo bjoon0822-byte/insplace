@@ -5,6 +5,7 @@ import { getMessages, t } from '@/i18n/request';
 import { artists } from '@/data/artists';
 import { FadeIn } from '@/components/ui/FadeIn';
 import styles from '../subpage.module.css';
+import cal from './calendar.module.css';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -51,89 +52,43 @@ export default async function CalendarPage({ params }: PageProps) {
       </section>
 
       <div className={styles.sectionContainer}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '1rem',
-        }}>
+        <div className={cal.calendarGrid}>
           {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => {
             const monthArtists = byMonth.get(month) || [];
             const isCurrent = month === currentMonth;
 
             return (
               <FadeIn key={month} delay={month * 0.03} direction="up">
-                <div style={{
-                  background: 'var(--bg-main)',
-                  border: isCurrent ? '2px solid var(--accent)' : '1px solid var(--gray-200)',
-                  borderRadius: '16px',
-                  padding: '1.25rem',
-                  minHeight: '120px',
-                }}>
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: '12px',
-                  }}>
-                    <h3 style={{
-                      fontSize: '1.1rem',
-                      fontWeight: 700,
-                      color: isCurrent ? 'var(--accent)' : 'var(--gray-900)',
-                    }}>
+                <div className={isCurrent ? cal.monthCardCurrent : cal.monthCard}>
+                  <div className={cal.monthHeader}>
+                    <h3 className={isCurrent ? cal.monthNameCurrent : cal.monthName}>
                       {MONTH_NAMES_KO[month - 1]}
                     </h3>
                     {isCurrent && (
-                      <span style={{
-                        fontSize: '0.65rem',
-                        fontWeight: 600,
-                        padding: '2px 8px',
-                        background: 'rgba(217, 119, 6, 0.1)',
-                        color: 'var(--accent)',
-                        borderRadius: '999px',
-                      }}>
+                      <span className={cal.currentBadge}>
                         {t(m, 'calendar.thisMonth')}
                       </span>
                     )}
                   </div>
 
                   {monthArtists.length === 0 ? (
-                    <p style={{ color: 'var(--gray-400)', fontSize: '0.8rem' }}>
+                    <p className={cal.monthEmpty}>
                       {t(m, 'calendar.noEvents')}
                     </p>
                   ) : (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div className={cal.artistList}>
                       {monthArtists.map((artist) => {
                         const day = artist.birthday.split('-')[1];
                         return (
                           <Link
                             key={artist.id}
                             href={`/${locale}/artists/${artist.id}`}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '10px',
-                              padding: '8px',
-                              borderRadius: '8px',
-                              background: 'var(--gray-50)',
-                              textDecoration: 'none',
-                              color: 'inherit',
-                              transition: 'background 0.2s',
-                              fontSize: '0.85rem',
-                            }}
+                            className={cal.artistLink}
                           >
-                            <span style={{
-                              fontWeight: 700,
-                              fontVariantNumeric: 'tabular-nums',
-                              color: 'var(--accent)',
-                              minWidth: '28px',
-                            }}>
-                              {day}
-                            </span>
-                            <span style={{ fontWeight: 600 }}>{artist.name}</span>
+                            <span className={cal.artistDay}>{day}</span>
+                            <span className={cal.artistLinkName}>{artist.name}</span>
                             {artist.group && (
-                              <span style={{ color: 'var(--gray-400)', fontSize: '0.75rem' }}>
-                                {artist.group}
-                              </span>
+                              <span className={cal.artistLinkGroup}>{artist.group}</span>
                             )}
                           </Link>
                         );
@@ -146,28 +101,10 @@ export default async function CalendarPage({ params }: PageProps) {
           })}
         </div>
 
-        {/* CTA */}
         <FadeIn direction="up" delay={0.4}>
-          <div style={{
-            textAlign: 'center',
-            padding: '3rem 1rem',
-            marginTop: '2rem',
-          }}>
-            <p style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem' }}>
-              {t(m, 'calendar.cta')}
-            </p>
-            <Link
-              href={`/${locale}/contact`}
-              style={{
-                display: 'inline-block',
-                padding: '14px 32px',
-                background: 'var(--accent)',
-                color: '#fff',
-                borderRadius: '999px',
-                fontWeight: 600,
-                textDecoration: 'none',
-              }}
-            >
+          <div className={cal.ctaSection}>
+            <p className={cal.ctaText}>{t(m, 'calendar.cta')}</p>
+            <Link href={`/${locale}/contact`} className={cal.ctaButton}>
               {t(m, 'calendar.inquire')}
             </Link>
           </div>
