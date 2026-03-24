@@ -17,7 +17,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'digital',
     location: '강남역 2번 출구',
     date: '2025-10-13',
-    imageUrl: '/images/gallery/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/gallery-jimin-gangnam/600/400',
     adProductId: 'ad-001',
   },
   {
@@ -27,7 +27,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'lightbox',
     location: '삼성역 5번 출구',
     date: '2025-12-01',
-    imageUrl: '/images/gallery/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/gallery-wonyoung-samsung/600/400',
     adProductId: 'ad-003',
   },
   {
@@ -37,7 +37,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'cafe',
     location: '홍대 스타벅스 근처',
     date: '2025-05-15',
-    imageUrl: '/images/gallery/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/gallery-haerin-cafe/600/400',
     adProductId: null,
   },
   {
@@ -47,7 +47,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'digital',
     location: '홍대입구역 7번 출구',
     date: '2025-09-01',
-    imageUrl: '/images/gallery/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/gallery-jungkook-hongdae/600/400',
     adProductId: 'ad-002',
   },
   {
@@ -57,7 +57,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'popup',
     location: '강남 COEX 인근',
     date: '2025-04-11',
-    imageUrl: '/images/gallery/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/gallery-karina-popup/600/400',
     adProductId: null,
   },
   {
@@ -67,7 +67,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'lightbox',
     location: '성수역 3번 출구',
     date: '2025-08-01',
-    imageUrl: '/images/gallery/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/gallery-minji-seongsu/600/400',
     adProductId: 'ad-005',
   },
 ];

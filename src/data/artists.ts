@@ -19,7 +19,7 @@ export const artists: Artist[] = [
     birthday: '10-13',
     birthYear: 1995,
     debutDate: '2013-06-13',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/jimin-bts/400/400',
     tags: ['BTS', '솔로', '댄서'],
   },
   {
@@ -30,7 +30,7 @@ export const artists: Artist[] = [
     birthday: '04-11',
     birthYear: 2000,
     debutDate: '2020-11-17',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/karina-aespa/400/400',
     tags: ['aespa', 'SM'],
   },
   {
@@ -41,7 +41,7 @@ export const artists: Artist[] = [
     birthday: '03-30',
     birthYear: 1997,
     debutDate: '2016-02-23',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/eunwoo-astro/400/400',
     tags: ['ASTRO', '배우'],
   },
   {
@@ -52,7 +52,7 @@ export const artists: Artist[] = [
     birthday: '08-31',
     birthYear: 2004,
     debutDate: '2021-12-01',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/wonyoung-ive/400/400',
     tags: ['IVE', 'Starship'],
   },
   {
@@ -63,7 +63,7 @@ export const artists: Artist[] = [
     birthday: '11-18',
     birthYear: 1994,
     debutDate: '2017-01-01',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/hansohee/400/400',
     tags: ['배우', '모델'],
   },
   {
@@ -74,7 +74,7 @@ export const artists: Artist[] = [
     birthday: '05-15',
     birthYear: 2006,
     debutDate: '2022-08-01',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/haerin-nj/400/400',
     tags: ['NewJeans', 'ADOR'],
   },
   {
@@ -85,7 +85,7 @@ export const artists: Artist[] = [
     birthday: '05-07',
     birthYear: 2004,
     debutDate: '2022-08-01',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/minji-nj/400/400',
     tags: ['NewJeans', 'ADOR'],
   },
   {
@@ -96,7 +96,7 @@ export const artists: Artist[] = [
     birthday: '10-10',
     birthYear: 1994,
     debutDate: '2010-03-31',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/suzy-solo/400/400',
     tags: ['배우', '솔로'],
   },
   {
@@ -107,7 +107,7 @@ export const artists: Artist[] = [
     birthday: '09-01',
     birthYear: 1997,
     debutDate: '2013-06-13',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/jungkook-bts/400/400',
     tags: ['BTS', '솔로'],
   },
   {
@@ -118,7 +118,7 @@ export const artists: Artist[] = [
     birthday: '01-01',
     birthYear: 2001,
     debutDate: '2020-11-17',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/winter-aespa/400/400',
     tags: ['aespa', 'SM'],
   },
   {
@@ -129,7 +129,7 @@ export const artists: Artist[] = [
     birthday: '03-19',
     birthYear: 1998,
     debutDate: '2022-05-02',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/sakura-lsrfm/400/400',
     tags: ['LE SSERAFIM', 'HYBE'],
   },
   {
@@ -140,7 +140,7 @@ export const artists: Artist[] = [
     birthday: '08-09',
     birthYear: 2003,
     debutDate: '2022-05-02',
-    imageUrl: '/images/artists/placeholder.webp',
+    imageUrl: 'https://picsum.photos/seed/kazuha-lsrfm/400/400',
     tags: ['LE SSERAFIM', 'HYBE'],
   },
 ];

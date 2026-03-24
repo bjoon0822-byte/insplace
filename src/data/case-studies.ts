@@ -9,7 +9,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '지민 (BTS)',
     purpose: 'birthday',
     date: '2025-10-13',
-    imageUrls: ['/images/cases/case-001-1.webp', '/images/cases/case-001-2.webp'],
+    imageUrls: ['https://picsum.photos/seed/case001-1/800/500', 'https://picsum.photos/seed/case001-2/800/500'],
     description: '홍대입구역 개찰구 디지털 사이니지에 7일간 생일 축하 영상 송출. 일일 유동인구 5.8만명 노출 달성.',
   },
   {
@@ -20,7 +20,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '카리나 (aespa)',
     purpose: 'debut',
     date: '2025-11-17',
-    imageUrls: ['/images/cases/case-002-1.webp', '/images/cases/case-002-2.webp'],
+    imageUrls: ['https://picsum.photos/seed/case002-1/800/500', 'https://picsum.photos/seed/case002-2/800/500'],
     description: '홍대입구역 2호선 승강장 대형 조명광고. 데뷔 기념일에 맞춰 1개월간 팬 축하 메시지 게재.',
   },
   {
@@ -31,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '정국 (BTS)',
     purpose: 'birthday',
     date: '2025-09-01',
-    imageUrls: ['/images/cases/case-003-1.webp', '/images/cases/case-003-2.webp'],
+    imageUrls: ['https://picsum.photos/seed/case003-1/800/500', 'https://picsum.photos/seed/case003-2/800/500'],
     description: '강남역 환승통로 200m 전체를 정국 생일 영상으로 장식. 85인치 LED 필러 미디어 동시 송출.',
   },
   {
@@ -42,7 +42,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '민지 (NewJeans)',
     purpose: 'comeback',
     date: '2025-08-20',
-    imageUrls: ['/images/cases/case-004-1.webp'],
+    imageUrls: ['https://picsum.photos/seed/case004-1/800/500'],
     description: '성수역 연무장길 출구 LED 빌보드에 NewJeans 컴백 축하 영상 1개월 게재.',
   },
   {
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '원영 (IVE)',
     purpose: 'birthday',
     date: '2025-08-31',
-    imageUrls: ['/images/cases/case-005-1.webp', '/images/cases/case-005-2.webp'],
+    imageUrls: ['https://picsum.photos/seed/case005-1/800/500', 'https://picsum.photos/seed/case005-2/800/500'],
     description: '카페 플랫에서 2일간 원영 생일 카페 운영. 포토존, 럭키드로우, 컵홀더 이벤트 진행.',
   },
   {
@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '해린 (NewJeans)',
     purpose: 'birthday',
     date: '2025-10-15',
-    imageUrls: ['/images/cases/case-006-1.webp'],
+    imageUrls: ['https://picsum.photos/seed/case006-1/800/500'],
     description: 'B\'DAY 홍대점에서 해린 생일 파티. 럭키드로우, 랜덤 선물, 대형 스크린 상영회 진행.',
   },
   {
@@ -75,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '수지',
     purpose: 'drama',
     date: '2025-07-10',
-    imageUrls: ['/images/cases/case-007-1.webp'],
+    imageUrls: ['https://picsum.photos/seed/case007-1/800/500'],
     description: '혜화역 대형 조명 광고로 수지 신작 드라마 응원 메시지 1개월 게재. 대학로 문화 지역 타겟.',
   },
   {
@@ -86,7 +86,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '윈터 (aespa)',
     purpose: 'birthday',
     date: '2026-01-01',
-    imageUrls: ['/images/cases/case-008-1.webp', '/images/cases/case-008-2.webp'],
+    imageUrls: ['https://picsum.photos/seed/case008-1/800/500', 'https://picsum.photos/seed/case008-2/800/500'],
     description: '합정역 디지털 CM보드 15일 게재. 가성비 좋은 생일 광고로 팬들에게 인기.',
   },
   {
@@ -97,7 +97,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '사쿠라 (LE SSERAFIM)',
     purpose: 'debut',
     date: '2025-10-01',
-    imageUrls: ['/images/cases/case-009-1.webp'],
+    imageUrls: ['https://picsum.photos/seed/case009-1/800/500'],
     description: '오디너리 아카이브에서 사쿠라 데뷔 기념 팬아트 전시회 3일 개최. 갤러리 가벽 활용.',
   },
   {
@@ -108,7 +108,7 @@ export const caseStudies: CaseStudy[] = [
     artistName: '차은우 (ASTRO)',
     purpose: 'concert',
     date: '2025-12-05',
-    imageUrls: ['/images/cases/case-010-1.webp'],
+    imageUrls: ['https://picsum.photos/seed/case010-1/800/500'],
     description: '강남역 환승통로 양면 사이니지에 콘서트 응원 영상 3일 게재. 최소 단위로 가볍게 시작.',
   },
 ];
