@@ -94,7 +94,7 @@
 .heroChat {
   flex: 1;
   min-width: 0;
-  max-width: 520px;
+  max-width: 600px;
 }
 
 @media (max-width: 960px) {

@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 14px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   background: rgba(255, 255, 255, 0.04);
 }
@@ -76,7 +76,7 @@
 }
 
 .topBarLabel {
-  font-size: 0.688rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -111,10 +111,10 @@
 .messageArea {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 16px;
-  min-height: 200px;
-  max-height: 340px;
+  gap: 12px;
+  padding: 20px;
+  min-height: 280px;
+  max-height: 420px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
@@ -134,15 +134,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 20px 8px 8px;
+  gap: 20px;
+  padding: 28px 12px 12px;
   text-align: center;
 }
 
 .welcomeAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
   background: linear-gradient(135deg, rgba(217, 119, 6, 0.25) 0%, rgba(245, 158, 11, 0.15) 100%);
   border: 1px solid rgba(217, 119, 6, 0.3);
   color: var(--accent, #D97706);
@@ -154,11 +154,11 @@
 
 .welcomeText {
   margin: 0;
-  font-size: 0.813rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.938rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
   word-break: keep-all;
-  max-width: 360px;
+  max-width: 420px;
 }
 
 /* ── Example Chips ── */
@@ -173,10 +173,10 @@
 .chip {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
-  padding: 9px 14px;
-  font-size: 0.75rem;
+  padding: 12px 16px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.75);
   background: rgba(255, 255, 255, 0.06);
@@ -214,8 +214,8 @@
 .inputBar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 12px 12px 16px;
+  gap: 10px;
+  padding: 14px 16px 14px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.10);
   background: rgba(0, 0, 0, 0.20);
 }
@@ -226,8 +226,8 @@
   border: none;
   outline: none;
   color: #fff;
-  font-size: 0.813rem;
-  padding: 6px 0;
+  font-size: 0.938rem;
+  padding: 8px 0;
   min-width: 0;
 }
 
@@ -240,9 +240,9 @@
 }
 
 .sendBtn {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   border: none;
   background: var(--accent, #D97706);
   color: #fff;
@@ -326,7 +326,7 @@
 /* ── Responsive ── */
 @media (min-width: 960px) {
   .messageArea {
-    max-height: 380px;
+    max-height: 480px;
   }
 }
 
@@ -336,27 +336,31 @@
   }
 
   .messageArea {
-    padding: 12px;
-    min-height: 160px;
-    max-height: 260px;
+    padding: 14px;
+    min-height: 200px;
+    max-height: 320px;
   }
 
   .welcomeAvatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
   }
 
   .welcomeText {
-    font-size: 0.75rem;
+    font-size: 0.838rem;
   }
 
   .chip {
-    padding: 7px 12px;
-    font-size: 0.688rem;
+    padding: 10px 14px;
+    font-size: 0.813rem;
   }
 
   .inputBar {
-    padding: 10px 10px 10px 14px;
+    padding: 12px 12px 12px 16px;
+  }
+
+  .input {
+    font-size: 0.875rem;
   }
 }
