@@ -34,7 +34,9 @@ function AnimatedNumber({ value, delay = 0 }: { value: number; delay?: number })
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
   const [display, setDisplay] = useState(0);
+  const liveRef = useRef(value);
 
+  // Phase 1: 초기 카운트업
   useEffect(() => {
     if (!isInView) return;
     const duration = 1000;
@@ -48,6 +50,33 @@ function AnimatedNumber({ value, delay = 0 }: { value: number; delay?: number })
     }
     const timer = setTimeout(() => requestAnimationFrame(animate), delay * 1000);
     return () => clearTimeout(timer);
+  }, [isInView, value, delay]);
+
+  // Phase 2: 실시간 틱 — 카운트업 후 2~4초마다 소량 증가
+  useEffect(() => {
+    if (!isInView) return;
+    const startDelay = 1000 + delay * 1000 + 500;
+    const timeoutId = setTimeout(() => {
+      liveRef.current = value;
+      const run = () => {
+        const base = liveRef.current;
+        let inc: number;
+        if (base >= 1_000_000) inc = Math.floor(Math.random() * 200) + 30;
+        else if (base >= 1_000) inc = Math.floor(Math.random() * 3) + 1;
+        else inc = Math.random() < 0.3 ? 1 : 0;
+        if (inc > 0) {
+          liveRef.current += inc;
+          setDisplay(liveRef.current);
+        }
+        tickRef.current = window.setTimeout(run, 2000 + Math.random() * 2000);
+      };
+      run();
+    }, startDelay);
+    const tickRef: { current: number | null } = { current: null };
+    return () => {
+      clearTimeout(timeoutId);
+      if (tickRef.current) clearTimeout(tickRef.current);
+    };
   }, [isInView, value, delay]);
 
   return <span ref={ref}>{formatCount(display)}</span>;

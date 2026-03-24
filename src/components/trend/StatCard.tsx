@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { motion, useInView } from 'framer-motion';
 import styles from './TrendDashboard.module.css';
@@ -15,7 +15,7 @@ interface StatCardProps {
 }
 
 function formatNumber(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000_000) return n.toLocaleString('ko-KR');
   if (n >= 1_000) return n.toLocaleString('ko-KR');
   return String(n);
 }
@@ -24,7 +24,9 @@ export default function StatCard({ label, value, change, history, color = '#D977
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [displayValue, setDisplayValue] = useState(0);
+  const liveRef = useRef(value);
 
+  // Phase 1: 초기 카운트업 애니메이션
   useEffect(() => {
     if (!isInView) return;
     const duration = 1200;
@@ -38,6 +40,42 @@ export default function StatCard({ label, value, change, history, color = '#D977
     }
     const timer = setTimeout(() => requestAnimationFrame(animate), delay * 1000);
     return () => clearTimeout(timer);
+  }, [isInView, value, delay]);
+
+  // Phase 2: 실시간 틱 — 2~5초마다 소량 증가
+  useEffect(() => {
+    if (!isInView) return;
+    // 카운트업 완료 후 시작
+    const startDelay = 1200 + delay * 1000 + 500;
+    const timeout = setTimeout(() => {
+      liveRef.current = value;
+      const tick = () => {
+        // 값 크기에 비례한 랜덤 증분
+        const base = liveRef.current;
+        let increment: number;
+        if (base >= 1_000_000) increment = Math.floor(Math.random() * 300) + 50;
+        else if (base >= 1_000) increment = Math.floor(Math.random() * 3) + 1;
+        else increment = Math.random() < 0.4 ? 1 : 0;
+
+        if (increment > 0) {
+          liveRef.current += increment;
+          setDisplayValue(liveRef.current);
+        }
+      };
+      // 2~4초 랜덤 간격
+      const run = () => {
+        tick();
+        const next = 2000 + Math.random() * 2000;
+        intervalRef.current = window.setTimeout(run, next);
+      };
+      run();
+    }, startDelay);
+
+    const intervalRef: { current: number | null } = { current: null };
+    return () => {
+      clearTimeout(timeout);
+      if (intervalRef.current) clearTimeout(intervalRef.current);
+    };
   }, [isInView, value, delay]);
 
   const chartData = history.map((v, i) => ({ day: i, value: v }));
