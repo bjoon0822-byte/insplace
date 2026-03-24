@@ -11,6 +11,7 @@ import { celebTrend, adTrend, eventTrend } from '@/data/trends';
 import { FadeIn } from '@/components/ui/FadeIn';
 import HeroScrollAnimation from '@/components/ui/HeroScrollAnimation';
 import ChatHero from '@/components/chat/ChatHero';
+import HomeTrend from '@/components/trend/HomeTrend';
 import styles from './page.module.css';
 
 interface PageProps {
@@ -28,10 +29,6 @@ export default async function HomePage({ params }: PageProps) {
     if (status === 'available') return t(m, 'ad.available');
     if (status === 'busy') return t(m, 'ad.busy');
     return t(m, 'ad.soldout');
-  }
-
-  function getTrendName(id: string, type: 'celeb' | 'station', fallback: string): string {
-    return (m as any).trendData?.[type]?.[id] || fallback;
   }
 
   return (
@@ -213,62 +210,21 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* ━━ Trend — Dark Background Section ━━ */}
-      <section className={styles.trendSection}>
-        <FadeIn>
-          <div className={styles.sectionHeader}>
-            <div className={styles.sectionInfo}>
-              <span className={styles.sectionEyebrowLight}>TRENDING</span>
-              <h2>{t(m, 'sections.trendTitle')}</h2>
-              <p>{t(m, 'sections.trendDesc')}</p>
-            </div>
-            <Link href={`/${locale}/trend`} className={styles.viewAllLight}>
-              {t(m, 'sections.viewMore')} →
-            </Link>
-          </div>
-          <div className={styles.trendGrid}>
-            <div className={styles.trendCard}>
-              <h3 className={styles.trendCardTitle}>{t(m, 'trend.celebRank')}</h3>
-              {celebTrend.map((item) => (
-                <div key={item.rank} className={styles.trendItem}>
-                  <span className={`${styles.trendRank} ${item.rank <= 3 ? styles.top : ''}`}>{item.rank}</span>
-                  <span className={styles.trendName}>{getTrendName(item.id, 'celeb', item.name)}</span>
-                  <span className={styles.trendCount}>{item.count}</span>
-                  <span className={`${styles.trendChange} ${item.change > 0 ? styles.up : item.change < 0 ? styles.down : ''}`}>
-                    {item.change > 0 ? `▲${item.change}` : item.change < 0 ? `▼${Math.abs(item.change)}` : '—'}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className={styles.trendCard}>
-              <h3 className={styles.trendCardTitle}>{t(m, 'trend.adRank')}</h3>
-              {adTrend.map((item) => (
-                <div key={item.rank} className={styles.trendItem}>
-                  <span className={`${styles.trendRank} ${item.rank <= 3 ? styles.top : ''}`}>{item.rank}</span>
-                  <span className={styles.trendName}>{getTrendName(item.id, 'station', item.name)}</span>
-                  <span className={styles.trendCount}>{item.count}건</span>
-                  <span className={`${styles.trendChange} ${item.change > 0 ? styles.up : item.change < 0 ? styles.down : ''}`}>
-                    {item.change > 0 ? `▲${item.change}` : item.change < 0 ? `▼${Math.abs(item.change)}` : '—'}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className={styles.trendCard}>
-              <h3 className={styles.trendCardTitle}>{t(m, 'trend.eventRank')}</h3>
-              {eventTrend.map((item) => (
-                <div key={item.rank} className={styles.trendItem}>
-                  <span className={`${styles.trendRank} ${item.rank <= 3 ? styles.top : ''}`}>{item.rank}</span>
-                  <span className={styles.trendName}>{getTrendName(item.id, 'celeb', item.name)}</span>
-                  <span className={styles.trendCount}>{item.count}건</span>
-                  <span className={`${styles.trendChange} ${item.change > 0 ? styles.up : item.change < 0 ? styles.down : ''}`}>
-                    {item.change > 0 ? `▲${item.change}` : item.change < 0 ? `▼${Math.abs(item.change)}` : '—'}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
-      </section>
+      {/* ━━ Trend — Premium Dark Dashboard ━━ */}
+      <HomeTrend
+        celebTrend={celebTrend}
+        adTrend={adTrend}
+        eventTrend={eventTrend}
+        locale={locale}
+        labels={{
+          sectionTitle: t(m, 'sections.trendTitle'),
+          sectionDesc: t(m, 'sections.trendDesc'),
+          celebRank: t(m, 'trend.celebRank'),
+          adRank: t(m, 'trend.adRank'),
+          eventRank: t(m, 'trend.eventRank'),
+          viewMore: t(m, 'sections.viewMore'),
+        }}
+      />
 
       {/* ━━ CTA — Dramatic Full-Bleed ━━ */}
       <FadeIn direction="up">
