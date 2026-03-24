@@ -121,6 +121,7 @@ export function executeSearchProducts(input: {
     category: r.category,
     score: r.score,
     matchReasons: r.matchReasons,
+    budgetFit: describeBudgetFit(r.product, r.category, input.budget_max),
     product: serializeProduct(r.product, r.category),
   }));
 
@@ -166,6 +167,45 @@ export function executeGetProductDetail(input: {
   }
 
   return null;
+}
+
+/** 예산 대비 가격 적합성 설명 생성 */
+function describeBudgetFit(
+  product: AdProduct | Venue | GoodsItem | unknown,
+  category: ProductCategory,
+  budgetMax?: number,
+): string | null {
+  if (!budgetMax) return null;
+
+  let price = 0;
+  let period = '';
+
+  if (category === 'ad') {
+    const p = product as AdProduct;
+    price = p.price;
+    period = p.pricePeriod;
+  } else if (category === 'venue') {
+    const p = product as Venue;
+    price = p.pricePerDay;
+    period = '1일';
+  } else if (category === 'goods') {
+    const p = product as GoodsItem;
+    price = p.price;
+    period = '1개';
+  }
+
+  const ratio = price / budgetMax;
+  const remaining = budgetMax - price;
+
+  if (ratio <= 0.5) {
+    return `예산의 ${Math.round(ratio * 100)}%만 사용 (${remaining.toLocaleString()}원 여유). ${period} 기준 ${price.toLocaleString()}원`;
+  } else if (ratio <= 0.8) {
+    return `예산 대비 적절한 가격 (${period} 기준 ${price.toLocaleString()}원)`;
+  } else if (ratio <= 1.0) {
+    return `예산에 거의 맞는 가격 (${period} 기준 ${price.toLocaleString()}원, ${remaining.toLocaleString()}원 여유)`;
+  } else {
+    return `예산 초과 (${period} 기준 ${price.toLocaleString()}원, ${(price - budgetMax).toLocaleString()}원 초과)`;
+  }
 }
 
 /** 상품을 직렬화 가능한 핵심 정보로 변환 */
