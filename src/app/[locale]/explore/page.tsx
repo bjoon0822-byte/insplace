@@ -1,6 +1,7 @@
 import { Locale } from '@/types';
 import { getMessages, t } from '@/i18n/request';
 import { FadeIn } from '@/components/ui/FadeIn';
+import RegionStatsSection from '@/components/explore/RegionStatsSection';
 import ExplorerWizard from './ExplorerWizard';
 import styles from '../subpage.module.css';
 
@@ -30,6 +31,8 @@ export default async function ExplorePage({ params, searchParams }: PageProps) {
           </FadeIn>
         </div>
       </section>
+
+      <RegionStatsSection locale={locale as Locale} />
 
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 24px 80px' }}>
         <ExplorerWizard

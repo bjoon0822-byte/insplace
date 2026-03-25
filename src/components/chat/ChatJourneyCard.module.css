@@ -1,0 +1,187 @@
+/* ══════════════════════════════════════
+   Chat Journey Card — 3-Step Fan Journey Package
+   ══════════════════════════════════════ */
+
+.container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  margin-top: 4px;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.headerIcon {
+  font-size: 1.1rem;
+}
+
+.headerTitle {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.headerMeta {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 16px;
+}
+
+/* ── Steps ── */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* Connector line */
+.connector {
+  width: 2px;
+  height: 12px;
+  background: linear-gradient(180deg, rgba(217, 119, 6, 0.4) 0%, rgba(217, 119, 6, 0.15) 100%);
+  margin-left: 15px;
+  border-radius: 1px;
+}
+
+/* ── Step Card ── */
+.step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.stepBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.stepBadgeAttention {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.35) 0%, rgba(245, 158, 11, 0.2) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.stepBadgeGathering {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(96, 165, 250, 0.15) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.stepBadgeMemento {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(192, 132, 252, 0.15) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.stepContent {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.stepLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 4px;
+}
+
+.stepName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stepPrice {
+  font-size: 0.8rem;
+  color: var(--accent, #D97706);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 4px;
+}
+
+.stepNote {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.totalCost {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  font-variant-numeric: tabular-nums;
+}
+
+.totalCostValue {
+  color: var(--accent, #D97706);
+}
+
+.exploreLink {
+  font-size: 0.75rem;
+  color: var(--accent, #D97706);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.exploreLink:hover {
+  background: rgba(217, 119, 6, 0.12);
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .stepContent {
+    padding: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

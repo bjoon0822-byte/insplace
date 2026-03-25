@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useRef } from 'react';
-import type { ChatMessage, RecommendationResult } from '@/types';
+import type { ChatMessage, RecommendationResult, JourneyPackage, RegionInfo } from '@/types';
 
 const FLUSH_INTERVAL = 80; // ms between state updates during streaming
 
@@ -13,11 +13,15 @@ export function useChat() {
   const flushTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingTextRef = useRef('');
   const pendingProductsRef = useRef<RecommendationResult[] | undefined>(undefined);
+  const pendingJourneyRef = useRef<JourneyPackage | undefined>(undefined);
+  const pendingRegionInfoRef = useRef<RegionInfo | undefined>(undefined);
 
-  // Flush accumulated text/products to state (throttled)
+  // Flush accumulated text/products/journey to state (throttled)
   const flushToState = useCallback(() => {
     const text = pendingTextRef.current;
     const products = pendingProductsRef.current;
+    const journey = pendingJourneyRef.current;
+    const regionInfo = pendingRegionInfoRef.current;
     setMessages((prev) => {
       const updated = [...prev];
       const last = updated[updated.length - 1];
@@ -26,6 +30,8 @@ export function useChat() {
           ...last,
           content: text,
           products,
+          journey,
+          regionInfo,
         };
       }
       return updated;
@@ -67,6 +73,8 @@ export function useChat() {
     // Reset pending refs
     pendingTextRef.current = '';
     pendingProductsRef.current = undefined;
+    pendingJourneyRef.current = undefined;
+    pendingRegionInfoRef.current = undefined;
 
     setMessages((prev) => [...prev, assistantMessage]);
 
@@ -112,6 +120,12 @@ export function useChat() {
               scheduleFlush();
             } else if (event.type === 'products') {
               pendingProductsRef.current = event.products;
+              scheduleFlush();
+            } else if (event.type === 'journey') {
+              pendingJourneyRef.current = event.journey;
+              scheduleFlush();
+            } else if (event.type === 'region') {
+              pendingRegionInfoRef.current = event.regionInfo;
               scheduleFlush();
             } else if (event.type === 'error') {
               setError(event.content);
@@ -159,6 +173,8 @@ export function useChat() {
     }
     pendingTextRef.current = '';
     pendingProductsRef.current = undefined;
+    pendingJourneyRef.current = undefined;
+    pendingRegionInfoRef.current = undefined;
     setMessages([]);
     setError(null);
     setIsStreaming(false);

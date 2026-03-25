@@ -4,7 +4,9 @@ import { SYSTEM_PROMPT } from '@/lib/chat/system-prompt';
 import {
   TOOLS,
   executeSearchProducts,
+  executeSearchJourneyPackage,
   executeGetProductDetail,
+  executeGetRegionInfo,
 } from '@/lib/chat/tools';
 
 const MAX_TURNS = 20;
@@ -136,7 +138,17 @@ async function processChat(
     for (const toolCall of message.tool_calls) {
       if (toolCall.type !== 'function') continue;
       const fn = toolCall.function;
-      const args = JSON.parse(fn.arguments);
+      let args: Record<string, unknown>;
+      try {
+        args = JSON.parse(fn.arguments);
+      } catch {
+        currentMessages.push({
+          role: 'tool',
+          tool_call_id: toolCall.id,
+          content: JSON.stringify({ error: '인수 파싱 실패' }),
+        });
+        continue;
+      }
       const toolResult = executeTool(fn.name, args);
 
       // 상품 결과가 있으면 클라이언트에 전송
@@ -146,6 +158,30 @@ async function processChat(
             `data: ${JSON.stringify({
               type: 'products',
               products: toolResult.results,
+            })}\n\n`,
+          ),
+        );
+      }
+
+      // 지역 통계 결과 전송
+      if (fn.name === 'get_region_info' && toolResult.regionInfo) {
+        controller.enqueue(
+          encoder.encode(
+            `data: ${JSON.stringify({
+              type: 'region',
+              regionInfo: toolResult.regionInfo,
+            })}\n\n`,
+          ),
+        );
+      }
+
+      // 여정 패키지 결과 전송
+      if (fn.name === 'search_journey_package' && toolResult.journey) {
+        controller.enqueue(
+          encoder.encode(
+            `data: ${JSON.stringify({
+              type: 'journey',
+              journey: toolResult.journey,
             })}\n\n`,
           ),
         );
@@ -181,11 +217,19 @@ function executeTool(
       return executeSearchProducts(
         input as Parameters<typeof executeSearchProducts>[0],
       );
+    case 'search_journey_package':
+      return executeSearchJourneyPackage(
+        input as Parameters<typeof executeSearchJourneyPackage>[0],
+      );
     case 'get_product_detail':
       return (
         executeGetProductDetail(
           input as Parameters<typeof executeGetProductDetail>[0],
         ) ?? { error: '상품을 찾을 수 없습니다.' }
+      );
+    case 'get_region_info':
+      return executeGetRegionInfo(
+        input as Parameters<typeof executeGetRegionInfo>[0],
       );
     default:
       return { error: `알 수 없는 도구: ${name}` };

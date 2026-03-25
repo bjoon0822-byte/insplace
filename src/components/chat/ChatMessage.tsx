@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import type { ChatMessage as ChatMessageType, Locale } from '@/types';
 import ChatProductCard from './ChatProductCard';
+import ChatJourneyCard from './ChatJourneyCard';
+import ChatRegionCard from './ChatRegionCard';
 import styles from './ChatMessage.module.css';
 
 interface Props {
@@ -38,7 +40,15 @@ export default function ChatMessage({ message, locale, isTyping }: Props) {
           </div>
         ) : null}
 
-        {message.products && message.products.length > 0 && (
+        {message.regionInfo && (
+          <ChatRegionCard regionInfo={message.regionInfo} />
+        )}
+
+        {message.journey && message.journey.steps.length > 0 && (
+          <ChatJourneyCard journey={message.journey} locale={locale} />
+        )}
+
+        {!message.journey && message.products && message.products.length > 0 && (
           <div className={styles.products}>
             {message.products.map((result) => (
               <ChatProductCard key={result.id} result={result} locale={locale} />

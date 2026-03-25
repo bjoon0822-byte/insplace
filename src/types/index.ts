@@ -239,11 +239,45 @@ export interface DesignReference {
   dimensions: string;
 }
 
+/** 팬 여정 단계 (챗봇 추천 결과) */
+export interface JourneyStep {
+  order: number;
+  role: 'attention' | 'gathering' | 'memento';
+  label: string;
+  product: RecommendationResult;
+  note: string;
+}
+
+/** 팬 여정 패키지 (챗봇 추천 결과) */
+export interface JourneyPackage {
+  name: string;
+  region: string;
+  regionInfo: string;
+  purpose: string;
+  steps: JourneyStep[];
+  totalEstimate: number;
+  description: string;
+}
+
+/** 지역 통계 정보 (챗봇 카드용) */
+export interface RegionInfo {
+  id: string;
+  name: string;
+  dailyVisitors: number;
+  subwayDailyUsers: number;
+  subwayRank: number;
+  externalVisitorRatio: number;
+  stationHighlight: string;
+  recommendation: string;
+}
+
 /** 챗봇 메시지 */
 export interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
   products?: RecommendationResult[];
+  journey?: JourneyPackage;
+  regionInfo?: RegionInfo;
   timestamp: number;
 }
 

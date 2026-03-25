@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -37,6 +37,12 @@ const REGIONS = [
   { id: '서울-마포', label: '홍대/마포', icon: '🚇' },
   { id: '서울-강남', label: '강남', icon: '🏙️' },
   { id: '서울-성동', label: '성수', icon: '🎨' },
+  { id: '서울-중구', label: '명동/중구', icon: '🛍️' },
+  { id: '서울-강남2', label: '삼성/COEX', icon: '🎧' },
+  { id: '서울-영등포', label: '여의도/영등포', icon: '🌃' },
+  { id: '서울-송파', label: '잠실', icon: '🎪' },
+  { id: '서울-광진', label: '건대/광진', icon: '🎓' },
+  { id: '서울-용산', label: '이태원/용산', icon: '🌏' },
   { id: '서울-종로', label: '혜화/대학로', icon: '🎭' },
   { id: '대구', label: '대구', icon: '🌆' },
 ];
@@ -81,6 +87,18 @@ export default function ExplorerWizard({
   const [budget, setBudget] = useState<string | null>(initialBudget);
   const [scale, setScale] = useState<string | null>(initialScale);
   const [purpose, setPurpose] = useState<string | null>(initialPurpose);
+
+  // 지역 카드 클릭 시 props가 바뀌면 위저드 상태 동기화
+  useEffect(() => {
+    if (initialRegion && initialRegion !== region) {
+      setRegion(initialRegion);
+    }
+    if (initialStep && initialStep !== step) {
+      setDirection(1);
+      setStep(Math.min(Math.max(initialStep, 1), 5));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialRegion, initialStep]);
 
   const t = useCallback(
     (key: string) => getNestedValue(messages, key),
@@ -130,7 +148,7 @@ export default function ExplorerWizard({
   };
 
   return (
-    <div className={styles.wizard}>
+    <div id="explorer-wizard" className={styles.wizard}>
       {/* Progress bar */}
       <div className={styles.progressBar}>
         {[1, 2, 3, 4].map((s) => (

@@ -7,22 +7,45 @@ import type {
   AdProduct,
   Venue,
   GoodsItem,
+  JourneyPackage,
 } from '@/types';
-import { scoreProducts } from '@/lib/recommendation/scoring';
+import { scoreDiverseProducts } from '@/lib/recommendation/scoring';
+import { buildJourneyPackage } from '@/lib/recommendation/journey-builder';
 import { adProducts } from '@/data/ads';
 import { venues } from '@/data/venues';
 import { goodsItems } from '@/data/goods';
 import { caseStudies } from '@/data/case-studies';
 import { designReferences } from '@/data/design-references';
+import { getRegionContext } from '@/data/region-context';
+import type { RegionInfo } from '@/types';
 
 /** OpenAI function calling 정의 */
 export const TOOLS: ChatCompletionTool[] = [
   {
     type: 'function',
     function: {
+      name: 'get_region_info',
+      description:
+        '특정 지역의 유동인구 통계와 특성 정보를 조회합니다. 지역이 확정되었을 때 호출하세요.',
+      parameters: {
+        type: 'object',
+        properties: {
+          region: {
+            type: 'string',
+            description:
+              '지역 코드. 예: 서울-마포, 서울-강남, 서울-성동, 서울-송파, 서울-종로',
+          },
+        },
+        required: ['region'],
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
       name: 'search_products',
       description:
-        '사용자의 조건에 맞는 광고 상품, 대관 장소, 굿즈를 검색하고 관련도 점수 기반으로 추천합니다.',
+        '사용자의 조건에 맞는 광고 상품, 대관 장소, 굿즈를 검색하고 관련도 점수 기반으로 추천합니다. 카테고리 다양성을 보장하여 광고, 대관, 굿즈가 골고루 포함됩니다.',
       parameters: {
         type: 'object',
         properties: {
@@ -56,7 +79,7 @@ export const TOOLS: ChatCompletionTool[] = [
               enum: ['ad', 'venue', 'goods', 'popup'],
             },
             description:
-              '검색할 상품 유형. 기본값: ["ad", "venue"]',
+              '검색할 상품 유형. 기본값: ["ad", "venue", "goods"]',
           },
           keywords: {
             type: 'array',
@@ -65,6 +88,47 @@ export const TOOLS: ChatCompletionTool[] = [
           },
         },
         required: [],
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'search_journey_package',
+      description:
+        '목적, 지역, 예산에 맞는 팬 여정 패키지(광고→대관→굿즈 3단계 동선)를 검색합니다. 반드시 목적, 지역, 예산이 모두 확인된 후에만 호출하세요.',
+      parameters: {
+        type: 'object',
+        properties: {
+          region: {
+            type: 'string',
+            description: '지역 코드. 예: 서울-마포, 서울-강남, 서울-성동',
+          },
+          budget_max: {
+            type: 'number',
+            description: '최대 예산 (원 단위)',
+          },
+          purpose: {
+            type: 'string',
+            enum: [
+              'birthday',
+              'debut',
+              'comeback',
+              'drama',
+              'concert',
+              'anniversary',
+              'graduation',
+              'general',
+            ],
+            description: '이벤트 목적',
+          },
+          scale: {
+            type: 'string',
+            enum: ['small', 'medium', 'large'],
+            description: '이벤트 규모',
+          },
+        },
+        required: ['region', 'purpose'],
       },
     },
   },
@@ -92,7 +156,7 @@ export const TOOLS: ChatCompletionTool[] = [
   },
 ];
 
-/** search_products tool 실행 */
+/** search_products tool 실행 (다양성 보장) */
 export function executeSearchProducts(input: {
   region?: string;
   budget_max?: number;
@@ -108,15 +172,14 @@ export function executeSearchProducts(input: {
       : ['general'],
     duration: null,
     productTypes:
-      (input.product_types as ProductCategory[]) ?? ['ad', 'venue'],
+      (input.product_types as ProductCategory[]) ?? ['ad', 'venue', 'goods'],
     keywords: input.keywords ?? [],
     artistName: null,
   };
 
-  const all = scoreProducts(intent);
-  const top = all.slice(0, 6);
+  const diverse = scoreDiverseProducts(intent);
 
-  const results = top.map((r) => ({
+  const results = diverse.map((r) => ({
     id: r.id,
     category: r.category,
     score: r.score,
@@ -125,7 +188,36 @@ export function executeSearchProducts(input: {
     product: serializeProduct(r.product, r.category),
   }));
 
-  return { results: results as unknown as RecommendationResult[], total: all.length };
+  return { results: results as unknown as RecommendationResult[], total: diverse.length };
+}
+
+/** search_journey_package tool 실행 */
+export function executeSearchJourneyPackage(input: {
+  region: string;
+  purpose: string;
+  budget_max?: number;
+  scale?: string;
+}): { journey: JourneyPackage } {
+  const journey = buildJourneyPackage({
+    region: input.region,
+    purpose: input.purpose as AdPurpose,
+    budgetMax: input.budget_max,
+    scale: input.scale as 'small' | 'medium' | 'large' | undefined,
+  });
+
+  // 상품을 직렬화하여 GPT가 읽을 수 있게 변환
+  const serialized: JourneyPackage = {
+    ...journey,
+    steps: journey.steps.map((step) => ({
+      ...step,
+      product: {
+        ...step.product,
+        product: serializeProduct(step.product.product, step.product.category),
+      } as unknown as RecommendationResult,
+    })),
+  };
+
+  return { journey: serialized };
 }
 
 /** get_product_detail tool 실행 */
@@ -247,8 +339,32 @@ function serializeProduct(
       category: p.category,
       nameKey: p.nameKey,
       price: p.price,
+      minOrder: p.minOrder,
       imageUrl: p.imageUrl,
     };
   }
   return product as Record<string, unknown>;
+}
+
+/** get_region_info tool 실행 */
+export function executeGetRegionInfo(input: {
+  region: string;
+}): { regionInfo: RegionInfo } | { error: string } {
+  const ctx = getRegionContext(input.region);
+  if (!ctx) {
+    return { error: `지역 "${input.region}"을 찾을 수 없습니다.` };
+  }
+
+  const regionInfo: RegionInfo = {
+    id: ctx.id,
+    name: ctx.name,
+    dailyVisitors: ctx.statistics.dailyVisitors,
+    subwayDailyUsers: ctx.statistics.subwayDailyUsers,
+    subwayRank: ctx.statistics.subwayRank,
+    externalVisitorRatio: ctx.statistics.externalVisitorRatio,
+    stationHighlight: ctx.statistics.stationHighlight,
+    recommendation: ctx.recommendation,
+  };
+
+  return { regionInfo };
 }

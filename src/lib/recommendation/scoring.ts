@@ -5,6 +5,7 @@ import type {
   Venue,
   GoodsItem,
   AdPurpose,
+  ProductCategory,
 } from '@/types';
 import { adProducts } from '@/data/ads';
 import { venues } from '@/data/venues';
@@ -156,11 +157,11 @@ function scoreGoods(
   let score = 0;
   const reasons: string[] = [];
 
-  // 굿즈는 지역 무관 → 기본 점수
-  score += W.region * 0.3;
+  // 굿즈는 지역 무관 → 공정 기본 점수
+  score += W.region * 0.5;
 
-  // 예산 (개당 가격이므로 비교 기준이 다름 — 가볍게 처리)
-  score += W.budget * 0.3;
+  // 예산 (개당 가격이므로 비교 기준이 다름 — 공정하게 처리)
+  score += W.budget * 0.5;
 
   // 목적 일치
   const overlap = intent.purposes.filter((p) => item.purposes.includes(p));
@@ -219,7 +220,7 @@ export function scoreProducts(intent: ParsedIntent): RecommendationResult[] {
     }
   }
 
-  // 굿즈 (보조 추천 — 점수 0.6배)
+  // 굿즈 스코어링 (페널티 제거 — 공정 점수)
   if (intent.productTypes.includes('goods')) {
     for (const item of goodsItems) {
       const { score, reasons } = scoreGoods(item, intent);
@@ -227,21 +228,21 @@ export function scoreProducts(intent: ParsedIntent): RecommendationResult[] {
         results.push({
           id: item.id,
           category: 'goods',
-          score: Math.round(score * 0.6),
+          score,
           matchReasons: reasons,
           product: item,
         });
       }
     }
   } else {
-    // 항상 보조 굿즈 추천 (점수 더 낮게)
+    // 굿즈 미지정 시에도 보조 추천
     for (const item of goodsItems) {
       const { score, reasons } = scoreGoods(item, intent);
       if (score > 15) {
         results.push({
           id: item.id,
           category: 'goods',
-          score: Math.round(score * 0.4),
+          score,
           matchReasons: reasons,
           product: item,
         });
@@ -250,4 +251,30 @@ export function scoreProducts(intent: ParsedIntent): RecommendationResult[] {
   }
 
   return results.sort((a, b) => b.score - a.score);
+}
+
+/**
+ * 카테고리 다양성을 보장하는 추천 결과 반환.
+ * 각 카테고리에서 상위 2~3개씩 선택하여 동질적 결과 방지.
+ */
+export function scoreDiverseProducts(intent: ParsedIntent): RecommendationResult[] {
+  const all = scoreProducts(intent);
+
+  const byCategory: Record<string, RecommendationResult[]> = {};
+  for (const r of all) {
+    const cat = r.category;
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(r);
+  }
+
+  const diverse: RecommendationResult[] = [];
+  const categoryOrder: ProductCategory[] = ['ad', 'venue', 'goods', 'popup'];
+
+  for (const cat of categoryOrder) {
+    const items = byCategory[cat] ?? [];
+    const take = Math.min(items.length, cat === 'popup' ? 1 : 2);
+    diverse.push(...items.slice(0, take));
+  }
+
+  return diverse.sort((a, b) => b.score - a.score);
 }

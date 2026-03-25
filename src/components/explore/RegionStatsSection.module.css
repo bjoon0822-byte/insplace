@@ -1,0 +1,265 @@
+/* Region Stats Section — 시네마틱 유동인구 현황 */
+
+.section {
+  background: var(--bg-black, #0a0a0a);
+  padding: 80px 24px 100px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Hero header (Seoul map + title) ─── */
+.heroHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.688rem;
+  font-weight: 600;
+  color: var(--accent, #D97706);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent, #D97706);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(217, 119, 6, 0); }
+}
+
+.heroTitle {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.heroSub {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+}
+
+.heroAccent {
+  color: var(--accent, #D97706);
+  font-weight: 700;
+}
+
+.heroDesc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Mini map ─── */
+.mapContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapBg {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 5 / 4;
+}
+
+.mapSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Pins on the map */
+.pin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 0;
+}
+
+.pin:hover {
+  z-index: 5;
+}
+
+/* Invisible larger hit area to prevent hover jitter */
+.pinHitArea {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.pinDot {
+  position: relative;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent, #D97706);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  pointer-events: none;
+}
+
+.pin:hover .pinDot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 5px rgba(217, 119, 6, 0.25), 0 2px 10px rgba(217, 119, 6, 0.3);
+}
+
+.pinActive .pinDot {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 6px rgba(217, 119, 6, 0.3), 0 2px 12px rgba(217, 119, 6, 0.4);
+}
+
+.pinLabel {
+  position: relative;
+  z-index: 2;
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  transition: color 0.25s ease;
+  pointer-events: none;
+}
+
+.pinActive .pinLabel {
+  color: var(--accent, #D97706);
+}
+
+/* Tooltip — positioned near the hovered pin */
+.tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 24px));
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 180px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltipName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.tooltipStat {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.tooltipValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent, #D97706);
+  font-variant-numeric: tabular-nums;
+}
+
+.tooltipLabel {
+  font-size: 0.688rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.tooltipHighlight {
+  font-size: 0.688rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+
+/* ─── Cards grid ─── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* First two cards span wider */
+.grid > :nth-child(1),
+.grid > :nth-child(2) {
+  grid-column: span 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroHeader {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+
+  .mapBg {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 48px 16px 64px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSub {
+    font-size: 1rem;
+  }
+
+  .mapBg {
+    max-width: 220px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
