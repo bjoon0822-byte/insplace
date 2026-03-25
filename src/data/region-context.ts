@@ -36,7 +36,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 190000,
       subwayDailyUsers: 110000,
-      subwayRank: 2,
+      subwayRank: 1,
       externalVisitorRatio: 78,
       stationHighlight: '세 가지 환승역이 있는 MZ 문화의 중심지',
       englishName: 'Hongdae Station',
@@ -55,7 +55,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 220000,
       subwayDailyUsers: 100000,
-      subwayRank: 3,
+      subwayRank: 2,
       externalVisitorRatio: 79,
       stationHighlight: '국내 최대 환승통로 미디어 구간 보유',
       englishName: 'Gangnam Station',
@@ -74,7 +74,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 75000,
       subwayDailyUsers: 45000,
-      subwayRank: 7,
+      subwayRank: 8,
       externalVisitorRatio: 72,
       stationHighlight: '트렌드를 이끄는 MZ 크리에이터 콘텐츠 허브',
       englishName: 'Seongsu',
@@ -93,7 +93,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 150000,
       subwayDailyUsers: 75000,
-      subwayRank: 8,
+      subwayRank: 6,
       externalVisitorRatio: 60,
       stationHighlight: '공연장 밀집 지역, 콘서트 전후 집객 최적',
       englishName: 'Jamsil',
@@ -112,7 +112,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 70000,
       subwayDailyUsers: 38000,
-      subwayRank: 35,
+      subwayRank: 10,
       externalVisitorRatio: 55,
       stationHighlight: '24시간 상시 노출 대학로 문화 거리',
       englishName: 'Hyehwa',
@@ -131,7 +131,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 200000,
       subwayDailyUsers: 95000,
-      subwayRank: 4,
+      subwayRank: 3,
       externalVisitorRatio: 85,
       stationHighlight: '외국인 관광객 비율 1위, 글로벌 팬 타겟 최적',
       englishName: 'Myeongdong',
@@ -150,7 +150,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 160000,
       subwayDailyUsers: 82000,
-      subwayRank: 6,
+      subwayRank: 5,
       externalVisitorRatio: 65,
       stationHighlight: '금융 중심지 + 더현대/IFC몰 복합 상권',
       englishName: 'Yeouido',
@@ -169,7 +169,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 85000,
       subwayDailyUsers: 42000,
-      subwayRank: 15,
+      subwayRank: 9,
       externalVisitorRatio: 70,
       stationHighlight: '다국적 문화 거리, 외국인 팬 이벤트 최적',
       englishName: 'Itaewon',
@@ -188,7 +188,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 120000,
       subwayDailyUsers: 68000,
-      subwayRank: 9,
+      subwayRank: 7,
       externalVisitorRatio: 62,
       stationHighlight: '2+7호선 환승, 커먼그라운드 팝업 성지',
       englishName: 'Konkuk Univ.',
@@ -207,7 +207,7 @@ export const regionContexts: RegionContext[] = [
     statistics: {
       dailyVisitors: 180000,
       subwayDailyUsers: 88000,
-      subwayRank: 5,
+      subwayRank: 4,
       externalVisitorRatio: 74,
       stationHighlight: 'COEX/SM타운, K-POP 팬덤의 성지',
       englishName: 'Samsung COEX',
