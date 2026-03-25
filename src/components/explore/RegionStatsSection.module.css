@@ -220,6 +220,34 @@
   grid-column: span 1;
 }
 
+/* ─── Other Cities ─── */
+.otherCities {
+  margin-top: 64px;
+}
+
+.otherCitiesHeader {
+  margin-bottom: 28px;
+}
+
+.otherCitiesTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.otherCitiesDesc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .heroHeader {
@@ -238,6 +266,12 @@
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .otherGrid {
+    grid-template-columns: 1fr;
   }
 }
 

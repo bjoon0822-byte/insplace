@@ -11,14 +11,16 @@ import styles from './ChatRegionCard.module.css';
 const REGION_IMAGES: Record<string, string> = {
   '서울-마포': 'https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=600&q=70',
   '서울-강남': 'https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=600&q=70',
-  '서울-성동': 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=70',
+  '서울-성동': 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=70',
   '서울-송파': 'https://images.unsplash.com/photo-1546874177-9e664107314e?w=600&q=70',
-  '서울-종로': 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=600&q=70',
-  '서울-중구': 'https://images.unsplash.com/photo-1583167617666-6ccc608de0b4?w=600&q=70',
-  '서울-영등포': 'https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?w=600&q=70',
-  '서울-용산': 'https://images.unsplash.com/photo-1578637387939-43c525550085?w=600&q=70',
+  '서울-종로': 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=600&q=70',
+  '서울-중구': 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=600&q=70',
+  '서울-영등포': 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=70',
+  '서울-용산': 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&q=70',
   '서울-광진': 'https://images.unsplash.com/photo-1551522355-dbf80597eba8?w=600&q=70',
   '서울-강남2': 'https://images.unsplash.com/photo-1573152958734-1922c188fba3?w=600&q=70',
+  '부산-해운대': 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=600&q=70',
+  '대구-동성로': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=70',
 };
 
 interface Props {

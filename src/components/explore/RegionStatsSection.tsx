@@ -32,11 +32,21 @@ export default function RegionStatsSection({ locale }: Props) {
   const allRegions = getAllRegionStats();
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
 
-  // 순위순 정렬
-  const regions = useMemo(
-    () => [...allRegions].sort((a, b) => a.statistics.subwayRank - b.statistics.subwayRank),
+  // 서울 vs 비서울 분리 + 순위순 정렬
+  const seoulRegions = useMemo(
+    () => [...allRegions]
+      .filter((r) => r.id.startsWith('서울-'))
+      .sort((a, b) => a.statistics.subwayRank - b.statistics.subwayRank),
     [allRegions],
   );
+
+  const otherRegions = useMemo(
+    () => allRegions.filter((r) => !r.id.startsWith('서울-')),
+    [allRegions],
+  );
+
+  // 맵 핀은 서울 지역만
+  const regions = seoulRegions;
 
   const hovered = hoveredRegion
     ? regions.find((r) => r.id === hoveredRegion) ?? null
@@ -98,14 +108,26 @@ export default function RegionStatsSection({ locale }: Props) {
           {/* Mini map */}
           <div className={styles.mapContainer}>
             <div className={styles.mapBg}>
-              {/* Simple Seoul outline shape */}
+              {/* Seoul outline — jagged north (mountains), smooth south */}
               <svg viewBox="0 0 200 160" className={styles.mapSvg}>
+                {/* Seoul city boundary */}
                 <path
-                  d="M40,60 Q45,20 80,15 Q100,12 130,20 Q165,30 175,55 Q180,70 170,90 Q160,115 135,130 Q110,145 80,140 Q50,135 35,115 Q25,95 30,75 Z"
+                  d="M36,82 L38,72 L42,62 L48,52 L54,44 L58,46 L64,38 L70,34 L76,36 L82,30 L88,32 L94,28 L100,30 L106,26 L112,28 L118,24 L124,26 L130,24 L136,28 L142,32 L148,36 L154,42 L158,50 L162,58 L164,68 L164,80 L162,90 L158,100 L154,110 L148,118 L140,124 L132,128 L124,130 L116,128 L108,130 L100,128 L92,130 L84,128 L76,126 L68,120 L60,114 L52,106 L46,96 L40,88 Z"
                   fill="rgba(255,255,255,0.03)"
-                  stroke="rgba(255,255,255,0.1)"
+                  stroke="rgba(255,255,255,0.12)"
                   strokeWidth="1"
                 />
+                {/* Han River */}
+                <path
+                  d="M36,86 Q70,78 100,82 Q130,86 164,78"
+                  fill="none"
+                  stroke="rgba(217,119,6,0.15)"
+                  strokeWidth="1.5"
+                  strokeDasharray="4 3"
+                />
+                {/* Faint district grid */}
+                <line x1="100" y1="28" x2="100" y2="130" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 4" />
+                <line x1="36" y1="80" x2="164" y2="80" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 4" />
               </svg>
 
               {/* Pins */}
@@ -156,9 +178,9 @@ export default function RegionStatsSection({ locale }: Props) {
           </div>
         </div>
 
-        {/* Cards grid */}
+        {/* Seoul cards grid */}
         <div className={styles.grid}>
-          {regions.map((region, i) => (
+          {seoulRegions.map((region, i) => (
             <RegionStatCard
               key={region.id}
               id={region.id}
@@ -172,6 +194,36 @@ export default function RegionStatsSection({ locale }: Props) {
             />
           ))}
         </div>
+
+        {/* Other cities section */}
+        {otherRegions.length > 0 && (
+          <div className={styles.otherCities}>
+            <motion.div
+              className={styles.otherCitiesHeader}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className={styles.otherCitiesTitle}>Other Cities</h3>
+              <p className={styles.otherCitiesDesc}>서울 외 주요 광고 지역</p>
+            </motion.div>
+            <div className={styles.otherGrid}>
+              {otherRegions.map((region, i) => (
+                <RegionStatCard
+                  key={region.id}
+                  id={region.id}
+                  name={region.name}
+                  statistics={region.statistics}
+                  highlight={region.highlight}
+                  peakHours={region.peakHours}
+                  delay={i * 0.12}
+                  isActive={false}
+                  onClick={handleSelect}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -44,7 +44,8 @@ const REGIONS = [
   { id: '서울-광진', label: '건대/광진', icon: '🎓' },
   { id: '서울-용산', label: '이태원/용산', icon: '🌏' },
   { id: '서울-종로', label: '혜화/대학로', icon: '🎭' },
-  { id: '대구', label: '대구', icon: '🌆' },
+  { id: '부산-해운대', label: '해운대/부산', icon: '🏖️' },
+  { id: '대구-동성로', label: '동성로/대구', icon: '🌆' },
 ];
 
 const BUDGETS = [
