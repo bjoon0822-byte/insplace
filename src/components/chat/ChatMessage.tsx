@@ -11,9 +11,10 @@ interface Props {
   message: ChatMessageType;
   locale: Locale;
   isTyping?: boolean;
+  i18n?: Record<string, unknown>;
 }
 
-export default function ChatMessage({ message, locale, isTyping }: Props) {
+export default function ChatMessage({ message, locale, isTyping, i18n }: Props) {
   const isUser = message.role === 'user';
 
   return (
@@ -45,7 +46,7 @@ export default function ChatMessage({ message, locale, isTyping }: Props) {
         )}
 
         {message.journey && message.journey.steps.length > 0 && (
-          <ChatJourneyCard journey={message.journey} locale={locale} />
+          <ChatJourneyCard journey={message.journey} locale={locale} messages={i18n || {}} />
         )}
 
         {!message.journey && message.products && message.products.length > 0 && (

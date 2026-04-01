@@ -14,15 +14,15 @@ interface Props {
   messages: Record<string, unknown>;
 }
 
-const PURPOSE_LABELS: Record<string, string> = {
-  birthday: '생일',
-  debut: '데뷔',
-  comeback: '컴백',
-  concert: '콘서트',
-  drama: '드라마',
-  anniversary: '기념일',
-  graduation: '졸업',
-  general: '일반',
+const PURPOSE_KEYS: Record<string, string> = {
+  birthday: 'caseStudy.birthday',
+  debut: 'caseStudy.debut',
+  comeback: 'caseStudy.comeback',
+  concert: 'caseStudy.concert',
+  drama: 'caseStudy.drama',
+  anniversary: 'caseStudy.anniversary',
+  graduation: 'caseStudy.graduation',
+  general: 'caseStudy.general',
 };
 
 export default function CaseStudySection({ productId, productType, messages }: Props) {
@@ -60,7 +60,7 @@ export default function CaseStudySection({ productId, productType, messages }: P
                 className={styles.cardImage}
               />
               <span className={styles.purposeBadge}>
-                {PURPOSE_LABELS[cs.purpose] ?? cs.purpose}
+                {PURPOSE_KEYS[cs.purpose] ? t(messages, PURPOSE_KEYS[cs.purpose]) : cs.purpose}
               </span>
             </div>
             <div className={styles.cardBody}>

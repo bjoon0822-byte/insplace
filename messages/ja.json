@@ -102,7 +102,17 @@
     "subtitle": "今最もアツいアイドルとイベント",
     "celebRank": "セレブ人気TOP 5",
     "adRank": "人気広告スポットTOP 5",
-    "eventRank": "イベント数TOP 5"
+    "eventRank": "イベント数TOP 5",
+    "updated": "更新",
+    "totalSearch": "総検索量",
+    "totalAds": "総広告数",
+    "events": "イベント",
+    "activeUsers": "アクティブユーザー",
+    "searchTrend": "検索量推移",
+    "adComparison": "広告件数比較",
+    "thisMonth": "今月",
+    "unit": "件",
+    "perDay": "/ 日"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -289,7 +299,16 @@
     "proofPhotos": "証拠写真",
     "startOwn": "オリジナルキャンペーンを始めましょう",
     "startOwnDesc": "好きなアイドルのための誕生日広告やデビューお祝いなど、様々なキャンペーンを作れます",
-    "inquire": "キャンペーンお問い合わせ"
+    "inquire": "キャンペーンお問い合わせ",
+    "statusActive": "進行中",
+    "statusFunded": "達成完了",
+    "statusCompleted": "終了",
+    "statusCancelled": "キャンセル",
+    "contributors": "名参加",
+    "achieved": "達成",
+    "notFound": "キャンペーンが見つかりません。",
+    "backToList": "一覧へ",
+    "artist": "アーティスト"
   },
   "calendar": {
     "title": "誕生日カレンダー",
@@ -359,7 +378,27 @@
     "changeFilters": "フィルターを変更してください",
     "ads": "広告商品",
     "venues": "会場",
-    "goods": "グッズ"
+    "goods": "グッズ",
+    "scaleSmallDesc": "CMボード、小型ディスプレイ",
+    "scaleMediumDesc": "デジタルサイネージ、照明広告",
+    "scaleLargeDesc": "ビルボード、大型LED",
+    "scaleMegaDesc": "15台スクリーン、乗換通路全体",
+    "products": "個の商品",
+    "availAvailable": "予約可能",
+    "availBusy": "お問い合わせ",
+    "availSoldout": "締切",
+    "regionHongdae": "弘大/麻浦",
+    "regionGangnam": "江南",
+    "regionSeongsu": "聖水",
+    "regionMyeongdong": "明洞/中区",
+    "regionSamsung": "三成/COEX",
+    "regionYeouido": "汝矣島/永登浦",
+    "regionJamsil": "蚕室",
+    "regionKondae": "建大/広津",
+    "regionItaewon": "梨泰院/龍山",
+    "regionHyehwa": "恵化/大学路",
+    "regionHaeundae": "海雲台/釜山",
+    "regionDongseongro": "東城路/大邱"
   },
   "chat": {
     "title": "AI広告相談",
@@ -380,11 +419,44 @@
   "caseStudy": {
     "title": "過去の事例",
     "noData": "まだ事例がありません",
-    "viewAll": "すべての事例を見る"
+    "viewAll": "すべての事例を見る",
+    "birthday": "誕生日",
+    "debut": "デビュー",
+    "comeback": "カムバック",
+    "concert": "コンサート",
+    "drama": "ドラマ",
+    "anniversary": "記念日",
+    "graduation": "卒業",
+    "general": "一般"
   },
   "designRef": {
     "title": "デザイン参考",
     "noData": "まだ参考例がありません",
-    "viewAll": "すべての参考例を見る"
+    "viewAll": "すべての参考例を見る",
+    "all": "全て",
+    "birthday": "誕生日",
+    "debut": "デビュー",
+    "concert": "コンサート",
+    "general": "一般"
+  },
+  "journey": {
+    "roleAttention": "注目を集める",
+    "roleGathering": "ファン集会",
+    "roleMemento": "記念品",
+    "perDay": "日",
+    "perUnit": "個",
+    "priceUndetermined": "価格未定",
+    "estimatedTotal": "推定総費用",
+    "moreOptions": "もっとオプションを見る →"
+  },
+  "region": {
+    "rank": "位",
+    "perDay": "人/day",
+    "dailyVisitors": "1日の通行人数",
+    "subwayUsers": "地下鉄利用者",
+    "externalVisitors": "外部訪問者",
+    "explore": "探索する",
+    "selectPrompt": "地域を選択するとカスタム広告探索が始まります",
+    "otherCities": "ソウル以外の主要広告地域"
   }
 }

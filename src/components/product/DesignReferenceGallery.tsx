@@ -15,12 +15,12 @@ interface Props {
 
 type FilterCategory = 'all' | 'birthday' | 'debut' | 'concert' | 'general';
 
-const CATEGORY_LABELS: Record<FilterCategory, string> = {
-  all: '전체',
-  birthday: '생일',
-  debut: '데뷔',
-  concert: '콘서트',
-  general: '일반',
+const CATEGORY_KEYS: Record<FilterCategory, string> = {
+  all: 'designRef.all',
+  birthday: 'designRef.birthday',
+  debut: 'designRef.debut',
+  concert: 'designRef.concert',
+  general: 'designRef.general',
 };
 
 export default function DesignReferenceGallery({ productId, messages }: Props) {
@@ -63,7 +63,7 @@ export default function DesignReferenceGallery({ productId, messages }: Props) {
               className={`${styles.filterBtn} ${filter === cat ? styles.filterActive : ''}`}
               onClick={() => setFilter(cat)}
             >
-              {CATEGORY_LABELS[cat]}
+              {t(messages, CATEGORY_KEYS[cat])}
             </button>
           ))}
         </div>

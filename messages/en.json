@@ -102,7 +102,17 @@
     "subtitle": "The hottest idols and events right now",
     "celebRank": "Top 5 Trending Celebs",
     "adRank": "Top 5 Popular Ad Spots",
-    "eventRank": "Top 5 Most Events"
+    "eventRank": "Top 5 Most Events",
+    "updated": "Updated",
+    "totalSearch": "Total Searches",
+    "totalAds": "Total Ads",
+    "events": "Events",
+    "activeUsers": "Active Users",
+    "searchTrend": "Search Trends",
+    "adComparison": "Ad Count Comparison",
+    "thisMonth": "This Month",
+    "unit": "ads",
+    "perDay": "/ day"
   },
   "contact": {
     "title": "Contact Us",
@@ -289,7 +299,16 @@
     "proofPhotos": "Proof Photos",
     "startOwn": "Start your own campaign",
     "startOwnDesc": "Create birthday ads, debut celebrations, and more for your favorite idols",
-    "inquire": "Inquire About Campaign"
+    "inquire": "Inquire About Campaign",
+    "statusActive": "Active",
+    "statusFunded": "Funded",
+    "statusCompleted": "Ended",
+    "statusCancelled": "Cancelled",
+    "contributors": " contributed",
+    "achieved": "achieved",
+    "notFound": "Campaign not found.",
+    "backToList": "Back to list",
+    "artist": "Artist"
   },
   "calendar": {
     "title": "Birthday Calendar",
@@ -359,7 +378,27 @@
     "changeFilters": "Try changing filters",
     "ads": "Ad Products",
     "venues": "Venues",
-    "goods": "Goods"
+    "goods": "Goods",
+    "scaleSmallDesc": "CM boards, small displays",
+    "scaleMediumDesc": "Digital signage, lightbox ads",
+    "scaleLargeDesc": "Billboards, large LEDs",
+    "scaleMegaDesc": "15+ screens, full transfer corridors",
+    "products": " products",
+    "availAvailable": "Available",
+    "availBusy": "Inquire",
+    "availSoldout": "Sold Out",
+    "regionHongdae": "Hongdae/Mapo",
+    "regionGangnam": "Gangnam",
+    "regionSeongsu": "Seongsu",
+    "regionMyeongdong": "Myeongdong",
+    "regionSamsung": "Samsung/COEX",
+    "regionYeouido": "Yeouido",
+    "regionJamsil": "Jamsil",
+    "regionKondae": "Konkuk/Gwangjin",
+    "regionItaewon": "Itaewon/Yongsan",
+    "regionHyehwa": "Hyehwa/Daehak-ro",
+    "regionHaeundae": "Haeundae/Busan",
+    "regionDongseongro": "Dongseong-ro/Daegu"
   },
   "chat": {
     "title": "AI AD CONSULTATION",
@@ -380,11 +419,44 @@
   "caseStudy": {
     "title": "Past Work Examples",
     "noData": "No case studies yet",
-    "viewAll": "View all cases"
+    "viewAll": "View all cases",
+    "birthday": "Birthday",
+    "debut": "Debut",
+    "comeback": "Comeback",
+    "concert": "Concert",
+    "drama": "Drama",
+    "anniversary": "Anniversary",
+    "graduation": "Graduation",
+    "general": "General"
   },
   "designRef": {
     "title": "Design References",
     "noData": "No design references yet",
-    "viewAll": "View all designs"
+    "viewAll": "View all designs",
+    "all": "All",
+    "birthday": "Birthday",
+    "debut": "Debut",
+    "concert": "Concert",
+    "general": "General"
+  },
+  "journey": {
+    "roleAttention": "Attention",
+    "roleGathering": "Fan Gathering",
+    "roleMemento": "Memento",
+    "perDay": "day",
+    "perUnit": "pcs",
+    "priceUndetermined": "Price TBD",
+    "estimatedTotal": "Estimated Total",
+    "moreOptions": "View more options →"
+  },
+  "region": {
+    "rank": "th",
+    "perDay": "/day",
+    "dailyVisitors": "Daily Visitors",
+    "subwayUsers": "Subway Users",
+    "externalVisitors": "External Visitors",
+    "explore": "Explore",
+    "selectPrompt": "Select a region to start finding tailored ads",
+    "otherCities": "Other Major Ad Regions"
   }
 }

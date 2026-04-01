@@ -39,6 +39,7 @@ export default async function TrendPage({ params }: PageProps) {
         eventTrend={eventTrend}
         stats={trendStats}
         labels={labels}
+        messages={m as Record<string, unknown>}
       />
     </>
   );

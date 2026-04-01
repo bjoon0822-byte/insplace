@@ -124,6 +124,7 @@ export default function ChatHero({ locale, messages: i18n }: ChatHeroProps) {
                 message={msg}
                 locale={locale}
                 isTyping={isStreaming && i === messages.length - 1 && msg.role === 'assistant' && !msg.content}
+                i18n={i18n}
               />
             ))}
           </AnimatePresence>

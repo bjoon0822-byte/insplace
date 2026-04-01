@@ -102,7 +102,17 @@
     "subtitle": "当下最火的爱豆和活动",
     "celebRank": "爱豆人气TOP 5",
     "adRank": "热门广告位TOP 5",
-    "eventRank": "活动数量TOP 5"
+    "eventRank": "活动数量TOP 5",
+    "updated": "更新",
+    "totalSearch": "总搜索量",
+    "totalAds": "总广告数",
+    "events": "活动",
+    "activeUsers": "活跃用户",
+    "searchTrend": "搜索趋势",
+    "adComparison": "广告数量对比",
+    "thisMonth": "本月",
+    "unit": "条",
+    "perDay": "/ 天"
   },
   "contact": {
     "title": "联系我们",
@@ -289,7 +299,16 @@
     "proofPhotos": "认证照",
     "startOwn": "发起您自己的活动",
     "startOwnDesc": "为喜爱的偶像创建生日广告、出道庆祝等各种活动",
-    "inquire": "活动咨询"
+    "inquire": "活动咨询",
+    "statusActive": "进行中",
+    "statusFunded": "已达成",
+    "statusCompleted": "已结束",
+    "statusCancelled": "已取消",
+    "contributors": "人参与",
+    "achieved": "达成",
+    "notFound": "未找到活动。",
+    "backToList": "返回列表",
+    "artist": "艺术家"
   },
   "calendar": {
     "title": "生日日历",
@@ -359,7 +378,27 @@
     "changeFilters": "请尝试改变筛选条件",
     "ads": "广告产品",
     "venues": "场地",
-    "goods": "周边"
+    "goods": "周边",
+    "scaleSmallDesc": "CM板、小型显示屏",
+    "scaleMediumDesc": "数字标牌、灯箱广告",
+    "scaleLargeDesc": "广告牌、大型LED",
+    "scaleMegaDesc": "15台屏幕、换乘通道全部",
+    "products": "个商品",
+    "availAvailable": "可预约",
+    "availBusy": "咨询",
+    "availSoldout": "已满",
+    "regionHongdae": "弘大/麻浦",
+    "regionGangnam": "江南",
+    "regionSeongsu": "圣水",
+    "regionMyeongdong": "明洞/中区",
+    "regionSamsung": "三成/COEX",
+    "regionYeouido": "汝矣岛/永登浦",
+    "regionJamsil": "蚕室",
+    "regionKondae": "建大/广津",
+    "regionItaewon": "梨泰院/龙山",
+    "regionHyehwa": "惠化/大学路",
+    "regionHaeundae": "海云台/釜山",
+    "regionDongseongro": "东城路/大邱"
   },
   "chat": {
     "title": "AI广告咨询",
@@ -380,11 +419,44 @@
   "caseStudy": {
     "title": "过往案例",
     "noData": "暂无案例",
-    "viewAll": "查看全部案例"
+    "viewAll": "查看全部案例",
+    "birthday": "生日",
+    "debut": "出道",
+    "comeback": "回归",
+    "concert": "演唱会",
+    "drama": "电视剧",
+    "anniversary": "纪念日",
+    "graduation": "毕业",
+    "general": "一般"
   },
   "designRef": {
     "title": "设计参考",
     "noData": "暂无设计参考",
-    "viewAll": "查看全部设计"
+    "viewAll": "查看全部设计",
+    "all": "全部",
+    "birthday": "生日",
+    "debut": "出道",
+    "concert": "演唱会",
+    "general": "一般"
+  },
+  "journey": {
+    "roleAttention": "引起关注",
+    "roleGathering": "粉丝聚会",
+    "roleMemento": "纪念品",
+    "perDay": "天",
+    "perUnit": "个",
+    "priceUndetermined": "价格待定",
+    "estimatedTotal": "预估总费用",
+    "moreOptions": "查看更多选项 →"
+  },
+  "region": {
+    "rank": "位",
+    "perDay": "人/天",
+    "dailyVisitors": "日均客流量",
+    "subwayUsers": "地铁乘客",
+    "externalVisitors": "外部访客",
+    "explore": "探索",
+    "selectPrompt": "选择地区后即可开始定制广告探索",
+    "otherCities": "首尔以外主要广告地区"
   }
 }

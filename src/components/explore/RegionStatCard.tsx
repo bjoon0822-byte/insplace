@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import type { RegionStatistics } from '@/data/region-context';
+import { t } from '@/i18n/request';
 import { formatLargeNumber } from '@/utils/format';
 import styles from './RegionStatCard.module.css';
 
@@ -15,6 +16,7 @@ interface Props {
   delay?: number;
   isActive?: boolean;
   onClick: (regionId: string) => void;
+  messages: Record<string, unknown>;
 }
 
 function useCountUp(target: number, duration: number, delay: number, isInView: boolean): number {
@@ -47,7 +49,7 @@ function useCountUp(target: number, duration: number, delay: number, isInView: b
   return value;
 }
 
-export default function RegionStatCard({ id, name, statistics, highlight, peakHours, delay = 0, isActive, onClick }: Props) {
+export default function RegionStatCard({ id, name, statistics, highlight, peakHours, delay = 0, isActive, onClick, messages }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -94,11 +96,11 @@ export default function RegionStatCard({ id, name, statistics, highlight, peakHo
           </motion.span>
           <span className={styles.rankBadge}>
             <span className={styles.rankNumber}>{statistics.subwayRank}</span>
-            <span className={styles.rankSuffix}>위</span>
+            <span className={styles.rankSuffix}>{t(messages, 'region.rank')}</span>
           </span>
         </div>
 
-        {/* Korean name */}
+        {/* Name */}
         <motion.h3
           className={styles.koreanName}
           initial={{ opacity: 0, y: 10 }}
@@ -124,15 +126,15 @@ export default function RegionStatCard({ id, name, statistics, highlight, peakHo
               {formatLargeNumber(visitors)}
             </motion.span>
           </AnimatePresence>
-          <span className={styles.heroUnit}>명/day</span>
-          <div className={styles.heroLabel}>1일 유동인구</div>
+          <span className={styles.heroUnit}>{t(messages, 'region.perDay')}</span>
+          <div className={styles.heroLabel}>{t(messages, 'region.dailyVisitors')}</div>
         </div>
 
         {/* Stats row */}
         <div className={styles.statsRow}>
           <div className={styles.statItem}>
-            <div className={styles.statValue}>{formatLargeNumber(subway)}명</div>
-            <div className={styles.statLabel}>지하철 이용객</div>
+            <div className={styles.statValue}>{formatLargeNumber(subway)}</div>
+            <div className={styles.statLabel}>{t(messages, 'region.subwayUsers')}</div>
             <div className={styles.statBar}>
               <motion.div
                 className={styles.statBarFill}
@@ -145,7 +147,7 @@ export default function RegionStatCard({ id, name, statistics, highlight, peakHo
           </div>
           <div className={styles.statItem}>
             <div className={styles.statValue}>{ratio}%</div>
-            <div className={styles.statLabel}>외부 방문객</div>
+            <div className={styles.statLabel}>{t(messages, 'region.externalVisitors')}</div>
             <div className={styles.statBar}>
               <motion.div
                 className={styles.statBarFill}
@@ -162,7 +164,7 @@ export default function RegionStatCard({ id, name, statistics, highlight, peakHo
         <div className={styles.footer}>
           <span className={styles.peakHours}>PEAK {peakHours}</span>
           <span className={styles.cta}>
-            탐색하기
+            {t(messages, 'region.explore')}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

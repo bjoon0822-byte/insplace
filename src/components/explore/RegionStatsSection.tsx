@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Locale } from '@/types';
+import { t } from '@/i18n/request';
 import { getAllRegionStats } from '@/data/region-context';
 import { formatLargeNumber } from '@/utils/format';
 import RegionStatCard from './RegionStatCard';
@@ -11,6 +12,7 @@ import styles from './RegionStatsSection.module.css';
 
 interface Props {
   locale: Locale;
+  messages: Record<string, unknown>;
 }
 
 /** 서울 지도 위 지역 마커 좌표 (%) */
@@ -27,7 +29,7 @@ const MAP_PINS: Record<string, { x: number; y: number }> = {
   '서울-강남2': { x: 64, y: 62 },
 };
 
-export default function RegionStatsSection({ locale }: Props) {
+export default function RegionStatsSection({ locale, messages }: Props) {
   const router = useRouter();
   const allRegions = getAllRegionStats();
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
@@ -101,7 +103,7 @@ export default function RegionStatsSection({ locale }: Props) {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              지역을 선택하면 맞춤 광고 탐색이 시작됩니다
+              {t(messages, 'region.selectPrompt')}
             </motion.p>
           </div>
 
@@ -180,7 +182,7 @@ export default function RegionStatsSection({ locale }: Props) {
                 >
                   <div className={styles.tooltipName}>{hovered.name}</div>
                   <div className={styles.tooltipStat}>
-                    <span className={styles.tooltipValue}>{formatLargeNumber(hovered.statistics.dailyVisitors)}명</span>
+                    <span className={styles.tooltipValue}>{formatLargeNumber(hovered.statistics.dailyVisitors)}{t(messages, 'region.perDay')}</span>
                     <span className={styles.tooltipLabel}>/day</span>
                   </div>
                   <div className={styles.tooltipHighlight}>{hovered.statistics.stationHighlight}</div>
@@ -203,6 +205,7 @@ export default function RegionStatsSection({ locale }: Props) {
               delay={i * 0.12}
               isActive={hoveredRegion === region.id}
               onClick={handleSelect}
+              messages={messages}
             />
           ))}
         </div>
@@ -217,7 +220,7 @@ export default function RegionStatsSection({ locale }: Props) {
               viewport={{ once: true }}
             >
               <h3 className={styles.otherCitiesTitle}>Other Cities</h3>
-              <p className={styles.otherCitiesDesc}>서울 외 주요 광고 지역</p>
+              <p className={styles.otherCitiesDesc}>{t(messages, 'region.otherCities')}</p>
             </motion.div>
             <div className={styles.otherGrid}>
               {otherRegions.map((region, i) => (
@@ -231,6 +234,7 @@ export default function RegionStatsSection({ locale }: Props) {
                   delay={i * 0.12}
                   isActive={false}
                   onClick={handleSelect}
+                  messages={messages}
                 />
               ))}
             </div>

@@ -34,18 +34,18 @@ function getNestedValue(obj: Record<string, unknown>, path: string): string {
 }
 
 const REGIONS = [
-  { id: '서울-마포', label: '홍대/마포', icon: '🚇' },
-  { id: '서울-강남', label: '강남', icon: '🏙️' },
-  { id: '서울-성동', label: '성수', icon: '🎨' },
-  { id: '서울-중구', label: '명동/중구', icon: '🛍️' },
-  { id: '서울-강남2', label: '삼성/COEX', icon: '🎧' },
-  { id: '서울-영등포', label: '여의도/영등포', icon: '🌃' },
-  { id: '서울-송파', label: '잠실', icon: '🎪' },
-  { id: '서울-광진', label: '건대/광진', icon: '🎓' },
-  { id: '서울-용산', label: '이태원/용산', icon: '🌏' },
-  { id: '서울-종로', label: '혜화/대학로', icon: '🎭' },
-  { id: '부산-해운대', label: '해운대/부산', icon: '🏖️' },
-  { id: '대구-동성로', label: '동성로/대구', icon: '🌆' },
+  { id: '서울-마포', labelKey: 'explore.regionHongdae', icon: '🚇' },
+  { id: '서울-강남', labelKey: 'explore.regionGangnam', icon: '🏙️' },
+  { id: '서울-성동', labelKey: 'explore.regionSeongsu', icon: '🎨' },
+  { id: '서울-중구', labelKey: 'explore.regionMyeongdong', icon: '🛍️' },
+  { id: '서울-강남2', labelKey: 'explore.regionSamsung', icon: '🎧' },
+  { id: '서울-영등포', labelKey: 'explore.regionYeouido', icon: '🌃' },
+  { id: '서울-송파', labelKey: 'explore.regionJamsil', icon: '🎪' },
+  { id: '서울-광진', labelKey: 'explore.regionKondae', icon: '🎓' },
+  { id: '서울-용산', labelKey: 'explore.regionItaewon', icon: '🌏' },
+  { id: '서울-종로', labelKey: 'explore.regionHyehwa', icon: '🎭' },
+  { id: '부산-해운대', labelKey: 'explore.regionHaeundae', icon: '🏖️' },
+  { id: '대구-동성로', labelKey: 'explore.regionDongseongro', icon: '🌆' },
 ];
 
 const BUDGETS = [
@@ -55,11 +55,11 @@ const BUDGETS = [
   { id: 'luxury', labelKey: 'explore.budgetLuxury' },
 ];
 
-const SCALES: Array<{ id: ScaleTier; labelKey: string; desc: string }> = [
-  { id: 'small', labelKey: 'explore.scaleSmall', desc: 'CM보드, 소형 디스플레이' },
-  { id: 'medium', labelKey: 'explore.scaleMedium', desc: '디지털 사이니지, 조명광고' },
-  { id: 'large', labelKey: 'explore.scaleLarge', desc: '빌보드, 대형 LED' },
-  { id: 'mega', labelKey: 'explore.scaleMega', desc: '15대 스크린, 환승통로 전체' },
+const SCALES: Array<{ id: ScaleTier; labelKey: string; descKey: string }> = [
+  { id: 'small', labelKey: 'explore.scaleSmall', descKey: 'explore.scaleSmallDesc' },
+  { id: 'medium', labelKey: 'explore.scaleMedium', descKey: 'explore.scaleMediumDesc' },
+  { id: 'large', labelKey: 'explore.scaleLarge', descKey: 'explore.scaleLargeDesc' },
+  { id: 'mega', labelKey: 'explore.scaleMega', descKey: 'explore.scaleMegaDesc' },
 ];
 
 const PURPOSES: Array<{ id: AdPurpose; labelKey: string; icon: string }> = [
@@ -153,7 +153,7 @@ export default function ExplorerWizard({
     const items: Array<{ step: number; label: string }> = [];
     if (region) {
       const found = REGIONS.find((r) => r.id === region);
-      items.push({ step: 1, label: found?.label || region });
+      items.push({ step: 1, label: found ? t(found.labelKey) : region });
     }
     if (budget) items.push({ step: 2, label: t(`explore.budget${budget.charAt(0).toUpperCase() + budget.slice(1)}`) });
     if (scale) items.push({ step: 3, label: t(`explore.scale${scale.charAt(0).toUpperCase() + scale.slice(1)}`) });
@@ -246,8 +246,8 @@ export default function ExplorerWizard({
                   onClick={() => selectAndNext(setRegion, r.id)}
                 >
                   <span className={styles.optionIcon}>{r.icon}</span>
-                  <span className={styles.optionLabel}>{r.label}</span>
-                  <span className={styles.optionCount}>{regionCounts[r.id] || 0}개 상품</span>
+                  <span className={styles.optionLabel}>{t(r.labelKey)}</span>
+                  <span className={styles.optionCount}>{regionCounts[r.id] || 0}{t('explore.products')}</span>
                 </button>
               ))}
               <button
@@ -307,7 +307,7 @@ export default function ExplorerWizard({
                   onClick={() => selectAndNext(setScale, s.id)}
                 >
                   <span className={styles.optionLabel}>{t(s.labelKey)}</span>
-                  <span className={styles.optionDesc}>{s.desc}</span>
+                  <span className={styles.optionDesc}>{t(s.descKey)}</span>
                 </button>
               ))}
             </div>
@@ -356,7 +356,7 @@ export default function ExplorerWizard({
 
             {/* Filter badges */}
             <div className={styles.filterBadges}>
-              {region && <span className={styles.filterBadge}>{REGIONS.find((r) => r.id === region)?.label || region}</span>}
+              {region && <span className={styles.filterBadge}>{(() => { const found = REGIONS.find((r) => r.id === region); return found ? t(found.labelKey) : region; })()}</span>}
               {budget && <span className={styles.filterBadge}>{t(`explore.budget${budget.charAt(0).toUpperCase() + budget.slice(1)}`)}</span>}
               {scale && <span className={styles.filterBadge}>{t(`explore.scale${scale.charAt(0).toUpperCase() + scale.slice(1)}`)}</span>}
               {purpose && <span className={styles.filterBadge}>{t(`explore.purpose${purpose.charAt(0).toUpperCase() + purpose.slice(1)}`)}</span>}
@@ -379,7 +379,7 @@ export default function ExplorerWizard({
                           <div className={styles.resultImageWrap}>
                             <Image src={ad.imageUrl} alt={ad.nameKey} fill sizes="(max-width: 768px) 50vw, 33vw" className={styles.resultImage} />
                             <span className={`${styles.availBadge} ${styles[`avail_${ad.availability}`]}`}>
-                              {ad.availability === 'available' ? '예약가능' : ad.availability === 'busy' ? '문의' : '마감'}
+                              {ad.availability === 'available' ? t('explore.availAvailable') : ad.availability === 'busy' ? t('explore.availBusy') : t('explore.availSoldout')}
                             </span>
                           </div>
                           <div className={styles.resultBody}>
@@ -407,7 +407,7 @@ export default function ExplorerWizard({
                           <div className={styles.resultBody}>
                             <h4 className={styles.resultName}>{venue.nameKey}</h4>
                             <p className={styles.resultMeta}>{venue.location}</p>
-                            <p className={styles.resultPrice}>₩{formatPrice(venue.pricePerDay)} / 일</p>
+                            <p className={styles.resultPrice}>₩{formatPrice(venue.pricePerDay)} {t('trend.perDay')}</p>
                           </div>
                         </Link>
                       ))}

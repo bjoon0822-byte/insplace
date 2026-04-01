@@ -102,7 +102,17 @@
     "subtitle": "지금 가장 핫한 셀럽과 이벤트",
     "celebRank": "셀럽 인기 TOP 5",
     "adRank": "인기 광고 위치 TOP 5",
-    "eventRank": "이벤트 수 TOP 5"
+    "eventRank": "이벤트 수 TOP 5",
+    "updated": "업데이트",
+    "totalSearch": "총 검색량",
+    "totalAds": "총 광고",
+    "events": "이벤트",
+    "activeUsers": "활성 유저",
+    "searchTrend": "검색량 추이",
+    "adComparison": "광고 건수 비교",
+    "thisMonth": "이번 달",
+    "unit": "건",
+    "perDay": "/ 일"
   },
   "contact": {
     "title": "문의하기",
@@ -289,7 +299,16 @@
     "proofPhotos": "인증샷",
     "startOwn": "나만의 캠페인을 시작하세요",
     "startOwnDesc": "좋아하는 아이돌을 위한 생일 광고, 데뷔 축하 등 다양한 캠페인을 만들 수 있습니다",
-    "inquire": "캠페인 문의"
+    "inquire": "캠페인 문의",
+    "statusActive": "진행중",
+    "statusFunded": "달성완료",
+    "statusCompleted": "종료",
+    "statusCancelled": "취소",
+    "contributors": "명 참여",
+    "achieved": "달성",
+    "notFound": "캠페인을 찾을 수 없습니다.",
+    "backToList": "목록으로",
+    "artist": "아티스트"
   },
   "calendar": {
     "title": "생일 캘린더",
@@ -359,7 +378,27 @@
     "changeFilters": "필터를 변경해보세요",
     "ads": "광고 상품",
     "venues": "대관 장소",
-    "goods": "굿즈"
+    "goods": "굿즈",
+    "scaleSmallDesc": "CM보드, 소형 디스플레이",
+    "scaleMediumDesc": "디지털 사이니지, 조명광고",
+    "scaleLargeDesc": "빌보드, 대형 LED",
+    "scaleMegaDesc": "15대 스크린, 환승통로 전체",
+    "products": "개 상품",
+    "availAvailable": "예약가능",
+    "availBusy": "문의",
+    "availSoldout": "마감",
+    "regionHongdae": "홍대/마포",
+    "regionGangnam": "강남",
+    "regionSeongsu": "성수",
+    "regionMyeongdong": "명동/중구",
+    "regionSamsung": "삼성/COEX",
+    "regionYeouido": "여의도/영등포",
+    "regionJamsil": "잠실",
+    "regionKondae": "건대/광진",
+    "regionItaewon": "이태원/용산",
+    "regionHyehwa": "혜화/대학로",
+    "regionHaeundae": "해운대/부산",
+    "regionDongseongro": "동성로/대구"
   },
   "chat": {
     "title": "AI 광고 상담",
@@ -380,11 +419,44 @@
   "caseStudy": {
     "title": "이전 집행 사례",
     "noData": "아직 등록된 사례가 없습니다",
-    "viewAll": "사례 더보기"
+    "viewAll": "사례 더보기",
+    "birthday": "생일",
+    "debut": "데뷔",
+    "comeback": "컴백",
+    "concert": "콘서트",
+    "drama": "드라마",
+    "anniversary": "기념일",
+    "graduation": "졸업",
+    "general": "일반"
   },
   "designRef": {
     "title": "디자인 시안 참고",
     "noData": "아직 등록된 시안이 없습니다",
-    "viewAll": "시안 더보기"
+    "viewAll": "시안 더보기",
+    "all": "전체",
+    "birthday": "생일",
+    "debut": "데뷔",
+    "concert": "콘서트",
+    "general": "일반"
+  },
+  "journey": {
+    "roleAttention": "관심 끌기",
+    "roleGathering": "팬 모임",
+    "roleMemento": "기념품",
+    "perDay": "일",
+    "perUnit": "개",
+    "priceUndetermined": "가격 미정",
+    "estimatedTotal": "예상 총 비용",
+    "moreOptions": "더 많은 옵션 보기 →"
+  },
+  "region": {
+    "rank": "위",
+    "perDay": "명/day",
+    "dailyVisitors": "1일 유동인구",
+    "subwayUsers": "지하철 이용객",
+    "externalVisitors": "외부 방문객",
+    "explore": "탐색하기",
+    "selectPrompt": "지역을 선택하면 맞춤 광고 탐색이 시작됩니다",
+    "otherCities": "서울 외 주요 광고 지역"
   }
 }

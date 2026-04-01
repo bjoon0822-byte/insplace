@@ -41,8 +41,8 @@ export default async function CampaignDetailPage({ params }: PageProps) {
   if (!campaign) {
     return (
       <div className={styles.sectionContainer}>
-        <p>캠페인을 찾을 수 없습니다.</p>
-        <Link href={`/${locale}/campaigns`}>목록으로</Link>
+        <p>{t(m, 'campaigns.notFound')}</p>
+        <Link href={`/${locale}/campaigns`}>{t(m, 'campaigns.backToList')}</Link>
       </div>
     );
   }
@@ -91,7 +91,7 @@ export default async function CampaignDetailPage({ params }: PageProps) {
                   </div>
                   <div className={cs.detailProgressFooter}>
                     <span>{t(m, 'campaigns.target')}: ₩{formatPrice(campaign.targetAmount)}</span>
-                    <span>{campaign.contributorCount}명 참여</span>
+                    <span>{campaign.contributorCount}{t(m, 'campaigns.contributors')}</span>
                   </div>
                 </div>
 
@@ -126,7 +126,7 @@ export default async function CampaignDetailPage({ params }: PageProps) {
         {artist && (
           <FadeIn direction="up" delay={0.1}>
             <Link href={`/${locale}/artists/${artist.id}`} className={cs.artistCard}>
-              <p className={cs.artistLabel}>아티스트</p>
+              <p className={cs.artistLabel}>{t(m, 'campaigns.artist')}</p>
               <p className={cs.artistName}>
                 {artist.name} <span className={cs.artistNameEn}>({artist.nameEn})</span>
               </p>

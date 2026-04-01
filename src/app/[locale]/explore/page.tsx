@@ -32,7 +32,7 @@ export default async function ExplorePage({ params, searchParams }: PageProps) {
         </div>
       </section>
 
-      <RegionStatsSection locale={locale as Locale} />
+      <RegionStatsSection locale={locale as Locale} messages={m as Record<string, unknown>} />
 
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 24px 80px' }}>
         <ExplorerWizard

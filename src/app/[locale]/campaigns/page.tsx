@@ -16,12 +16,12 @@ export function generateStaticParams() {
   return [{ locale: 'ko' }, { locale: 'en' }, { locale: 'ja' }, { locale: 'zh' }];
 }
 
-function getStatusLabel(status: string): string {
+function getStatusLabel(status: string, m: Record<string, unknown>): string {
   switch (status) {
-    case 'active': return '진행중';
-    case 'funded': return '달성완료';
-    case 'completed': return '종료';
-    case 'cancelled': return '취소';
+    case 'active': return t(m, 'campaigns.statusActive');
+    case 'funded': return t(m, 'campaigns.statusFunded');
+    case 'completed': return t(m, 'campaigns.statusCompleted');
+    case 'cancelled': return t(m, 'campaigns.statusCancelled');
     default: return status;
   }
 }
@@ -84,7 +84,7 @@ export default async function CampaignsPage({ params }: PageProps) {
                               background: `${getStatusColor(campaign.status)}14`,
                             }}
                           >
-                            {getStatusLabel(campaign.status)}
+                            {getStatusLabel(campaign.status, m)}
                           </span>
                           <h3 className={cs.campaignTitle}>{campaign.title}</h3>
                           <p className={cs.campaignSubtext}>
@@ -108,7 +108,7 @@ export default async function CampaignsPage({ params }: PageProps) {
                           />
                         </div>
                         <div className={cs.progressFooter}>
-                          <span>{campaign.contributorCount}명 참여</span>
+                          <span>{campaign.contributorCount}{t(m, 'campaigns.contributors')}</span>
                           <span>{t(m, 'campaigns.target')}: ₩{formatPrice(campaign.targetAmount)}</span>
                         </div>
                       </div>
@@ -132,10 +132,10 @@ export default async function CampaignsPage({ params }: PageProps) {
                     <div className={styles.cardInner}>
                       <div className={styles.cardBody}>
                         <span className={cs.pastStatusBadge} style={{ color: getStatusColor(campaign.status) }}>
-                          {getStatusLabel(campaign.status)}
+                          {getStatusLabel(campaign.status, m)}
                         </span>
                         <h3 className={styles.cardTitle}>{campaign.title}</h3>
-                        <p className={styles.cardDesc}>{campaign.artistName} · ₩{formatPrice(campaign.currentAmount)} 달성</p>
+                        <p className={styles.cardDesc}>{campaign.artistName} · ₩{formatPrice(campaign.currentAmount)} {t(m, 'campaigns.achieved')}</p>
                       </div>
                     </div>
                   </Link>

@@ -3,6 +3,7 @@
 import { TrendItem } from '@/types';
 import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
+import { t } from '@/i18n/request';
 import StatCard from './StatCard';
 import TrendRankList from './TrendRankList';
 import { TrendAreaChart, TrendBarChart } from './TrendChart';
@@ -26,9 +27,10 @@ interface TrendDashboardProps {
     adRank: string;
     eventRank: string;
   };
+  messages: Record<string, unknown>;
 }
 
-export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats, labels }: TrendDashboardProps) {
+export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats, labels, messages }: TrendDashboardProps) {
   return (
     <div className={styles.dashboard}>
       <div className={styles.dashboardInner}>
@@ -38,15 +40,15 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
           <span className={styles.liveDot} />
           LIVE
         </div>
-        <span className={styles.lastUpdated}>{stats.lastUpdated} 업데이트</span>
+        <span className={styles.lastUpdated}>{stats.lastUpdated} {t(messages, 'trend.updated')}</span>
       </div>
 
       {/* 통계 카드 4개 */}
       <div className={styles.statsGrid}>
-        <StatCard label="총 검색량" value={stats.totalSearches.value} change={stats.totalSearches.change} history={stats.totalSearches.history} delay={0} />
-        <StatCard label="총 광고" value={stats.totalAds.value} change={stats.totalAds.change} history={stats.totalAds.history} color="#F59E0B" delay={0.08} />
-        <StatCard label="이벤트" value={stats.totalEvents.value} change={stats.totalEvents.change} history={stats.totalEvents.history} color="#34D399" delay={0.16} />
-        <StatCard label="활성 유저" value={stats.activeUsers.value} change={stats.activeUsers.change} history={stats.activeUsers.history} color="#60A5FA" delay={0.24} />
+        <StatCard label={t(messages, 'trend.totalSearch')} value={stats.totalSearches.value} change={stats.totalSearches.change} history={stats.totalSearches.history} delay={0} />
+        <StatCard label={t(messages, 'trend.totalAds')} value={stats.totalAds.value} change={stats.totalAds.change} history={stats.totalAds.history} color="#F59E0B" delay={0.08} />
+        <StatCard label={t(messages, 'trend.events')} value={stats.totalEvents.value} change={stats.totalEvents.change} history={stats.totalEvents.history} color="#34D399" delay={0.16} />
+        <StatCard label={t(messages, 'trend.activeUsers')} value={stats.activeUsers.value} change={stats.activeUsers.change} history={stats.activeUsers.history} color="#60A5FA" delay={0.24} />
       </div>
 
       {/* 셀럽 트렌드: 리스트 + AreaChart */}
@@ -75,7 +77,7 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
         >
           <h3 className={styles.sectionCardTitle}>
             <span>📈</span>
-            검색량 추이
+            {t(messages, 'trend.searchTrend')}
             <span className={styles.sectionCardBadge}>7일</span>
           </h3>
           <TrendAreaChart items={celebTrend} />
@@ -96,7 +98,7 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
             {labels.adRank}
             <span className={styles.sectionCardBadge}>TOP 5</span>
           </h3>
-          <TrendRankList items={adTrend} unit="건" />
+          <TrendRankList items={adTrend} unit={t(messages, 'trend.unit')} />
         </motion.div>
 
         <motion.div
@@ -108,8 +110,8 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
         >
           <h3 className={styles.sectionCardTitle}>
             <span>📊</span>
-            광고 건수 비교
-            <span className={styles.sectionCardBadge}>이번 달</span>
+            {t(messages, 'trend.adComparison')}
+            <span className={styles.sectionCardBadge}>{t(messages, 'trend.thisMonth')}</span>
           </h3>
           <TrendBarChart items={adTrend} />
         </motion.div>
@@ -142,7 +144,7 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
               >
                 <div className={styles.eventRank}>#{item.rank}</div>
                 <div className={styles.eventName}>{item.name}</div>
-                <div className={styles.eventCount}>{item.count}건</div>
+                <div className={styles.eventCount}>{item.count}{t(messages, 'trend.unit')}</div>
                 <div className={styles.eventSparkline}>
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={chartData}>
