@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { t } from '@/i18n/request';
 import type { GalleryItem } from '@/data/gallery';
@@ -71,18 +72,20 @@ export default function GalleryGrid({ items, locale, messages }: GalleryGridProp
                 transition: 'all 0.3s',
               }}
             >
-              {/* Image placeholder */}
+              {/* Image */}
               <div style={{
                 aspectRatio: '4/3',
                 background: 'var(--gray-100)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--gray-400)',
-                fontSize: '0.9rem',
                 position: 'relative',
+                overflow: 'hidden',
               }}>
-                <span>{item.title}</span>
+                <Image
+                  src={item.imageUrl}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                />
                 <span style={{
                   position: 'absolute',
                   top: '8px',
@@ -94,6 +97,7 @@ export default function GalleryGrid({ items, locale, messages }: GalleryGridProp
                   background: 'rgba(0,0,0,0.6)',
                   color: '#fff',
                   textTransform: 'uppercase',
+                  zIndex: 1,
                 }}>
                   {item.category}
                 </span>

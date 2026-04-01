@@ -1,5 +1,6 @@
 // 캠페인 상세 페이지
 import Link from 'next/link';
+import Image from 'next/image';
 import { Locale } from '@/types';
 import { getMessages, t } from '@/i18n/request';
 import { campaigns } from '@/data/campaigns';
@@ -139,8 +140,14 @@ export default async function CampaignDetailPage({ params }: PageProps) {
             <h3 className={cs.proofTitle}>{t(m, 'campaigns.proofPhotos')}</h3>
             <div className={cs.proofGrid}>
               {campaign.proofImages.map((img, i) => (
-                <div key={i} className={cs.proofImage}>
-                  인증샷 {i + 1}
+                <div key={i} className={cs.proofImage} style={{ position: 'relative', overflow: 'hidden' }}>
+                  <Image
+                    src={img}
+                    alt={`${t(m, 'campaigns.proofPhotos')} ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
               ))}
             </div>

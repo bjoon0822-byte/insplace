@@ -1,6 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+
+const TEXTS: Record<string, { title: string; desc: string; cta: string }> = {
+  ko: { title: '문제가 발생했습니다', desc: '일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', cta: '다시 시도' },
+  en: { title: 'Something went wrong', desc: 'A temporary error occurred. Please try again shortly.', cta: 'Try Again' },
+  ja: { title: '問題が発生しました', desc: '一時的なエラーが発生しました。しばらくしてからもう一度お試しください。', cta: 'もう一度試す' },
+  zh: { title: '出了点问题', desc: '发生了临时错误。请稍后重试。', cta: '重试' },
+};
 
 export default function LocaleError({
   error,
@@ -9,6 +17,11 @@ export default function LocaleError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const pathname = usePathname();
+  const localeMatch = pathname.match(/^\/(ko|en|ja|zh)/);
+  const locale = localeMatch ? localeMatch[1] : 'ko';
+  const txt = TEXTS[locale] || TEXTS.ko;
+
   useEffect(() => {
     console.error('[InsPlace Error]', error);
   }, [error]);
@@ -43,7 +56,7 @@ export default function LocaleError({
         color: 'var(--gray-900)',
         letterSpacing: '-0.02em',
       }}>
-        문제가 발생했습니다
+        {txt.title}
       </h1>
       <p style={{
         fontSize: '0.9375rem',
@@ -53,7 +66,7 @@ export default function LocaleError({
         marginLeft: 'auto',
         marginRight: 'auto',
       }}>
-        일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
+        {txt.desc}
       </p>
       <button
         onClick={reset}
@@ -69,7 +82,7 @@ export default function LocaleError({
           cursor: 'pointer',
         }}
       >
-        다시 시도
+        {txt.cta}
       </button>
     </div>
   );

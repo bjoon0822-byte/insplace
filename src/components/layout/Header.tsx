@@ -194,6 +194,7 @@ export default function Header({ locale, messages }: HeaderProps) {
               className={`${styles['mobile-toggle']} ${mobileOpen ? styles['mobile-toggle-open'] : ''}`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
               <span />
               <span />
