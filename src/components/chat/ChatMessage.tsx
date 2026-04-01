@@ -42,7 +42,7 @@ export default function ChatMessage({ message, locale, isTyping, i18n }: Props) 
         ) : null}
 
         {message.regionInfo && (
-          <ChatRegionCard regionInfo={message.regionInfo} />
+          <ChatRegionCard regionInfo={message.regionInfo} messages={i18n} />
         )}
 
         {message.journey && message.journey.steps.length > 0 && (

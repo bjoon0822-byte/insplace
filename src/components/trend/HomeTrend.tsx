@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { TrendItem } from '@/types';
 import { AreaChart, Area, BarChart, Bar, ResponsiveContainer } from 'recharts';
 import { motion, useInView } from 'framer-motion';
+import { t } from '@/i18n/request';
 import styles from './HomeTrend.module.css';
 
 interface HomeTrendProps {
@@ -20,9 +21,8 @@ interface HomeTrendProps {
     eventRank: string;
     viewMore: string;
   };
+  messages: Record<string, unknown>;
 }
-
-const DAYS = ['월', '화', '수', '목', '금', '토', '일'];
 
 function formatCount(n: number): string {
   if (n >= 1_000_000) return `${(n / 10_000).toFixed(0)}만`;
@@ -121,8 +121,13 @@ function RankItem({ item, index, unit }: { item: TrendItem; index: number; unit?
   );
 }
 
-export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, labels }: HomeTrendProps) {
-  // 셀럽 스파크라인 데이터
+export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, labels, messages }: HomeTrendProps) {
+  const DAYS = [
+    t(messages, 'trend.dayMon'), t(messages, 'trend.dayTue'), t(messages, 'trend.dayWed'),
+    t(messages, 'trend.dayThu'), t(messages, 'trend.dayFri'), t(messages, 'trend.daySat'),
+    t(messages, 'trend.daySun'),
+  ];
+
   const celebChartData = DAYS.map((day, i) => {
     const point: Record<string, string | number> = { day };
     celebTrend.slice(0, 3).forEach((item) => {
@@ -176,22 +181,22 @@ export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, lab
           transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className={styles.statItem}>
-            <span className={styles.statLabel}>총 검색</span>
+            <span className={styles.statLabel}>{t(messages, 'trend.totalSearch')}</span>
             <span className={styles.statValue}><AnimatedNumber value={8247391} /></span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.statItem}>
-            <span className={styles.statLabel}>광고 집행</span>
+            <span className={styles.statLabel}>{t(messages, 'trend.adExecution')}</span>
             <span className={styles.statValue}><AnimatedNumber value={1407} delay={0.05} /></span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.statItem}>
-            <span className={styles.statLabel}>이벤트</span>
+            <span className={styles.statLabel}>{t(messages, 'trend.events')}</span>
             <span className={styles.statValue}><AnimatedNumber value={211} delay={0.1} /></span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.statItem}>
-            <span className={styles.statLabel}>활성 유저</span>
+            <span className={styles.statLabel}>{t(messages, 'trend.activeUsers')}</span>
             <span className={styles.statValue}><AnimatedNumber value={3842} delay={0.15} /></span>
           </div>
         </motion.div>
@@ -224,7 +229,7 @@ export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, lab
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className={styles.cardTitle}>
-              <span>📈</span> 검색량 추이
+              <span>📈</span> {t(messages, 'trend.searchTrend')}
               <span className={styles.badge}>7일</span>
             </h3>
             <div className={styles.chartLegend}>
@@ -277,7 +282,7 @@ export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, lab
               <span className={styles.badge}>TOP 5</span>
             </h3>
             {adTrend.map((item, i) => (
-              <RankItem key={item.id} item={item} index={i} unit="건" />
+              <RankItem key={item.id} item={item} index={i} unit={t(messages, 'trend.unit')} />
             ))}
           </motion.div>
 
@@ -290,8 +295,8 @@ export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, lab
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className={styles.cardTitle}>
-              <span>📊</span> 광고 건수
-              <span className={styles.badge}>이번 달</span>
+              <span>📊</span> {t(messages, 'trend.adCount')}
+              <span className={styles.badge}>{t(messages, 'trend.thisMonth')}</span>
             </h3>
             <div className={styles.chartWrap}>
               <ResponsiveContainer width="100%" height="100%">
@@ -340,7 +345,7 @@ export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, lab
                         </AreaChart>
                       </ResponsiveContainer>
                     </div>
-                    <div className={styles.eventCount}>{item.count}건</div>
+                    <div className={styles.eventCount}>{item.count}{t(messages, 'trend.unit')}</div>
                   </div>
                 );
               })}

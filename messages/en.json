@@ -112,7 +112,16 @@
     "adComparison": "Ad Count Comparison",
     "thisMonth": "This Month",
     "unit": "ads",
-    "perDay": "/ day"
+    "perDay": "/ day",
+    "adExecution": "Ad Placements",
+    "adCount": "Ad Count",
+    "dayMon": "Mon",
+    "dayTue": "Tue",
+    "dayWed": "Wed",
+    "dayThu": "Thu",
+    "dayFri": "Fri",
+    "daySat": "Sat",
+    "daySun": "Sun"
   },
   "contact": {
     "title": "Contact Us",
@@ -457,6 +466,9 @@
     "externalVisitors": "External Visitors",
     "explore": "Explore",
     "selectPrompt": "Select a region to start finding tailored ads",
-    "otherCities": "Other Major Ad Regions"
+    "otherCities": "Other Major Ad Regions",
+    "seoul": "Seoul",
+    "people": "",
+    "exploreAds": "Explore ads in this area"
   }
 }

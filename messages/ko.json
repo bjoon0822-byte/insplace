@@ -112,7 +112,16 @@
     "adComparison": "광고 건수 비교",
     "thisMonth": "이번 달",
     "unit": "건",
-    "perDay": "/ 일"
+    "perDay": "/ 일",
+    "adExecution": "광고 집행",
+    "adCount": "광고 건수",
+    "dayMon": "월",
+    "dayTue": "화",
+    "dayWed": "수",
+    "dayThu": "목",
+    "dayFri": "금",
+    "daySat": "토",
+    "daySun": "일"
   },
   "contact": {
     "title": "문의하기",
@@ -457,6 +466,9 @@
     "externalVisitors": "외부 방문객",
     "explore": "탐색하기",
     "selectPrompt": "지역을 선택하면 맞춤 광고 탐색이 시작됩니다",
-    "otherCities": "서울 외 주요 광고 지역"
+    "otherCities": "서울 외 주요 광고 지역",
+    "seoul": "서울",
+    "people": "명",
+    "exploreAds": "이 지역 광고 탐색하기"
   }
 }

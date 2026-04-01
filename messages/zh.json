@@ -112,7 +112,16 @@
     "adComparison": "广告数量对比",
     "thisMonth": "本月",
     "unit": "条",
-    "perDay": "/ 天"
+    "perDay": "/ 天",
+    "adExecution": "广告投放",
+    "adCount": "广告数量",
+    "dayMon": "周一",
+    "dayTue": "周二",
+    "dayWed": "周三",
+    "dayThu": "周四",
+    "dayFri": "周五",
+    "daySat": "周六",
+    "daySun": "周日"
   },
   "contact": {
     "title": "联系我们",
@@ -457,6 +466,9 @@
     "externalVisitors": "外部访客",
     "explore": "探索",
     "selectPrompt": "选择地区后即可开始定制广告探索",
-    "otherCities": "首尔以外主要广告地区"
+    "otherCities": "首尔以外主要广告地区",
+    "seoul": "首尔",
+    "people": "人",
+    "exploreAds": "探索该地区的广告"
   }
 }

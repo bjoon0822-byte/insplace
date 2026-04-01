@@ -112,7 +112,16 @@
     "adComparison": "広告件数比較",
     "thisMonth": "今月",
     "unit": "件",
-    "perDay": "/ 日"
+    "perDay": "/ 日",
+    "adExecution": "広告出稿",
+    "adCount": "広告件数",
+    "dayMon": "月",
+    "dayTue": "火",
+    "dayWed": "水",
+    "dayThu": "木",
+    "dayFri": "金",
+    "daySat": "土",
+    "daySun": "日"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -457,6 +466,9 @@
     "externalVisitors": "外部訪問者",
     "explore": "探索する",
     "selectPrompt": "地域を選択するとカスタム広告探索が始まります",
-    "otherCities": "ソウル以外の主要広告地域"
+    "otherCities": "ソウル以外の主要広告地域",
+    "seoul": "ソウル",
+    "people": "人",
+    "exploreAds": "このエリアの広告を探す"
   }
 }

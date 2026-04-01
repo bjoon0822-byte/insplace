@@ -224,6 +224,7 @@ export default async function HomePage({ params }: PageProps) {
           eventRank: t(m, 'trend.eventRank'),
           viewMore: t(m, 'sections.viewMore'),
         }}
+        messages={m as Record<string, unknown>}
       />
 
       {/* ━━ CTA — Dramatic Full-Bleed ━━ */}
