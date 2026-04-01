@@ -108,26 +108,38 @@ export default function RegionStatsSection({ locale }: Props) {
           {/* Mini map */}
           <div className={styles.mapContainer}>
             <div className={styles.mapBg}>
-              {/* Seoul outline — jagged north (mountains), smooth south */}
+              {/* Seoul outline — based on actual administrative boundary */}
               <svg viewBox="0 0 200 160" className={styles.mapSvg}>
-                {/* Seoul city boundary */}
+                <defs>
+                  <radialGradient id="seoulGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="rgba(217,119,6,0.06)" />
+                    <stop offset="100%" stopColor="rgba(217,119,6,0)" />
+                  </radialGradient>
+                </defs>
+                {/* Glow fill */}
                 <path
-                  d="M36,82 L38,72 L42,62 L48,52 L54,44 L58,46 L64,38 L70,34 L76,36 L82,30 L88,32 L94,28 L100,30 L106,26 L112,28 L118,24 L124,26 L130,24 L136,28 L142,32 L148,36 L154,42 L158,50 L162,58 L164,68 L164,80 L162,90 L158,100 L154,110 L148,118 L140,124 L132,128 L124,130 L116,128 L108,130 L100,128 L92,130 L84,128 L76,126 L68,120 L60,114 L52,106 L46,96 L40,88 Z"
-                  fill="rgba(255,255,255,0.03)"
-                  stroke="rgba(255,255,255,0.12)"
-                  strokeWidth="1"
+                  d="M32,88 L38,78 L46,66 L52,54 L56,46 L62,52 L68,40 L76,30 L82,28 L88,34 L94,28 L100,30 L106,34 L112,26 L120,22 L128,26 L136,34 L144,44 L152,54 L160,64 L166,72 L172,82 L174,90 L170,98 L162,106 L152,112 L140,116 L128,118 L116,118 L104,116 L92,114 L80,112 L68,108 L56,104 L44,98 L36,94 Z"
+                  fill="url(#seoulGlow)"
                 />
-                {/* Han River */}
+                {/* Seoul city boundary — 북쪽 산맥 들쭉날쭉, 남쪽 매끄럽게 */}
                 <path
-                  d="M36,86 Q70,78 100,82 Q130,86 164,78"
+                  d="M32,88 L38,78 L46,66 L52,54 L56,46 L62,52 L68,40 L76,30 L82,28 L88,34 L94,28 L100,30 L106,34 L112,26 L120,22 L128,26 L136,34 L144,44 L152,54 L160,64 L166,72 L172,82 C174,88 174,94 170,98 C166,104 158,110 152,112 C144,115 136,117 128,118 C120,119 112,119 104,116 C96,115 88,114 80,112 C72,110 64,108 56,104 C48,100 40,96 36,94 C33,92 32,90 32,88 Z"
+                  fill="rgba(255,255,255,0.03)"
+                  stroke="rgba(255,255,255,0.15)"
+                  strokeWidth="1"
+                  strokeLinejoin="round"
+                />
+                {/* Han River — 서에서 동으로 흐르는 한강 */}
+                <path
+                  d="M32,90 Q60,84 100,87 Q140,90 174,84"
                   fill="none"
-                  stroke="rgba(217,119,6,0.15)"
+                  stroke="rgba(217,119,6,0.18)"
                   strokeWidth="1.5"
                   strokeDasharray="4 3"
+                  strokeLinecap="round"
                 />
-                {/* Faint district grid */}
-                <line x1="100" y1="28" x2="100" y2="130" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 4" />
-                <line x1="36" y1="80" x2="164" y2="80" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 4" />
+                {/* 한강 라벨 */}
+                <text x="100" y="94" textAnchor="middle" fill="rgba(217,119,6,0.12)" fontSize="5" fontWeight="600" letterSpacing="2">HAN RIVER</text>
               </svg>
 
               {/* Pins */}
