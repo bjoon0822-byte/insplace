@@ -24,6 +24,17 @@
   z-index: 0;
 }
 
+/* Animated progress fill line */
+.progressFill {
+  position: absolute;
+  top: 16px;
+  left: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent, #D97706), rgba(245, 158, 11, 0.8));
+  z-index: 0;
+  border-radius: 1px;
+}
+
 .progressStep {
   display: flex;
   flex-direction: column;
@@ -56,6 +67,12 @@
 
 .progressCurrent .progressDot {
   box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.2);
+  animation: pulseRing 2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(217, 119, 6, 0.08); }
 }
 
 .progressLabel {
@@ -67,6 +84,46 @@
 
 .progressActive .progressLabel {
   color: var(--gray-700, #374151);
+}
+
+/* ── Selection Summary Strip ── */
+.selectionStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: -16px;
+}
+
+.selectionChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: var(--gray-50, #f9fafb);
+  border: 1px solid var(--gray-200, #e5e7eb);
+  color: var(--gray-700, #374151);
+  font-size: 0.813rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.selectionChip:hover {
+  border-color: var(--accent, #D97706);
+  color: var(--accent, #D97706);
+  background: rgba(217, 119, 6, 0.05);
+}
+
+.selectionChipEdit {
+  font-size: 0.688rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.selectionChip:hover .selectionChipEdit {
+  opacity: 1;
 }
 
 /* ── Step Content ── */

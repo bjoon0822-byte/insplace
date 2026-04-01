@@ -73,9 +73,9 @@ const PURPOSES: Array<{ id: AdPurpose; labelKey: string; icon: string }> = [
 ];
 
 const slideVariants = {
-  enter: (direction: number) => ({ x: direction > 0 ? 100 : -100, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (direction: number) => ({ x: direction > 0 ? -100 : 100, opacity: 0 }),
+  enter: (direction: number) => ({ x: direction > 0 ? 80 : -80, opacity: 0, scale: 0.97 }),
+  center: { x: 0, opacity: 1, scale: 1 },
+  exit: (direction: number) => ({ x: direction > 0 ? -80 : 80, opacity: 0, scale: 0.97 }),
 };
 
 export default function ExplorerWizard({
@@ -148,22 +148,81 @@ export default function ExplorerWizard({
     setTimeout(() => goNext(), 200);
   };
 
+  // Selection summary for display
+  const selectionSummary = useMemo(() => {
+    const items: Array<{ step: number; label: string }> = [];
+    if (region) {
+      const found = REGIONS.find((r) => r.id === region);
+      items.push({ step: 1, label: found?.label || region });
+    }
+    if (budget) items.push({ step: 2, label: t(`explore.budget${budget.charAt(0).toUpperCase() + budget.slice(1)}`) });
+    if (scale) items.push({ step: 3, label: t(`explore.scale${scale.charAt(0).toUpperCase() + scale.slice(1)}`) });
+    if (purpose) items.push({ step: 4, label: t(`explore.purpose${purpose.charAt(0).toUpperCase() + purpose.slice(1)}`) });
+    return items;
+  }, [region, budget, scale, purpose, t]);
+
+  // Progress line fill percentage (0 → 100)
+  const progressPercent = ((Math.min(step, 4) - 1) / 3) * 100;
+
   return (
     <div id="explorer-wizard" className={styles.wizard}>
       {/* Progress bar */}
       <div className={styles.progressBar}>
+        {/* Animated fill line */}
+        <motion.div
+          className={styles.progressFill}
+          animate={{ width: `${progressPercent}%` }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        />
         {[1, 2, 3, 4].map((s) => (
           <div
             key={s}
             className={`${styles.progressStep} ${s <= step ? styles.progressActive : ''} ${s === step ? styles.progressCurrent : ''}`}
           >
-            <span className={styles.progressDot}>{s}</span>
+            <motion.span
+              className={styles.progressDot}
+              animate={s <= step ? { scale: [1, 1.15, 1] } : {}}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              {s < step ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              ) : s}
+            </motion.span>
             <span className={styles.progressLabel}>
               {t(`explore.step${s}`)}
             </span>
           </div>
         ))}
       </div>
+
+      {/* Selection summary strip */}
+      {selectionSummary.length > 0 && step <= 4 && (
+        <motion.div
+          className={styles.selectionStrip}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {selectionSummary.map((item) => (
+            <motion.button
+              key={item.step}
+              className={styles.selectionChip}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              onClick={() => {
+                setDirection(-1);
+                setStep(item.step);
+                updateUrl(item.step, region, budget, scale, purpose);
+              }}
+            >
+              {item.label}
+              <span className={styles.selectionChipEdit}>✎</span>
+            </motion.button>
+          ))}
+        </motion.div>
+      )}
 
       {/* Step content */}
       <AnimatePresence mode="wait" custom={direction}>
@@ -175,7 +234,7 @@ export default function ExplorerWizard({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.3 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className={styles.stepContent}
           >
             <h2 className={styles.stepTitle}>{t('explore.step1Desc')}</h2>
@@ -210,7 +269,7 @@ export default function ExplorerWizard({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.3 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className={styles.stepContent}
           >
             <h2 className={styles.stepTitle}>{t('explore.step2Desc')}</h2>
@@ -236,7 +295,7 @@ export default function ExplorerWizard({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.3 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className={styles.stepContent}
           >
             <h2 className={styles.stepTitle}>{t('explore.step3Desc')}</h2>
@@ -263,7 +322,7 @@ export default function ExplorerWizard({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.3 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className={styles.stepContent}
           >
             <h2 className={styles.stepTitle}>{t('explore.step4Desc')}</h2>
@@ -290,7 +349,7 @@ export default function ExplorerWizard({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.3 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className={styles.stepContent}
           >
             <h2 className={styles.stepTitle}>{t('explore.resultTitle')}</h2>
