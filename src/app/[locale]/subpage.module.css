@@ -738,7 +738,27 @@
   }
 
   .pageHero {
-    padding: 120px 0 60px;
+    padding: 100px 0 48px;
+  }
+
+  .detailCta {
+    flex-direction: column;
+  }
+
+  .detailContainer {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  }
+
+  .sectionContainer {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  }
+
+  .formContainer {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  }
+
+  .trendContainer {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
   }
 }
 

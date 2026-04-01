@@ -347,6 +347,10 @@
 
   .mobile-toggle {
     display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .header-nav.open {
@@ -361,5 +365,39 @@
     padding: var(--space-lg);
     gap: var(--space-lg);
     box-shadow: var(--shadow-md);
+  }
+
+  .header-logo {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lang-btn {
+    display: none;
+  }
+
+  .lang-switcher {
+    display: none;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .header-actions {
+    gap: var(--space-sm);
+  }
+
+  .header-inner {
+    padding: 0 var(--space-md);
+  }
+
+  .search-btn {
+    padding: 6px;
+  }
+
+  .user-btn {
+    padding: 2px 6px 2px 2px;
   }
 }

@@ -363,4 +363,10 @@
   .input {
     font-size: 0.875rem;
   }
+
+  .maxTurns {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
 }

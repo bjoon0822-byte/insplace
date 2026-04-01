@@ -629,6 +629,34 @@ body::after {
   background-size: 256px 256px;
 }
 
+/* ── 모바일 spacing 오버라이드 ── */
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --header-height: 64px;
+  }
+
+  .section-header {
+    padding: 0 var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --space-xl: 24px;
+    --space-2xl: 40px;
+    --space-3xl: 56px;
+    --space-4xl: 72px;
+  }
+
+  .section-header {
+    padding: 0 var(--space-md);
+  }
+}
+
 /* ── 구분선 ── */
 .divider {
   width: 100%;

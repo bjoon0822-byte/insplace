@@ -782,4 +782,24 @@
 @media (max-width: 480px) {
   .cardsGrid { grid-template-columns: 1fr; }
   .venueGrid { grid-template-columns: 1fr; }
+
+  .ctaInner {
+    padding: var(--space-2xl) var(--space-lg);
+    border-radius: 24px;
+  }
+
+  .ctaSection {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heroCta,
+  .heroCtaGhost {
+    width: 100%;
+    justify-content: center;
+  }
 }
