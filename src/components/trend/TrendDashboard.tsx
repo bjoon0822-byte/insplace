@@ -78,9 +78,9 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
           <h3 className={styles.sectionCardTitle}>
             <span>📈</span>
             {t(messages, 'trend.searchTrend')}
-            <span className={styles.sectionCardBadge}>7일</span>
+            <span className={styles.sectionCardBadge}>{t(messages, 'trend.sevenDays')}</span>
           </h3>
-          <TrendAreaChart items={celebTrend} />
+          <TrendAreaChart items={celebTrend} messages={messages} />
         </motion.div>
       </div>
 
@@ -113,7 +113,7 @@ export default function TrendDashboard({ celebTrend, adTrend, eventTrend, stats,
             {t(messages, 'trend.adComparison')}
             <span className={styles.sectionCardBadge}>{t(messages, 'trend.thisMonth')}</span>
           </h3>
-          <TrendBarChart items={adTrend} />
+          <TrendBarChart items={adTrend} messages={messages} />
         </motion.div>
       </div>
 

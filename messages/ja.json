@@ -68,7 +68,8 @@
     "available": "予約可能",
     "busy": "残りわずか",
     "soldout": "受付終了",
-    "noResults": "検索結果がありません"
+    "noResults": "検索結果がありません",
+    "tryOtherFilter": "別のフィルターを選択してください"
   },
   "venue": {
     "title": "会場レンタル",
@@ -121,7 +122,9 @@
     "dayThu": "木",
     "dayFri": "金",
     "daySat": "土",
-    "daySun": "日"
+    "daySun": "日",
+    "sevenDays": "7日間",
+    "adCases": "広告件数"
   },
   "contact": {
     "title": "お問い合わせ",
@@ -138,7 +141,8 @@
     "message": "お問い合わせ内容",
     "submit": "送信する",
     "success": "お問い合わせを受け付けました。できるだけ早くご返信いたします。",
-    "error": "送信に失敗しました。しばらくしてからもう一度お試しください。"
+    "error": "送信に失敗しました。しばらくしてからもう一度お試しください。",
+    "productInquiry": "この商品についてお問い合わせいたします。"
   },
   "cta": {
     "title": "今すぐ始めましょう",
@@ -155,7 +159,10 @@
       "service": "サービス",
       "company": "会社情報",
       "support": "サポート"
-    }
+    },
+    "businessInfo": "InsPlace | 代表: キム・インス | 事業者登録番号: 000-00-00000",
+    "businessReg": "通信販売業届出: 第2025-ソウル江南-00000号 | ソウル特別市江南区",
+    "customerCenter": "カスタマーセンター"
   },
   "search": {
     "placeholder": "広告・会場・グッズ・ポップアップを検索...",
@@ -166,6 +173,20 @@
     "venues": "会場",
     "goods": "グッズ",
     "popups": "ポップアップ"
+  },
+  "category": {
+    "ad": "広告",
+    "venue": "会場",
+    "goods": "グッズ",
+    "popup": "ポップアップ"
+  },
+  "share": {
+    "button": "共有",
+    "ariaLabel": "共有する",
+    "kakao": "KakaoTalk",
+    "copied": "コピー済み！",
+    "copyLink": "リンクをコピー",
+    "viewDetail": "詳細を見る"
   },
   "quote": {
     "title": "見積りカート",
@@ -196,7 +217,11 @@
     "startCampaign": "のファン広告を始めましょう！",
     "inquire": "お問い合わせ",
     "campaigns": "進行中のキャンペーン",
-    "noCampaigns": "進行中のキャンペーンはまだありません"
+    "noCampaigns": "進行中のキャンペーンはまだありません",
+    "shareText": "{name}のファンサポートをInsPlaceで！",
+    "born": "年生まれ",
+    "notFound": "アーティストが見つかりません。",
+    "backToList": "一覧に戻る"
   },
   "community": {
     "title": "コミュニティ",
@@ -349,7 +374,12 @@
     "resultCount": "件のおすすめ商品",
     "matchScore": "マッチ率",
     "viewMore": "もっと見る",
-    "intentSummary": "検索条件"
+    "intentSummary": "検索条件",
+    "example1": "4月25日にホンデで誕生日広告3日間",
+    "example2": "予算50万ウォンで江南駅デジタルサイネージ",
+    "example3": "聖水洞カフェ貸切＋フォトカード制作",
+    "example4": "デビュー記念日に合井駅ライト広告",
+    "budgetUnder": "{amount}万ウォン以下"
   },
   "explore": {
     "title": "おすすめ検索",

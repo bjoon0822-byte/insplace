@@ -5,12 +5,12 @@ import {
   ResponsiveContainer, CartesianGrid,
 } from 'recharts';
 import { TrendItem } from '@/types';
+import { t } from '@/i18n/request';
 import styles from './TrendDashboard.module.css';
-
-const DAYS = ['월', '화', '수', '목', '금', '토', '일'];
 
 interface TrendAreaChartProps {
   items: TrendItem[];
+  messages?: Record<string, unknown>;
 }
 
 function formatCompact(n: number): string {
@@ -33,9 +33,14 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
   );
 }
 
-export function TrendAreaChart({ items }: TrendAreaChartProps) {
+export function TrendAreaChart({ items, messages = {} }: TrendAreaChartProps) {
   const top3 = items.slice(0, 3);
-  const data = DAYS.map((day, i) => {
+  const days = [
+    t(messages, 'trend.dayMon'), t(messages, 'trend.dayTue'), t(messages, 'trend.dayWed'),
+    t(messages, 'trend.dayThu'), t(messages, 'trend.dayFri'), t(messages, 'trend.daySat'),
+    t(messages, 'trend.daySun'),
+  ];
+  const data = days.map((day, i) => {
     const point: Record<string, string | number> = { day };
     top3.forEach((item) => {
       point[item.name] = item.history?.[i] ?? 0;
@@ -82,9 +87,10 @@ export function TrendAreaChart({ items }: TrendAreaChartProps) {
 
 interface TrendBarChartProps {
   items: TrendItem[];
+  messages?: Record<string, unknown>;
 }
 
-export function TrendBarChart({ items }: TrendBarChartProps) {
+export function TrendBarChart({ items, messages = {} }: TrendBarChartProps) {
   const data = items.map((item) => ({
     name: item.name.replace(/역$/, ''),
     count: item.count,
@@ -106,7 +112,7 @@ export function TrendBarChart({ items }: TrendBarChartProps) {
           <Tooltip content={<CustomTooltip />} />
           <Bar
             dataKey="count"
-            name="광고 건수"
+            name={t(messages, 'trend.adCases')}
             fill="url(#barGrad)"
             radius={[6, 6, 0, 0]}
             animationDuration={1200}

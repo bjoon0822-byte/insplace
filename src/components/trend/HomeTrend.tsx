@@ -230,7 +230,7 @@ export default function HomeTrend({ celebTrend, adTrend, eventTrend, locale, lab
           >
             <h3 className={styles.cardTitle}>
               <span>📈</span> {t(messages, 'trend.searchTrend')}
-              <span className={styles.badge}>7일</span>
+              <span className={styles.badge}>{t(messages, 'trend.sevenDays')}</span>
             </h3>
             <div className={styles.chartLegend}>
               {celebTrend.slice(0, 3).map((item, i) => (

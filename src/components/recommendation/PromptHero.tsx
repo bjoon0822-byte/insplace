@@ -10,11 +10,11 @@ interface PromptHeroProps {
   messages: Record<string, unknown>;
 }
 
-const EXAMPLE_PROMPTS = [
-  '4월 25일 홍대에서 생일 광고 3일간',
-  '50만원 예산으로 강남역 디지털 사이니지',
-  '성수동 카페 대관 + 포토카드 제작',
-  '데뷔 기념일 합정역 조명 광고',
+const EXAMPLE_PROMPT_KEYS = [
+  'recommend.example1',
+  'recommend.example2',
+  'recommend.example3',
+  'recommend.example4',
 ];
 
 function getNestedValue(obj: Record<string, unknown>, path: string): string {
@@ -48,7 +48,7 @@ export default function PromptHero({ locale, messages }: PromptHeroProps) {
   useEffect(() => {
     if (query) return; // Don't animate when user is typing
 
-    const target = EXAMPLE_PROMPTS[placeholderIndex];
+    const target = t(EXAMPLE_PROMPT_KEYS[placeholderIndex]);
     let charIndex = 0;
     let direction: 'typing' | 'deleting' | 'pause' = 'typing';
 
@@ -66,7 +66,7 @@ export default function PromptHero({ locale, messages }: PromptHeroProps) {
         charIndex--;
         setDisplayedPlaceholder(target.slice(0, charIndex));
         if (charIndex <= 0) {
-          setPlaceholderIndex((prev) => (prev + 1) % EXAMPLE_PROMPTS.length);
+          setPlaceholderIndex((prev) => (prev + 1) % EXAMPLE_PROMPT_KEYS.length);
           clearInterval(interval);
         }
       }
@@ -152,15 +152,18 @@ export default function PromptHero({ locale, messages }: PromptHeroProps) {
         </div>
 
         <div className={styles.chips}>
-          {EXAMPLE_PROMPTS.map((prompt, i) => (
-            <button
-              key={i}
-              onClick={() => handleChipClick(prompt)}
-              className={styles.chip}
-            >
-              {prompt}
-            </button>
-          ))}
+          {EXAMPLE_PROMPT_KEYS.map((key, i) => {
+            const prompt = t(key);
+            return (
+              <button
+                key={i}
+                onClick={() => handleChipClick(prompt)}
+                className={styles.chip}
+              >
+                {prompt}
+              </button>
+            );
+          })}
         </div>
       </div>
 

@@ -15,7 +15,10 @@ export function generateStaticParams() {
   return [{ locale: 'ko' }, { locale: 'en' }, { locale: 'ja' }, { locale: 'zh' }];
 }
 
-const MONTH_NAMES_KO = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+function getMonthNames(locale: string): string[] {
+  const fmt = new Intl.DateTimeFormat(locale === 'ko' ? 'ko-KR' : locale === 'ja' ? 'ja-JP' : locale === 'zh' ? 'zh-CN' : 'en-US', { month: 'long' });
+  return Array.from({ length: 12 }, (_, i) => fmt.format(new Date(2024, i)));
+}
 
 export default async function CalendarPage({ params }: PageProps) {
   const { locale } = await params;
@@ -62,7 +65,7 @@ export default async function CalendarPage({ params }: PageProps) {
                 <div className={isCurrent ? cal.monthCardCurrent : cal.monthCard}>
                   <div className={cal.monthHeader}>
                     <h3 className={isCurrent ? cal.monthNameCurrent : cal.monthName}>
-                      {MONTH_NAMES_KO[month - 1]}
+                      {getMonthNames(locale)[month - 1]}
                     </h3>
                     {isCurrent && (
                       <span className={cal.currentBadge}>

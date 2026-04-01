@@ -68,7 +68,8 @@
     "available": "예약 가능",
     "busy": "마감 임박",
     "soldout": "마감",
-    "noResults": "검색 결과가 없습니다"
+    "noResults": "검색 결과가 없습니다",
+    "tryOtherFilter": "다른 필터를 선택해 보세요"
   },
   "venue": {
     "title": "장소 대관",
@@ -121,7 +122,9 @@
     "dayThu": "목",
     "dayFri": "금",
     "daySat": "토",
-    "daySun": "일"
+    "daySun": "일",
+    "sevenDays": "7일",
+    "adCases": "광고 건수"
   },
   "contact": {
     "title": "문의하기",
@@ -138,7 +141,8 @@
     "message": "문의 내용",
     "submit": "문의 보내기",
     "success": "문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.",
-    "error": "문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요."
+    "error": "문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.",
+    "productInquiry": "상품에 대해 문의드립니다."
   },
   "cta": {
     "title": "지금 시작하세요",
@@ -155,7 +159,10 @@
       "service": "서비스",
       "company": "회사",
       "support": "지원"
-    }
+    },
+    "businessInfo": "인스플레이스 | 대표: 김인스 | 사업자등록번호: 000-00-00000",
+    "businessReg": "통신판매업신고: 제2025-서울강남-00000호 | 서울특별시 강남구",
+    "customerCenter": "고객센터"
   },
   "search": {
     "placeholder": "광고, 장소, 굿즈, 팝업 검색...",
@@ -166,6 +173,20 @@
     "venues": "장소 대관",
     "goods": "굿즈",
     "popups": "팝업스토어"
+  },
+  "category": {
+    "ad": "광고",
+    "venue": "대관",
+    "goods": "굿즈",
+    "popup": "팝업"
+  },
+  "share": {
+    "button": "공유",
+    "ariaLabel": "공유하기",
+    "kakao": "카카오톡",
+    "copied": "복사됨!",
+    "copyLink": "링크 복사",
+    "viewDetail": "자세히 보기"
   },
   "quote": {
     "title": "견적 바구니",
@@ -196,7 +217,11 @@
     "startCampaign": "의 팬 광고를 시작해보세요!",
     "inquire": "문의하기",
     "campaigns": "진행중인 캠페인",
-    "noCampaigns": "아직 진행중인 캠페인이 없습니다"
+    "noCampaigns": "아직 진행중인 캠페인이 없습니다",
+    "shareText": "{name}의 팬 서포트를 InsPlace에서!",
+    "born": "년생",
+    "notFound": "아티스트를 찾을 수 없습니다.",
+    "backToList": "목록으로"
   },
   "community": {
     "title": "커뮤니티",
@@ -349,7 +374,12 @@
     "resultCount": "개의 추천 상품",
     "matchScore": "일치도",
     "viewMore": "더 보러가기",
-    "intentSummary": "검색 조건"
+    "intentSummary": "검색 조건",
+    "example1": "4월 25일 홍대에서 생일 광고 3일간",
+    "example2": "50만원 예산으로 강남역 디지털 사이니지",
+    "example3": "성수동 카페 대관 + 포토카드 제작",
+    "example4": "데뷔 기념일 합정역 조명 광고",
+    "budgetUnder": "{amount}만원 이하"
   },
   "explore": {
     "title": "맞춤 탐색",

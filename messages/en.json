@@ -68,7 +68,8 @@
     "available": "Available",
     "busy": "Almost Full",
     "soldout": "Sold Out",
-    "noResults": "No results found"
+    "noResults": "No results found",
+    "tryOtherFilter": "Try selecting a different filter"
   },
   "venue": {
     "title": "Venue Rental",
@@ -121,7 +122,9 @@
     "dayThu": "Thu",
     "dayFri": "Fri",
     "daySat": "Sat",
-    "daySun": "Sun"
+    "daySun": "Sun",
+    "sevenDays": "7 days",
+    "adCases": "Ad Cases"
   },
   "contact": {
     "title": "Contact Us",
@@ -138,7 +141,8 @@
     "message": "Message",
     "submit": "Send Inquiry",
     "success": "Your inquiry has been submitted. We'll get back to you soon.",
-    "error": "Failed to send inquiry. Please try again later."
+    "error": "Failed to send inquiry. Please try again later.",
+    "productInquiry": "I'd like to inquire about this product."
   },
   "cta": {
     "title": "Get Started Today",
@@ -155,7 +159,10 @@
       "service": "Services",
       "company": "Company",
       "support": "Support"
-    }
+    },
+    "businessInfo": "InsPlace Inc. | CEO: Kim Ins | Business Reg: 000-00-00000",
+    "businessReg": "Mail-order License: 2025-Seoul-Gangnam-00000 | Gangnam-gu, Seoul",
+    "customerCenter": "Customer Center"
   },
   "search": {
     "placeholder": "Search ads, venues, goods, popups...",
@@ -166,6 +173,20 @@
     "venues": "Venues",
     "goods": "Goods",
     "popups": "Pop-up Stores"
+  },
+  "category": {
+    "ad": "Ad",
+    "venue": "Venue",
+    "goods": "Goods",
+    "popup": "Pop-up"
+  },
+  "share": {
+    "button": "Share",
+    "ariaLabel": "Share",
+    "kakao": "KakaoTalk",
+    "copied": "Copied!",
+    "copyLink": "Copy Link",
+    "viewDetail": "View Details"
   },
   "quote": {
     "title": "Quote Cart",
@@ -196,7 +217,11 @@
     "startCampaign": "'s fan ad — get started!",
     "inquire": "Inquire Now",
     "campaigns": "Active Campaigns",
-    "noCampaigns": "No active campaigns yet"
+    "noCampaigns": "No active campaigns yet",
+    "shareText": "Fan support for {name} on InsPlace!",
+    "born": "Born",
+    "notFound": "Artist not found.",
+    "backToList": "Back to list"
   },
   "community": {
     "title": "Community",
@@ -349,7 +374,12 @@
     "resultCount": " recommended products",
     "matchScore": "Match",
     "viewMore": "View More",
-    "intentSummary": "Search criteria"
+    "intentSummary": "Search criteria",
+    "example1": "Birthday ad near Hongdae for 3 days in April",
+    "example2": "Digital signage at Gangnam Station, ₩500K budget",
+    "example3": "Cafe rental in Seongsu + photocard production",
+    "example4": "Debut anniversary lighting ad at Hapjeong Station",
+    "budgetUnder": "Under ₩{amount}0K"
   },
   "explore": {
     "title": "Smart Explorer",

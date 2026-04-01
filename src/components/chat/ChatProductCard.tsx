@@ -4,21 +4,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { RecommendationResult, AdProduct, Venue, GoodsItem, Locale } from '@/types';
 import { formatPrice } from '@/utils/format';
+import { t } from '@/i18n/request';
 import styles from './ChatProductCard.module.css';
 
-const CATEGORY_LABELS: Record<string, string> = {
-  ad: '광고',
-  venue: '대관',
-  goods: '굿즈',
-  popup: '팝업',
+const CATEGORY_KEYS: Record<string, string> = {
+  ad: 'category.ad',
+  venue: 'category.venue',
+  goods: 'category.goods',
+  popup: 'category.popup',
 };
 
 interface Props {
   result: RecommendationResult;
   locale: Locale;
+  messages?: Record<string, unknown>;
 }
 
-export default function ChatProductCard({ result, locale }: Props) {
+export default function ChatProductCard({ result, locale, messages = {} }: Props) {
   const { category, score, product } = result;
   const p = product as unknown as Record<string, unknown>;
 
@@ -55,7 +57,7 @@ export default function ChatProductCard({ result, locale }: Props) {
         <span className={styles.name}>{name}</span>
         <div className={styles.meta}>
           <span className={styles.categoryBadge}>
-            {CATEGORY_LABELS[category] || category}
+            {CATEGORY_KEYS[category] ? t(messages, CATEGORY_KEYS[category]) : category}
           </span>
           <span className={styles.scoreBadge}>{score}%</span>
         </div>
@@ -65,7 +67,7 @@ export default function ChatProductCard({ result, locale }: Props) {
             {category === 'ad' && (
               <span> / {(product as AdProduct).pricePeriod}</span>
             )}
-            {category === 'venue' && <span> / 일</span>}
+            {category === 'venue' && <span> {t(messages, 'ad.perDay')}</span>}
           </span>
         )}
       </div>

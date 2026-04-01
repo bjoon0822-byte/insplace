@@ -27,11 +27,11 @@ function getNestedValue(obj: Record<string, unknown>, path: string): string {
   return typeof current === 'string' ? current : path;
 }
 
-const CATEGORY_LABELS: Record<string, string> = {
-  ad: '광고',
-  venue: '대관',
-  goods: '굿즈',
-  popup: '팝업',
+const CATEGORY_KEYS: Record<string, string> = {
+  ad: 'category.ad',
+  venue: 'category.venue',
+  goods: 'category.goods',
+  popup: 'category.popup',
 };
 
 const CATEGORY_PATHS: Record<string, string> = {
@@ -71,7 +71,7 @@ function getProductPrice(result: RecommendationResult): string {
   }
   if (result.category === 'venue') {
     const venue = p as Venue;
-    return `₩${formatPrice(venue.pricePerDay)} / 일`;
+    return `₩${formatPrice(venue.pricePerDay)}`;
   }
   if (result.category === 'goods') {
     const goods = p as GoodsItem;
@@ -98,16 +98,16 @@ export default function RecommendationResults({ results, intent, locale, message
     badges.push(...intent.regions.map((r) => r.replace('-', ' ')));
   }
   if (intent.purposes.length > 0 && intent.purposes[0] !== 'general') {
-    const purposeLabels: Record<string, string> = {
-      birthday: '생일', debut: '데뷔', comeback: '컴백',
-      drama: '드라마', concert: '콘서트', anniversary: '기념일',
-      graduation: '졸업', general: '일반',
+    const PURPOSE_KEYS: Record<string, string> = {
+      birthday: 'caseStudy.birthday', debut: 'caseStudy.debut', comeback: 'caseStudy.comeback',
+      drama: 'caseStudy.drama', concert: 'caseStudy.concert', anniversary: 'caseStudy.anniversary',
+      graduation: 'caseStudy.graduation', general: 'caseStudy.general',
     };
-    badges.push(...intent.purposes.map((p) => purposeLabels[p] || p));
+    badges.push(...intent.purposes.map((p) => PURPOSE_KEYS[p] ? t(PURPOSE_KEYS[p]) : p));
   }
   if (intent.budgetMax) {
     const wan = Math.round(intent.budgetMax / 10000);
-    badges.push(`${wan}만원 이하`);
+    badges.push(t('recommend.budgetUnder').replace('{amount}', String(wan)));
   }
 
   return (
@@ -153,7 +153,7 @@ export default function RecommendationResults({ results, intent, locale, message
                 />
                 <span className={styles.scoreBadge}>{result.score}%</span>
                 <span className={styles.categoryBadge}>
-                  {CATEGORY_LABELS[result.category]}
+                  {CATEGORY_KEYS[result.category] ? t(CATEGORY_KEYS[result.category]) : result.category}
                 </span>
               </div>
               <div className={styles.cardBody}>

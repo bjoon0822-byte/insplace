@@ -38,8 +38,8 @@ export default async function ArtistDetailPage({ params }: PageProps) {
   if (!artist) {
     return (
       <div className={styles.sectionContainer}>
-        <p>아티스트를 찾을 수 없습니다.</p>
-        <Link href={`/${locale}/artists`}>목록으로</Link>
+        <p>{t(m, 'artists.notFound')}</p>
+        <Link href={`/${locale}/artists`}>{t(m, 'artists.backToList')}</Link>
       </div>
     );
   }
@@ -84,7 +84,7 @@ export default async function ArtistDetailPage({ params }: PageProps) {
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>{artist.name}</h2>
                 <p style={{ color: 'var(--gray-500)', fontSize: '0.9rem' }}>
                   {artist.group && <>{artist.group} · </>}
-                  {artist.birthday} · {artist.birthYear}년생
+                  {artist.birthday} · {artist.birthYear}{t(m, 'artists.born')}
                 </p>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '12px' }}>
                   {artist.tags.map((tag) => (
@@ -101,7 +101,7 @@ export default async function ArtistDetailPage({ params }: PageProps) {
                   ))}
                 </div>
               </div>
-              <ShareButton title={`${artist.name} - InsPlace`} text={`${artist.name}의 팬 서포트를 InsPlace에서!`} />
+              <ShareButton title={`${artist.name} - InsPlace`} text={t(m, 'artists.shareText').replace('{name}', artist.name)} messages={m as Record<string, unknown>} />
             </div>
 
             {/* Birthday countdown */}

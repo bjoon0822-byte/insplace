@@ -1,15 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { t } from '@/i18n/request';
 
 interface ShareButtonProps {
   title: string;
   text?: string;
   url?: string;
   className?: string;
+  messages?: Record<string, unknown>;
 }
 
-export default function ShareButton({ title, text, url, className }: ShareButtonProps) {
+export default function ShareButton({ title, text, url, className, messages = {} }: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -61,7 +63,7 @@ export default function ShareButton({ title, text, url, className }: ShareButton
             link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
           },
           buttons: [
-            { title: '자세히 보기', link: { mobileWebUrl: shareUrl, webUrl: shareUrl } },
+            { title: t(messages, 'share.viewDetail'), link: { mobileWebUrl: shareUrl, webUrl: shareUrl } },
           ],
         });
         setShowMenu(false);
@@ -77,7 +79,7 @@ export default function ShareButton({ title, text, url, className }: ShareButton
         onClick={handleShare}
         className={className}
         type="button"
-        aria-label="공유하기"
+        aria-label={t(messages, 'share.ariaLabel')}
         style={!className ? {
           display: 'flex',
           alignItems: 'center',
@@ -97,7 +99,7 @@ export default function ShareButton({ title, text, url, className }: ShareButton
           <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
           <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
         </svg>
-        공유
+        {t(messages, 'share.button')}
       </button>
 
       {showMenu && (
@@ -124,12 +126,12 @@ export default function ShareButton({ title, text, url, className }: ShareButton
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
           </ShareMenuItem>
-          <ShareMenuItem label="카카오톡" onClick={shareToKakao} color="#FEE500" textColor="#3C1E1E">
+          <ShareMenuItem label={t(messages, 'share.kakao')} onClick={shareToKakao} color="#FEE500" textColor="#3C1E1E">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#3C1E1E">
               <path d="M12 3C6.477 3 2 6.463 2 10.691c0 2.72 1.8 5.108 4.508 6.457-.147.53-.946 3.412-.978 3.627 0 0-.02.165.087.228.107.063.233.014.233.014.307-.043 3.558-2.326 4.118-2.72.664.093 1.347.143 2.032.143 5.523 0 10-3.463 10-7.749S17.523 3 12 3z" />
             </svg>
           </ShareMenuItem>
-          <ShareMenuItem label={copied ? '복사됨!' : '링크 복사'} onClick={copyLink} color="var(--gray-100, #f3f3f3)">
+          <ShareMenuItem label={copied ? t(messages, 'share.copied') : t(messages, 'share.copyLink')} onClick={copyLink} color="var(--gray-100, #f3f3f3)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
               <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />

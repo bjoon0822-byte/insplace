@@ -32,7 +32,7 @@ function ContactFormInner({ messages }: ContactFormProps) {
       setSubject(paramSubject);
     }
     if (paramProduct) {
-      setMessage(`[${paramProduct}] 상품에 대해 문의드립니다.\n\n`);
+      setMessage(`[${paramProduct}] ${t(messages, 'contact.productInquiry')}\n\n`);
     }
   }, [searchParams]);
 
@@ -57,7 +57,7 @@ function ContactFormInner({ messages }: ContactFormProps) {
       if (insertError) throw insertError;
       setSubmitted(true);
     } catch {
-      setError(t(messages, 'contact.error') || '문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      setError(t(messages, 'contact.error'));
     } finally {
       setLoading(false);
     }

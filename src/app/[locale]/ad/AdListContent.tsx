@@ -69,7 +69,7 @@ export default function AdListContent({ locale, messages }: AdListContentProps) 
               {t(messages, 'ad.noResults')}
             </p>
             <p style={{ color: 'var(--gray-400)', fontSize: '0.875rem' }}>
-              다른 필터를 선택해 보세요
+              {t(messages, 'ad.tryOtherFilter')}
             </p>
           </div>
         ) : (

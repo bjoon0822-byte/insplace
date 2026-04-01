@@ -52,7 +52,7 @@ export default function ChatMessage({ message, locale, isTyping, i18n }: Props) 
         {!message.journey && message.products && message.products.length > 0 && (
           <div className={styles.products}>
             {message.products.map((result) => (
-              <ChatProductCard key={result.id} result={result} locale={locale} />
+              <ChatProductCard key={result.id} result={result} locale={locale} messages={i18n} />
             ))}
           </div>
         )}

@@ -64,9 +64,9 @@ export default function Footer({ locale, messages }: FooterProps) {
 
         {/* 사업자 정보 */}
         <div className={styles['footer-business']}>
-          <p>인스플레이스 | 대표: 김인스 | 사업자등록번호: 000-00-00000</p>
-          <p>통신판매업신고: 제2025-서울강남-00000호 | 서울특별시 강남구</p>
-          <p>고객센터: hello@insplace.com</p>
+          <p>{t(messages, 'footer.businessInfo')}</p>
+          <p>{t(messages, 'footer.businessReg')}</p>
+          <p>{t(messages, 'footer.customerCenter')}: hello@insplace.com</p>
         </div>
 
         {/* 하단 카피라이트 */}

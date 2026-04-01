@@ -68,7 +68,8 @@
     "available": "可预约",
     "busy": "即将满额",
     "soldout": "已满",
-    "noResults": "没有搜索结果"
+    "noResults": "没有搜索结果",
+    "tryOtherFilter": "请尝试选择其他筛选条件"
   },
   "venue": {
     "title": "场地租赁",
@@ -121,7 +122,9 @@
     "dayThu": "周四",
     "dayFri": "周五",
     "daySat": "周六",
-    "daySun": "周日"
+    "daySun": "周日",
+    "sevenDays": "7天",
+    "adCases": "广告数量"
   },
   "contact": {
     "title": "联系我们",
@@ -138,7 +141,8 @@
     "message": "咨询内容",
     "submit": "提交咨询",
     "success": "您的咨询已提交，我们会尽快回复。",
-    "error": "发送失败，请稍后再试。"
+    "error": "发送失败，请稍后再试。",
+    "productInquiry": "想咨询关于该产品的信息。"
   },
   "cta": {
     "title": "立即开始",
@@ -155,7 +159,10 @@
       "service": "服务",
       "company": "公司",
       "support": "支持"
-    }
+    },
+    "businessInfo": "InsPlace | 代表: 金仁斯 | 营业执照号: 000-00-00000",
+    "businessReg": "通信销售业申报: 第2025-首尔江南-00000号 | 首尔特别市江南区",
+    "customerCenter": "客服中心"
   },
   "search": {
     "placeholder": "搜索广告、场地、周边、快闪店...",
@@ -166,6 +173,20 @@
     "venues": "场地",
     "goods": "周边",
     "popups": "快闪店"
+  },
+  "category": {
+    "ad": "广告",
+    "venue": "场地",
+    "goods": "周边",
+    "popup": "快闪"
+  },
+  "share": {
+    "button": "分享",
+    "ariaLabel": "分享",
+    "kakao": "KakaoTalk",
+    "copied": "已复制！",
+    "copyLink": "复制链接",
+    "viewDetail": "查看详情"
   },
   "quote": {
     "title": "报价篮",
@@ -196,7 +217,11 @@
     "startCampaign": "的粉丝广告，现在就开始吧！",
     "inquire": "立即咨询",
     "campaigns": "进行中的活动",
-    "noCampaigns": "还没有进行中的活动"
+    "noCampaigns": "还没有进行中的活动",
+    "shareText": "在InsPlace为{name}应援！",
+    "born": "出生",
+    "notFound": "未找到该艺人。",
+    "backToList": "返回列表"
   },
   "community": {
     "title": "社区",
@@ -349,7 +374,12 @@
     "resultCount": "个推荐产品",
     "matchScore": "匹配度",
     "viewMore": "查看更多",
-    "intentSummary": "搜索条件"
+    "intentSummary": "搜索条件",
+    "example1": "4月25日弘大附近生日广告3天",
+    "example2": "预算50万韩元江南站数字标牌",
+    "example3": "圣水洞咖啡厅租借+写真卡制作",
+    "example4": "出道纪念日合井站灯光广告",
+    "budgetUnder": "{amount}万韩元以下"
   },
   "explore": {
     "title": "智能搜索",

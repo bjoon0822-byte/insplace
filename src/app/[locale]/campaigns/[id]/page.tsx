@@ -118,7 +118,7 @@ export default async function CampaignDetailPage({ params }: PageProps) {
                   {t(m, 'campaigns.participate')}
                 </Link>
               )}
-              <ShareButton title={campaign.title} text={campaign.description} />
+              <ShareButton title={campaign.title} text={campaign.description} messages={m as Record<string, unknown>} />
             </div>
           </div>
         </FadeIn>
