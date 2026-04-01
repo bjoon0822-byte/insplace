@@ -500,5 +500,17 @@
     "seoul": "首尔",
     "people": "人",
     "exploreAds": "探索该地区的广告"
+  },
+  "auth": {
+    "invalidCredentials": "邮箱或密码不正确。",
+    "emailNotConfirmed": "邮箱尚未验证，请检查收件箱。",
+    "alreadyRegistered": "该邮箱已注册。",
+    "passwordTooShort": "密码至少需要6个字符。",
+    "invalidEmail": "请输入有效的邮箱地址。",
+    "passwordRequired": "请输入密码。",
+    "emailRequired": "请输入邮箱。",
+    "rateLimited": "尝试次数过多，请稍后再试。",
+    "rateLimited60s": "出于安全考虑，每60秒只能请求一次。",
+    "signupFailed": "注册失败。"
   }
 }

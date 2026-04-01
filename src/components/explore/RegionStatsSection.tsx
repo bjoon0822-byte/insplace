@@ -15,7 +15,7 @@ interface Props {
   messages: Record<string, unknown>;
 }
 
-/** 서울 지도 위 지역 마커 좌표 (%) */
+/** Seoul map region marker coordinates (%) */
 const MAP_PINS: Record<string, { x: number; y: number }> = {
   '서울-마포': { x: 28, y: 42 },
   '서울-강남': { x: 55, y: 68 },
@@ -182,7 +182,7 @@ export default function RegionStatsSection({ locale, messages }: Props) {
                 >
                   <div className={styles.tooltipName}>{hovered.name}</div>
                   <div className={styles.tooltipStat}>
-                    <span className={styles.tooltipValue}>{formatLargeNumber(hovered.statistics.dailyVisitors)}{t(messages, 'region.perDay')}</span>
+                    <span className={styles.tooltipValue}>{formatLargeNumber(hovered.statistics.dailyVisitors, locale)}{t(messages, 'region.perDay')}</span>
                     <span className={styles.tooltipLabel}>/day</span>
                   </div>
                   <div className={styles.tooltipHighlight}>{hovered.statistics.stationHighlight}</div>
@@ -206,6 +206,7 @@ export default function RegionStatsSection({ locale, messages }: Props) {
               isActive={hoveredRegion === region.id}
               onClick={handleSelect}
               messages={messages}
+              locale={locale}
             />
           ))}
         </div>

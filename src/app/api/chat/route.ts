@@ -25,14 +25,14 @@ export async function POST(request: NextRequest) {
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return new Response(
-        JSON.stringify({ error: '메시지를 입력해주세요.' }),
+        JSON.stringify({ error: 'Please enter a message.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } },
       );
     }
 
     if (messages.length > MAX_TURNS * 2) {
       return new Response(
-        JSON.stringify({ error: '대화 길이 제한을 초과했습니다.' }),
+        JSON.stringify({ error: 'Conversation length limit exceeded.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } },
       );
     }
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
           await processChat(client, openaiMessages, controller, encoder);
         } catch (err) {
           const errorMsg =
-            err instanceof Error ? err.message : '알 수 없는 오류';
+            err instanceof Error ? err.message : 'Unknown error';
           controller.enqueue(
             encoder.encode(
               `data: ${JSON.stringify({ type: 'error', content: errorMsg })}\n\n`,
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     });
   } catch {
     return new Response(
-      JSON.stringify({ error: '채팅 처리 중 오류가 발생했습니다.' }),
+      JSON.stringify({ error: 'An error occurred while processing the chat.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } },
     );
   }
@@ -107,7 +107,7 @@ async function processChat(
 
     const message = choice.message;
 
-    // 텍스트 응답 스트림 (마크다운 기호 제거)
+    // Stream text response (strip markdown)
     if (message.content) {
       const text = stripMarkdown(message.content);
       const chunkSize = 20;
@@ -122,19 +122,19 @@ async function processChat(
       }
     }
 
-    // function call 처리
+    // Handle function calls
     if (!message.tool_calls || message.tool_calls.length === 0) {
       break;
     }
 
-    // assistant 메시지를 히스토리에 추가
+    // Append assistant message to history
     currentMessages.push({
       role: 'assistant',
       content: message.content,
       tool_calls: message.tool_calls,
     });
 
-    // 각 tool call 실행 및 결과 추가
+    // Execute each tool call and append results
     for (const toolCall of message.tool_calls) {
       if (toolCall.type !== 'function') continue;
       const fn = toolCall.function;
@@ -145,13 +145,13 @@ async function processChat(
         currentMessages.push({
           role: 'tool',
           tool_call_id: toolCall.id,
-          content: JSON.stringify({ error: '인수 파싱 실패' }),
+          content: JSON.stringify({ error: 'Argument parsing failed' }),
         });
         continue;
       }
       const toolResult = executeTool(fn.name, args);
 
-      // 상품 결과가 있으면 클라이언트에 전송
+      // Send product results to client
       if (fn.name === 'search_products' && toolResult.results) {
         controller.enqueue(
           encoder.encode(
@@ -163,7 +163,7 @@ async function processChat(
         );
       }
 
-      // 지역 통계 결과 전송
+      // Send region stats to client
       if (fn.name === 'get_region_info' && toolResult.regionInfo) {
         controller.enqueue(
           encoder.encode(
@@ -175,7 +175,7 @@ async function processChat(
         );
       }
 
-      // 여정 패키지 결과 전송
+      // Send journey package to client
       if (fn.name === 'search_journey_package' && toolResult.journey) {
         controller.enqueue(
           encoder.encode(
@@ -198,7 +198,7 @@ async function processChat(
   }
 }
 
-/** GPT가 무시하고 넣는 마크다운 기호를 서버에서 강제 제거 */
+/** Strip markdown symbols that GPT inserts despite instructions */
 function stripMarkdown(text: string): string {
   return text
     .replace(/\*\*(.*?)\*\*/g, '$1')   // **bold** → bold
@@ -225,13 +225,13 @@ function executeTool(
       return (
         executeGetProductDetail(
           input as Parameters<typeof executeGetProductDetail>[0],
-        ) ?? { error: '상품을 찾을 수 없습니다.' }
+        ) ?? { error: 'Product not found' }
       );
     case 'get_region_info':
       return executeGetRegionInfo(
         input as Parameters<typeof executeGetRegionInfo>[0],
       );
     default:
-      return { error: `알 수 없는 도구: ${name}` };
+      return { error: `Unknown tool: ${name}` };
   }
 }

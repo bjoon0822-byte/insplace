@@ -500,5 +500,17 @@
     "seoul": "서울",
     "people": "명",
     "exploreAds": "이 지역 광고 탐색하기"
+  },
+  "auth": {
+    "invalidCredentials": "이메일 또는 비밀번호가 올바르지 않습니다.",
+    "emailNotConfirmed": "이메일 인증이 완료되지 않았습니다. 메일함을 확인해주세요.",
+    "alreadyRegistered": "이미 가입된 이메일입니다.",
+    "passwordTooShort": "비밀번호는 6자 이상이어야 합니다.",
+    "invalidEmail": "올바른 이메일 형식이 아닙니다.",
+    "passwordRequired": "비밀번호를 입력해주세요.",
+    "emailRequired": "이메일을 입력해주세요.",
+    "rateLimited": "너무 많은 시도입니다. 잠시 후 다시 시도해주세요.",
+    "rateLimited60s": "보안상 60초에 한 번만 요청할 수 있습니다.",
+    "signupFailed": "가입에 실패했습니다."
   }
 }

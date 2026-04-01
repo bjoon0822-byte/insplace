@@ -8,7 +8,7 @@ import { t } from '@/i18n/request';
 import { formatLargeNumber } from '@/utils/format';
 import styles from './ChatRegionCard.module.css';
 
-/** 지역별 이미지 URL */
+/** Region image URLs */
 const REGION_IMAGES: Record<string, string> = {
   '서울-마포': 'https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=600&q=70',
   '서울-강남': 'https://images.unsplash.com/photo-1548115184-bc6544d06a58?w=600&q=70',
@@ -27,6 +27,7 @@ const REGION_IMAGES: Record<string, string> = {
 interface Props {
   regionInfo: RegionInfo;
   messages?: Record<string, unknown>;
+  locale?: string;
 }
 
 function useCountUp(target: number, duration: number): number {
@@ -54,7 +55,7 @@ function useCountUp(target: number, duration: number): number {
   return value;
 }
 
-export default function ChatRegionCard({ regionInfo, messages = {} }: Props) {
+export default function ChatRegionCard({ regionInfo, messages = {}, locale = 'ko' }: Props) {
   const router = useRouter();
   const visitors = useCountUp(regionInfo.dailyVisitors, 1200);
   const subway = useCountUp(regionInfo.subwayDailyUsers, 1200);
@@ -62,7 +63,7 @@ export default function ChatRegionCard({ regionInfo, messages = {} }: Props) {
   const imageUrl = REGION_IMAGES[regionInfo.id];
 
   const handleExplore = () => {
-    router.push(`/ko/explore?region=${encodeURIComponent(regionInfo.id)}&step=2`);
+    router.push(`/${locale}/explore?region=${encodeURIComponent(regionInfo.id)}&step=2`);
   };
 
   return (
@@ -102,7 +103,7 @@ export default function ChatRegionCard({ regionInfo, messages = {} }: Props) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <div className={styles.mainValue}>{formatLargeNumber(visitors)}{t(messages, 'region.people')}</div>
+            <div className={styles.mainValue}>{formatLargeNumber(visitors, locale)}{t(messages, 'region.people')}</div>
             <div className={styles.mainLabel}>{t(messages, 'region.dailyVisitors')}</div>
           </motion.div>
 
@@ -113,7 +114,7 @@ export default function ChatRegionCard({ regionInfo, messages = {} }: Props) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <div className={styles.statValue}>{formatLargeNumber(subway)}{t(messages, 'region.people')}</div>
+              <div className={styles.statValue}>{formatLargeNumber(subway, locale)}{t(messages, 'region.people')}</div>
               <div className={styles.statLabel}>{t(messages, 'region.subwayUsers')}</div>
               <div className={styles.statBar}>
                 <motion.div

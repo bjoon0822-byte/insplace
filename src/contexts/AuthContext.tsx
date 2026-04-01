@@ -26,27 +26,25 @@ interface AuthContextType {
   refreshProfile: () => Promise<void>;
 }
 
-/** Supabase 에러 메시지를 한국어로 변환 */
+/** Map Supabase error messages to i18n keys */
 function translateAuthError(message: string): string {
   const map: Record<string, string> = {
-    'Invalid login credentials': '이메일 또는 비밀번호가 올바르지 않습니다.',
-    'Email not confirmed': '이메일 인증이 완료되지 않았습니다. 메일함을 확인해주세요.',
-    'User already registered': '이미 가입된 이메일입니다.',
-    'Password should be at least 6 characters': '비밀번호는 6자 이상이어야 합니다.',
-    'Unable to validate email address: invalid format': '올바른 이메일 형식이 아닙니다.',
-    'Signup requires a valid password': '비밀번호를 입력해주세요.',
-    'To signup, please provide your email': '이메일을 입력해주세요.',
-    'Email rate limit exceeded': '너무 많은 시도입니다. 잠시 후 다시 시도해주세요.',
-    'For security purposes, you can only request this once every 60 seconds': '보안상 60초에 한 번만 요청할 수 있습니다.',
+    'Invalid login credentials': 'auth.invalidCredentials',
+    'Email not confirmed': 'auth.emailNotConfirmed',
+    'User already registered': 'auth.alreadyRegistered',
+    'Password should be at least 6 characters': 'auth.passwordTooShort',
+    'Unable to validate email address: invalid format': 'auth.invalidEmail',
+    'Signup requires a valid password': 'auth.passwordRequired',
+    'To signup, please provide your email': 'auth.emailRequired',
+    'Email rate limit exceeded': 'auth.rateLimited',
+    'For security purposes, you can only request this once every 60 seconds': 'auth.rateLimited60s',
   };
-  // Exact match first
   if (map[message]) return map[message];
-  // Partial match for varying error messages
   const lower = message.toLowerCase();
-  if (lower.includes('rate limit')) return '너무 많은 시도입니다. 잠시 후 다시 시도해주세요.';
-  if (lower.includes('already registered')) return '이미 가입된 이메일입니다.';
-  if (lower.includes('invalid login')) return '이메일 또는 비밀번호가 올바르지 않습니다.';
-  if (lower.includes('email not confirmed')) return '이메일 인증이 완료되지 않았습니다. 메일함을 확인해주세요.';
+  if (lower.includes('rate limit')) return 'auth.rateLimited';
+  if (lower.includes('already registered')) return 'auth.alreadyRegistered';
+  if (lower.includes('invalid login')) return 'auth.invalidCredentials';
+  if (lower.includes('email not confirmed')) return 'auth.emailNotConfirmed';
   return message;
 }
 
@@ -130,7 +128,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
     const body = await res.json();
     if (!res.ok) {
-      return { error: body.error || '가입에 실패했습니다.', needsConfirmation: false };
+      return { error: body.error || 'auth.signupFailed', needsConfirmation: false };
     }
     // User created & confirmed — now sign in automatically
     const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });

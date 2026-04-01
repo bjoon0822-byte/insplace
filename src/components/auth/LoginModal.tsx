@@ -117,7 +117,7 @@ export default function LoginModal({ onClose, messages }: LoginModalProps) {
           </button>
         </div>
 
-        {error && <div className={styles.error} role="alert">{error}</div>}
+        {error && <div className={styles.error} role="alert">{error.startsWith('auth.') ? t(messages, error) : error}</div>}
         {success && <div className={styles.success} role="status">{success}</div>}
 
         <form className={styles.form} onSubmit={handleSubmit}>

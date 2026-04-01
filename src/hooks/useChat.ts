@@ -90,11 +90,11 @@ export function useChat() {
 
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || '응답 생성 실패');
+        throw new Error(data.error || 'Response generation failed');
       }
 
       const reader = res.body?.getReader();
-      if (!reader) throw new Error('스트림을 읽을 수 없습니다');
+      if (!reader) throw new Error('Unable to read stream');
 
       const decoder = new TextDecoder();
       let buffer = '';
@@ -131,7 +131,7 @@ export function useChat() {
               setError(event.content);
             }
           } catch {
-            // 파싱 실패 무시
+            // ignore parse failure
           }
         }
       }
@@ -144,7 +144,7 @@ export function useChat() {
       flushToState();
     } catch (err) {
       if (err instanceof Error && err.name === 'AbortError') return;
-      const msg = err instanceof Error ? err.message : '알 수 없는 오류';
+      const msg = err instanceof Error ? err.message : 'Unknown error';
       setError(msg);
       setMessages((prev) => {
         const last = prev[prev.length - 1];

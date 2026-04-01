@@ -500,5 +500,17 @@
     "seoul": "ソウル",
     "people": "人",
     "exploreAds": "このエリアの広告を探す"
+  },
+  "auth": {
+    "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。",
+    "emailNotConfirmed": "メール認証が完了していません。受信箱をご確認ください。",
+    "alreadyRegistered": "すでに登録されているメールアドレスです。",
+    "passwordTooShort": "パスワードは6文字以上で入力してください。",
+    "invalidEmail": "正しいメール形式で入力してください。",
+    "passwordRequired": "パスワードを入力してください。",
+    "emailRequired": "メールアドレスを入力してください。",
+    "rateLimited": "試行回数が多すぎます。しばらくしてから再試行してください。",
+    "rateLimited60s": "セキュリティ上、60秒に1回のみリクエストできます。",
+    "signupFailed": "会員登録に失敗しました。"
   }
 }

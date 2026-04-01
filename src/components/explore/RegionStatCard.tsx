@@ -17,6 +17,7 @@ interface Props {
   isActive?: boolean;
   onClick: (regionId: string) => void;
   messages: Record<string, unknown>;
+  locale?: string;
 }
 
 function useCountUp(target: number, duration: number, delay: number, isInView: boolean): number {
@@ -49,7 +50,7 @@ function useCountUp(target: number, duration: number, delay: number, isInView: b
   return value;
 }
 
-export default function RegionStatCard({ id, name, statistics, highlight, peakHours, delay = 0, isActive, onClick, messages }: Props) {
+export default function RegionStatCard({ id, name, statistics, highlight, peakHours, delay = 0, isActive, onClick, messages, locale = 'ko' }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -123,7 +124,7 @@ export default function RegionStatCard({ id, name, statistics, highlight, peakHo
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
             >
-              {formatLargeNumber(visitors)}
+              {formatLargeNumber(visitors, locale)}
             </motion.span>
           </AnimatePresence>
           <span className={styles.heroUnit}>{t(messages, 'region.perDay')}</span>
@@ -133,7 +134,7 @@ export default function RegionStatCard({ id, name, statistics, highlight, peakHo
         {/* Stats row */}
         <div className={styles.statsRow}>
           <div className={styles.statItem}>
-            <div className={styles.statValue}>{formatLargeNumber(subway)}</div>
+            <div className={styles.statValue}>{formatLargeNumber(subway, locale)}</div>
             <div className={styles.statLabel}>{t(messages, 'region.subwayUsers')}</div>
             <div className={styles.statBar}>
               <motion.div

@@ -10,7 +10,7 @@ import LoginModal from '@/components/auth/LoginModal';
 import SearchModal from '@/components/ui/SearchModal';
 import styles from './Header.module.css';
 
-/** 언어 레이블 매핑 */
+/** Language label mapping (each in its native script) */
 const langLabels: Record<Locale, string> = {
   ko: '한국어',
   en: 'English',
@@ -18,7 +18,7 @@ const langLabels: Record<Locale, string> = {
   zh: '中文',
 };
 
-/** 언어 약어 매핑 */
+/** Language short code mapping */
 const langShort: Record<Locale, string> = {
   ko: 'KO',
   en: 'EN',
@@ -26,7 +26,7 @@ const langShort: Record<Locale, string> = {
   zh: 'ZH',
 };
 
-/** 레벨 색상 */
+/** Level badge colors */
 const levelColors: Record<string, string> = {
   newbie: '#A3A3A3',
   fan: '#10B981',
@@ -49,7 +49,7 @@ export default function Header({ locale, messages }: HeaderProps) {
   const pathname = usePathname();
 
   const handleLogoClick = useCallback((e: React.MouseEvent) => {
-    // 홈페이지에서 스크롤된 상태면 히어로로 스크롤
+    // On homepage, scroll to hero instead of navigating
     const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
     if (isHome) {
       e.preventDefault();
@@ -91,12 +91,12 @@ export default function Header({ locale, messages }: HeaderProps) {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles['header-inner']}>
-          {/* 로고 */}
+          {/* Logo */}
           <Link href={`/${locale}`} className={styles['header-logo']} onClick={handleLogoClick}>
             <span className={styles['logo-accent']}>INS</span>PLACE
           </Link>
 
-          {/* 데스크톱 네비게이션 */}
+          {/* Desktop navigation */}
           <nav className={`${styles['header-nav']} ${mobileOpen ? styles.open : ''}`}>
             {navLinks.map((link) => (
               <Link key={link.key} href={link.href}>
@@ -105,9 +105,9 @@ export default function Header({ locale, messages }: HeaderProps) {
             ))}
           </nav>
 
-          {/* 액션 영역 */}
+          {/* Actions */}
           <div className={styles['header-actions']}>
-            {/* 검색 버튼 */}
+            {/* Search button */}
             <button
               className={styles['search-btn']}
               onClick={() => setShowSearch(true)}
@@ -120,7 +120,7 @@ export default function Header({ locale, messages }: HeaderProps) {
               <span className={styles['search-shortcut']}>⌘K</span>
             </button>
 
-            {/* 언어 선택 */}
+            {/* Language selector */}
             <div className={styles['lang-switcher']}>
               <button className={styles['lang-btn']}>
                 {langShort[locale]} ▾
@@ -138,7 +138,7 @@ export default function Header({ locale, messages }: HeaderProps) {
               </div>
             </div>
 
-            {/* 유저 상태 */}
+            {/* User status */}
             {!loading && (
               profile ? (
                 <div className={styles['user-menu']}>
@@ -189,7 +189,7 @@ export default function Header({ locale, messages }: HeaderProps) {
               )
             )}
 
-            {/* 모바일 토글 */}
+            {/* Mobile toggle */}
             <button
               className={`${styles['mobile-toggle']} ${mobileOpen ? styles['mobile-toggle-open'] : ''}`}
               onClick={() => setMobileOpen(!mobileOpen)}

@@ -500,5 +500,17 @@
     "seoul": "Seoul",
     "people": "",
     "exploreAds": "Explore ads in this area"
+  },
+  "auth": {
+    "invalidCredentials": "Invalid email or password.",
+    "emailNotConfirmed": "Email not verified. Please check your inbox.",
+    "alreadyRegistered": "This email is already registered.",
+    "passwordTooShort": "Password must be at least 6 characters.",
+    "invalidEmail": "Please enter a valid email address.",
+    "passwordRequired": "Please enter a password.",
+    "emailRequired": "Please enter your email.",
+    "rateLimited": "Too many attempts. Please try again later.",
+    "rateLimited60s": "For security, you can only request this once every 60 seconds.",
+    "signupFailed": "Sign up failed."
   }
 }
